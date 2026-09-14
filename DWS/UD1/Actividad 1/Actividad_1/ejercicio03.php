@@ -7,22 +7,20 @@ cuyo radio es de 5cm.
 http://localhost:8000/Actividad_1/ejercicio03.php
 */
 
-$str1 = "Hola ";
-$str2 = "que tal";
-$strConc = $str1 . $str2;
+const numPi = 3.14159;
+$rad = 5;
+$per = 2 * numPi * $rad;
+$sup = numPi * ($rad * $rad);
 
-echo("-------------------------------");
+echo("Ejercicio 03");
+echo("</br>-------------------------------");
 echo("</br>");
-echo("String 1: " . $str1);
+echo("Radio: " . $rad . " cm");
 echo("</br>");
-echo("String 2: " . $str2);
+echo("Perimetro: " . $per . " cm");
 echo("</br>");
+echo("Superficie: " . $sup . " cm");
 
-echo("</br>");
-
-echo("Concatenadas: " . $strConc);
-echo("</br>");
-
-echo("-------------------------------");
+echo("</br>-------------------------------");
 
 ?>
