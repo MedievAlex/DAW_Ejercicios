@@ -11,18 +11,16 @@ $str1 = "Hola ";
 $str2 = "que tal";
 $strConc = $str1 . $str2;
 
-echo("Ejercicio 02");
-echo("</br>-------------------------------");
-echo("</br>");
-echo("String 1: " . $str1);
-echo("</br>");
-echo("String 2: " . $str2);
-echo("</br>");
+echo ("Ejercicio 02");
+echo ("</br>-------------------------------");
+echo ("</br>");
+echo ("String 1: " . $str1);
+echo ("</br>");
+echo ("String 2: " . $str2);
+echo ("</br>");
 
-echo("</br>");
+echo ("</br>");
 
-echo("Concatenadas: " . $strConc);
+echo ("Concatenadas: " . $strConc);
 
-echo("</br>-------------------------------");
-
-?>
+echo ("</br>-------------------------------");

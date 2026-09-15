@@ -12,15 +12,13 @@ $rad = 5;
 $per = 2 * numPi * $rad;
 $sup = numPi * ($rad * $rad);
 
-echo("Ejercicio 03");
-echo("</br>-------------------------------");
-echo("</br>");
-echo("Radio: " . $rad . " cm");
-echo("</br>");
-echo("Perimetro: " . $per . " cm");
-echo("</br>");
-echo("Superficie: " . $sup . " cm");
+echo ("Ejercicio 03");
+echo ("</br>-------------------------------");
+echo ("</br>");
+echo ("Radio: " . $rad . " cm");
+echo ("</br>");
+echo ("Perimetro: " . $per . " cm");
+echo ("</br>");
+echo ("Superficie: " . $sup . " cm");
 
-echo("</br>-------------------------------");
-
-?>
+echo ("</br>-------------------------------");
