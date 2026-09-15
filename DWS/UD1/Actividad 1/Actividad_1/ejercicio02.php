@@ -24,3 +24,5 @@ echo ("</br>");
 echo ("Concatenadas: " . $strConc);
 
 echo ("</br>-------------------------------");
+
+?>

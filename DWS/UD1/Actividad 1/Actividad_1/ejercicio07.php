@@ -38,3 +38,5 @@ if (1 <= $nota && $nota <= 4.9) {
 echo ("Resultado: " . $resultado);
 
 echo ("</br>-------------------------------");
+
+?>
