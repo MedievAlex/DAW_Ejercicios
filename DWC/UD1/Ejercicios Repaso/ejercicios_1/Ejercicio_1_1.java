@@ -26,7 +26,7 @@ public static ArrayList<String> cargar_meses() {
       meses.add(0, "Enero");
       meses.add(1, "Febrero");
       meses.add(2, "Marzo");
-      meses.add(3, "Abrir");
+      meses.add(3, "Abril");
       meses.add(4, "Mayo");
       meses.add(5, "Junio");
       meses.add(6, "Julio");

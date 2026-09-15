@@ -26,7 +26,7 @@ public class Main {
     // 1.2- Tiene que preguntar en un mensaje que escribas un número, después tiene que mostrar el mes que le 
     // corresponde a ese numero, en caso de que no exista un mes, porque el número es otro, tiene que mandar 
     // un mensaje diciendo que no existe.
-    ejercicio_1_2.preguntar_mes();
+    ejercicio_1_2.obtener_mes();
       
     System.out.println("---------------------------------");
       

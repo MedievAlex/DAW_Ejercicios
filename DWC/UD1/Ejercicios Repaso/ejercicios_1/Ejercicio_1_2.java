@@ -15,20 +15,28 @@ import ejercicios_1.*;
 */
 
 public class Ejercicio_1_2 {
-  public static void preguntar_mes() {
-    Scanner scanner = new Scanner(System.in);
+
+  public static void obtener_mes() {
     Ejercicio_1_1 ejercicio_1_1 = new Ejercicio_1_1();
     ArrayList<String> meses = ejercicio_1_1.cargar_meses();
+    int mes;
+    
+    mes = preguntar_mes();
+
+    mostrar_mes(meses, mes);
+  }
+
+  public static int preguntar_mes() {
+    Scanner scanner = new Scanner(System.in);
     int num = 0; 
     
     System.out.print("Introduzca un Numero: ");
     num = scanner.nextInt();
 
-    mostrar_mes(meses, num);
-
+    return num;
   }
 
-public static void mostrar_mes(ArrayList<String> meses, int num) {
+  public static void mostrar_mes(ArrayList<String> meses, int num) {
     int mes = num - 1;
     
     if(num > meses.size()){
