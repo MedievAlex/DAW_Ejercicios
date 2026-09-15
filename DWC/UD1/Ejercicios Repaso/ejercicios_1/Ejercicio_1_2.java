@@ -20,7 +20,7 @@ public class Ejercicio_1_2 {
     Ejercicio_1_1 ejercicio_1_1 = new Ejercicio_1_1();
     ArrayList<String> meses = ejercicio_1_1.cargar_meses();
     int mes;
-    
+
     mes = preguntar_mes();
 
     mostrar_mes(meses, mes);
@@ -28,8 +28,8 @@ public class Ejercicio_1_2 {
 
   public static int preguntar_mes() {
     Scanner scanner = new Scanner(System.in);
-    int num = 0; 
-    
+    int num = 0;
+
     System.out.print("Introduzca un Numero: ");
     num = scanner.nextInt();
 
@@ -38,12 +38,12 @@ public class Ejercicio_1_2 {
 
   public static void mostrar_mes(ArrayList<String> meses, int num) {
     int mes = num - 1;
-    
-    if(num > meses.size()){
-        System.out.println("[ERROR] El mes no existe.");
+
+    if (num > meses.size()) {
+      System.out.println("[ERROR] El mes no existe.");
     } else {
-        System.out.println(meses.get(mes));
+      System.out.println(meses.get(mes));
     }
   }
-    
+
 }
