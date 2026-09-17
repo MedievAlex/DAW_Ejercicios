@@ -12,6 +12,8 @@ $oracion = "Erase una vez...";
 echo("Ejercicio 14");
 echo("</br>-------------------------------</br>");
 
+echo("La oracion contiene ". str_word_count($oracion) . " palabras.");
+
 echo("</br>-------------------------------");
 
 ?>
