@@ -6,16 +6,27 @@ Probar con distintos datos y documentar salidas esperadas.
 node "UD1\1-Ejercicios Prácticos\1_4_Funciones.js" 
 */
 
+let nombre = "Edurne";
+let n = "7";
+let a = "3";
+let b = "5";
+
+
 function saludar(nombre) {
-  return "Hola, " + nombre;
+    return "Hola, " + nombre;
 }
 
 function esPar(n) {
-  return "Hola, " + nombre;
+    let par;
+    if (n % 2 == 0) {
+        par = true;
+    } else {
+        par = false;
+    }
 }
 
 function maximo(a, b) {
-  return "Hola, " + nombre;
+    return "???";
 }
 
 const resultado = saludar(nombre);
