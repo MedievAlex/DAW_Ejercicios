@@ -4,7 +4,8 @@ Ejercicio 14
 Contar palabras. Escribe un programa que cuente cuántas palabras
 tiene una oración. Las palabras están separadas por espacios.
 
-http://localhost:8000/Actividad_1/ejercicio14.php
+Build-in: http://localhost:8000/Actividad_1/ejercicio14.php
+Xdebug: http://php-mvc.localhost/Actividad_1/ejercicio14.php
 */
 
 $oracion = "Erase una vez...";

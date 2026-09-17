@@ -4,7 +4,8 @@ Ejercicio 09
 Definir dos notas en dos variables y calcular si la media es aprobada
 o suspendida.
 
-http://localhost:8000/Actividad_1/ejercicio09.php
+Build-in: http://localhost:8000/Actividad_1/ejercicio09.php
+Xdebug: http://php-mvc.localhost/Actividad_1/ejercicio09.php
 */
 
 $not1 = 4;

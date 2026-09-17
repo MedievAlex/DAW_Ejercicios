@@ -4,7 +4,8 @@ Ejercicio 13
 Revertir una cadena: Crea un programa que tome una cadena y
 devuelva su versión invertida.
 
-http://localhost:8000/Actividad_1/ejercicio13.php
+Build-in: http://localhost:8000/Actividad_1/ejercicio13.php
+Xdebug: http://php-mvc.localhost/Actividad_1/ejercicio13.php
 */
 
 $cadena = "ARROZ";

@@ -5,7 +5,8 @@ Hacer un programa que contenga dos números distintos en sendas
 variables. A continuación mostrar el resultado de la suma, la resta, la
 multiplicación, división y módulo.
 
-http://localhost:8000/Actividad_1/ejercicio01.php
+Build-in: http://localhost:8000/Actividad_1/ejercicio01.php
+Xdebug: http://php-mvc.localhost/Actividad_1/ejercicio01.php
 */
 
 $num1 = 10;

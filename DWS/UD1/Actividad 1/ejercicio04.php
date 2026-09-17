@@ -4,7 +4,8 @@ Ejercicio 04
 Define tres variables y ordenar en orden ascendente. Despúes en
 orden descendente. Con IF.
 
-http://localhost:8000/Actividad_1/ejercicio04.php
+Build-in: http://localhost:8000/Actividad_1/ejercicio04.php
+Xdebug: http://php-mvc.localhost/Actividad_1/ejercicio04.php
 */
 
 $num1 = 5;

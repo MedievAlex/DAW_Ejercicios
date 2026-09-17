@@ -8,7 +8,8 @@ llamada telefónica de acuerdo a las siguientes premisas:
 • Cada minuto adicional a partir de los 3 primeros es un paso de
 contador y cuesta 5 céntimos.
 
-http://localhost:8000/Actividad_1/ejercicio08.php
+Build-in: http://localhost:8000/Actividad_1/ejercicio08.php
+Xdebug: http://php-mvc.localhost/Actividad_1/ejercicio08.php
 */
 
 $llam = 4;

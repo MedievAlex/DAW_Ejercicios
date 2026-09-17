@@ -4,7 +4,8 @@ Ejercicio 11
 Contar vocales: Escribe un programa que reciba una cadena de texto
 y cuente cuántas vocales (a, e, i, o, u) tiene.
 
-http://localhost:8000/Actividad_1/ejercicio11.php
+Build-in: http://localhost:8000/Actividad_1/ejercicio11.php
+Xdebug: http://php-mvc.localhost/Actividad_1/ejercicio11.php
 */
 
 $cadena = "yugfiawbsceenslknzae";

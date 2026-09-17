@@ -9,7 +9,8 @@ Definir un número en una variable y decir a qué nota le corresponde.
 • Entre 9 y 10: sobresaliente.
 • Si no ERROR.
 
-http://localhost:8000/Actividad_1/ejercicio07.php
+Build-in: http://localhost:8000/Actividad_1/ejercicio07.php
+Xdebug: http://php-mvc.localhost/Actividad_1/ejercicio07.php
 */
 
 $nota = 6.8;

@@ -4,7 +4,8 @@ Ejercicio 05
 Hacer una página PHP que compruebe si el contenido de una
 variable es par o impar.
 
-http://localhost:8000/Actividad_1/ejercicio05.php
+Build-in: http://localhost:8000/Actividad_1/ejercicio05.php
+Xdebug: http://php-mvc.localhost/Actividad_1/ejercicio05.php
 */
 
 $num = 20;

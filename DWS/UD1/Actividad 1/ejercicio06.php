@@ -7,7 +7,8 @@ multiplicación) de ellos o, al contrario. Ejemplo:
 Numero1 = 1; numero2 = 2 —> “la suma es mayor que el producto”
 Numero1 = 5; numero2 = 2 —> “el producto es mayor que la suma”
 
-http://localhost:8000/Actividad_1/ejercicio06.php
+Build-in: http://localhost:8000/Actividad_1/ejercicio06.php
+Xdebug: http://php-mvc.localhost/Actividad_1/ejercicio06.php
 */
 
 $num1 = 10;

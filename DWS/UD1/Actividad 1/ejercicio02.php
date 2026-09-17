@@ -4,7 +4,8 @@ Ejercicio 02
 Concatena dos cadenas previamente almacenadas en dos variables
 distintas e imprimir su resultado.
 
-http://localhost:8000/Actividad_1/ejercicio02.php
+Build-in: http://localhost:8000/Actividad_1/ejercicio02.php
+Xdebug: http://php-mvc.localhost/Actividad_1/ejercicio02.php
 */
 
 $str1 = "Hola ";

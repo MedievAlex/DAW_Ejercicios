@@ -4,7 +4,8 @@ Ejercicio 03
 Define la constante PI y calcula el perímetro y superficie de un círculo
 cuyo radio es de 5cm.
 
-http://localhost:8000/Actividad_1/ejercicio03.php
+Build-in: http://localhost:8000/Actividad_1/ejercicio03.php
+Xdebug: http://php-mvc.localhost/Actividad_1/ejercicio03.php
 */
 
 const numPi = 3.14159;
