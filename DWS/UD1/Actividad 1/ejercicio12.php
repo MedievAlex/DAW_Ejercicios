@@ -16,7 +16,6 @@ echo("</br>-------------------------------</br>");
 echo("Cadena: " . $cadena);
 echo("</br>");
 echo("Cadena invertida: " . strrev($cadena));
-echo("</br>");
 
 echo("</br>-------------------------------");
 
