@@ -9,20 +9,22 @@ http://localhost:8000/Actividad_1/ejercicio05.php
 
 $num = 20;
 
-echo ("Ejercicio 05");
-echo ("</br>-------------------------------");
-echo ("</br>");
-echo ("Numero: " . $num);
-echo ("</br>");
+echo("Ejercicio 05");
+echo("</br>-------------------------------</br>");
 
-if ($num % 2 == 0) {
-    // El numero es par
-    echo ("Es un numero par");
+echo("Numero: " . $num);
+echo("</br>");
+
+if($num % 2 == 0){
+// El numero es par
+    echo("Es un numero par");
+    
 } else {
-    // El numero es impar
-    echo ("Es un numero impar");
+// El numero es impar
+    echo("Es un numero impar");
+
 }
 
-echo ("</br>-------------------------------");
+echo("</br>-------------------------------");
 
 ?>

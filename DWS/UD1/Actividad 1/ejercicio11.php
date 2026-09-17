@@ -7,45 +7,21 @@ y cuente cuántas vocales (a, e, i, o, u) tiene.
 http://localhost:8000/Actividad_1/ejercicio11.php
 */
 
-$cadena = "yugfiwbsceenslknzae";
-$vocales = array();
-$vocal = "";
+$cadena = "yugfiawbsceenslknzae";
+$vocales = array("a", "i", "u", "e", "o");
 $repeticiones = 0;
 
 echo ("Ejercicio 11");
-echo ("</br>-------------------------------");
+echo("</br>-------------------------------</br>");
 
-$vocales[] = "a";
+echo ("Cadena: " . $cadena);
 
 for ($i = 0; count($vocales) > $i; $i++) {
-    echo ($vocales[$i]);
-    echo (" ");
+    $repeticiones = substr_count($cadena, $vocales[$i]);
+
+    echo ("</br>");
+    echo ("La vocal " . $vocales[$i] . " aparece " . $repeticiones . " veces.");
 }
-
-$vocal = "a";
-$repeticiones = substr_count($cadena, $vocal);
-echo ("</br>");
-echo ("La vocal '$vocal' aparece $repeticiones veces.");
-
-$vocal = "i";
-$repeticiones = substr_count($cadena, $vocal);
-echo ("</br>");
-echo ("La vocal '$vocal' aparece $repeticiones veces.");
-
-$vocal = "u";
-$repeticiones = substr_count($cadena, $vocal);
-echo ("</br>");
-echo ("La vocal '$vocal' aparece $repeticiones veces.");
-
-$vocal = "e";
-$repeticiones = substr_count($cadena, $vocal);
-echo ("</br>");
-echo ("La vocal '$vocal' aparece $repeticiones veces.");
-
-$vocal = "o";
-$repeticiones = substr_count($cadena, $vocal);
-echo ("</br>");
-echo ("La vocal '$vocal' aparece $repeticiones veces.");
 
 echo ("</br>-------------------------------");
 

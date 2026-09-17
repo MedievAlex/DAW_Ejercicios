@@ -12,10 +12,10 @@ $dataSalida = date_create("2026-09-30 08:10:00");
 $dataAhora = date_create();
 
 echo ("Ejercicio 10");
-echo ("</br>-------------------------------");
+echo("</br>-------------------------------</br>");
 
 $tiempoRestante = $dataSalida->diff($dataAhora);
-echo ("</br>");
+
 echo $tiempoRestante->format("%H:%I:%S (Días completos: %a)"), "\n";
 
 echo ("</br>-------------------------------");
