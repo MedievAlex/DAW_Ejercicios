@@ -8,13 +8,14 @@ Xdebug: http://php-mvc.localhost/Actividad_2/ejercicio01.php
 */
 
 $contador = 1;
+$limite = 100;
 
 echo("Ejercicio 01");
 echo("</br>-------------------------------</br>");
 
 echo("[Contador ascendente FOR]");
 
-for($i = 1; $i <= 100; $i++){
+for($i = 1; $i <= $limite; $i++){
     echo("</br>");
     echo($i);
 }
@@ -22,7 +23,7 @@ for($i = 1; $i <= 100; $i++){
 echo("</br>");
 echo("[Contador ascendente WHILE]");
 
-while($contador <= 100){
+while($contador <= $limite){
     echo("</br>");
     echo($contador);
     $contador++;

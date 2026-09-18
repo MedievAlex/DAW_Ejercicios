@@ -12,7 +12,7 @@ Xdebug: http://php-mvc.localhost/Actividad_2/ejercicio03.php
 
 $pares = false;
 $par = true;
-$contador = 1;
+$contador = rand(1, 98);
 
 echo ("Ejercicio 03");
 echo ("</br>-------------------------------</br>");
