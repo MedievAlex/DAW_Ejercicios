@@ -39,13 +39,26 @@ while ($fila <= $n){
 } 
  
 echo("</br>");
-echo("Triangulo rectangulo de " . $n . " x  " . $n . " x  " . $n . " con FOR");
+echo("Triangulo rectangulo de " . $n . " x  " . $n . " x  " . $n . " con FOR 1");
 
 for($i = 1; $i <= 10; $i++){
     $linea = $linea . "o";
 
      echo("</br>" . $linea);
 }
+
+/*
+echo("</br>");
+echo("Triangulo rectangulo de " . $n . " x  " . $n . " x  " . $n . " con FOR 2");
+
+for($i = 0; $i < 40; $i++) {
+    for ($j = 0; $j < $i; $j++) {
+        echo "o";
+    }
+    echo "</br>";
+}
+
+*/
     
 echo("</br>-------------------------------");
 
