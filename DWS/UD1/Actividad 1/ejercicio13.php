@@ -9,6 +9,7 @@ Xdebug: http://php-mvc.localhost/Actividad_1/ejercicio13.php
 */
 
 $cadena = "ARROZ";
+$invertido = strrev($cadena);
 
 echo("Ejercicio 13");
 echo("</br>-------------------------------</br>");
@@ -16,7 +17,7 @@ echo("</br>-------------------------------</br>");
 echo("Cadena: " . $cadena);
 echo("</br>");
 
-if(strrev($cadena) == $cadena){
+if($invertido == $cadena){ // strcmp($invertido, $cadena)
     echo($cadena . " es un palindromo.");
 } else {
     echo($cadena . " no es un palindromo.");

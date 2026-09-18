@@ -18,7 +18,7 @@ echo("</br>-------------------------------</br>");
 echo ("Cadena: " . $cadena);
 
 for ($i = 0; count($vocales) > $i; $i++) {
-    $repeticiones = substr_count($cadena, $vocales[$i]);
+    $repeticiones = substr_count(strtolower($cadena), $vocales[$i]);
 
     echo ("</br>");
     echo ("La vocal " . $vocales[$i] . " aparece " . $repeticiones . " veces.");

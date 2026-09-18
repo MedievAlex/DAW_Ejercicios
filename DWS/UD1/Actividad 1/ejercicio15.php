@@ -12,16 +12,18 @@ $cadena = "Almacenado";
 $cadenaMod = "";
 $reemplazo = "*";
 $vocales = array("a", "i", "u", "e", "o");
+$reemplazos = array("4", "1", "2", "6", "0");
 
 echo("Ejercicio 15");
 
 echo("</br>-------------------------------</br>");
 
 echo ("Cadena: " . $cadena);
-$cadenaMod = $cadena;
+$cadenaMod = strtolower($cadena);
 
 for ($i = 0; count($vocales) > $i; $i++) {
-    $cadenaMod = str_replace($vocales[$i], $reemplazo, $cadenaMod);
+    // $cadenaMod = str_replace($vocales[$i], $reemplazo, $cadenaMod);
+    $cadenaMod = str_replace($vocales[$i], $reemplazos[$i], $cadenaMod);
 }
 
 echo ("</br>");

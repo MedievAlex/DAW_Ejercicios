@@ -17,4 +17,15 @@ echo("La oracion contiene ". str_word_count($oracion) . " palabras.");
 
 echo("</br>-------------------------------");
 
+/*
+<?php
+//Alternativa
+
+$cadena = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
+$arrayCadena = explode("", $cadena);
+
+echo("La oracion contiene ". count($arrayCadena) . " palabras.");
+?>
+*/
+
 ?>

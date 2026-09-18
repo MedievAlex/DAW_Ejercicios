@@ -18,7 +18,7 @@ $cost = 0;
 echo("Ejercicio 08");
 echo("</br>-------------------------------</br>");
 
-echo("Duracion: " . $llam);
+echo("Duracion: " . $llam . " minutos");
 echo("</br>");
 
 if($llam <= 3){
