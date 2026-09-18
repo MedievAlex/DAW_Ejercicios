@@ -19,10 +19,12 @@ $n = 10;
 $relleno = 0; 
 $fila = 1;
 
+$linea = "";
+
 echo("Ejercicio 05");
 echo("</br>-------------------------------</br>");
 
-echo("Triangulo rectangulo de " . $n . " x  " . $n . " x  " . $n);
+echo("Triangulo rectangulo de " . $n . " x  " . $n . " x  " . $n . " con WHILE");
 
 while ($fila <= $n){ 
     $relleno = 1; 
@@ -35,6 +37,15 @@ while ($fila <= $n){
 
     $fila++; 
 } 
+ 
+echo("</br>");
+echo("Triangulo rectangulo de " . $n . " x  " . $n . " x  " . $n . " con FOR");
+
+for($i = 1; $i <= 10; $i++){
+    $linea = $linea . "o";
+
+     echo("</br>" . $linea);
+}
     
 echo("</br>-------------------------------");
 
