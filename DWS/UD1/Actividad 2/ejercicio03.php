@@ -10,22 +10,21 @@ Build-in: http://localhost:8000/Actividad_2/ejercicio03.php
 Xdebug: http://php-mvc.localhost/Actividad_2/ejercicio03.php
 */
 
-$pares = false;
-$par = true;
+$pares = true;
+$par = null;
 $contador = rand(1, 98);
 
 echo ("Ejercicio 03");
 echo ("</br>-------------------------------</br>");
 
 if ($pares) {
-    echo ("Mostrar numeros pares");
+    echo ("Mostrar numeros pares hasta " . $contador);
 } else {
-    echo ("Mostrar numeros impares");
+    echo ("Mostrar numeros impares hasta " . $contador);
 }
 
-while ($contador <= 100) {
-
-    if ($contador % 2 == 0) {
+for($i = 0; $i < $contador; $i++){
+    if ($i % 2 == 0) {
         $par = true;
     } else {
         $par = false;
@@ -33,10 +32,10 @@ while ($contador <= 100) {
 
     if ($par == $pares) {
         echo ("</br>");
-        echo ($contador);
+        echo ($i);
     }
-
-    $contador++;
 }
 
 echo ("</br>-------------------------------");
+
+?>

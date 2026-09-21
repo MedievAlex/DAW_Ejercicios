@@ -1,3 +1,4 @@
+
 <?php
 /*
 Ejercicio 02
@@ -15,17 +16,21 @@ echo("</br>-------------------------------</br>");
 
 echo("[Contador descendente FOR]");
 
-for($i = 1; $i > 0; $i--){
-    echo("</br>");
-    echo($i);
+for($i = $contador; $i > 0; $i--){
+    if($i%2 == 0){
+    	echo("</br>");
+    	echo($i);
+    }
 }
 
 echo("</br>");
 echo("[Contador descendente WHILE]");
 
 while($contador > 0){
-    echo("</br>");
-    echo($contador);
+    if($contador%2 == 0){
+    	echo("</br>");
+    	echo($contador);
+    }
     $contador--;
 }
 

@@ -8,8 +8,8 @@ Build-in: http://localhost:8000/Actividad_2/ejercicio04.php
 Xdebug: http://php-mvc.localhost/Actividad_2/ejercicio04.php
 */
 
-$primerNum = 5;
-$ultimoNum = 10;
+$primerNum = rand(1, 49);
+$ultimoNum = rand($primerNum, 50);
 $contador = $primerNum;
 $suma = 0;
 
