@@ -11,9 +11,9 @@ let edad = 26;
 var altura = 1.75;
 var matricula = true;
 
+
+console.log("Ejercicio 01");
 console.log("-------------------------");
-console.log("Ejercicio 1. Variables y tipos");
-console.log(" ");
 
 console.log("Variable " + nombre + " es " + typeof nombre + ".");
 console.log("Variable " + edad + " es " + typeof edad + ".");
