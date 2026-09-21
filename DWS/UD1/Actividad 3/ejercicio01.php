@@ -25,6 +25,8 @@ if(isset($_GET["numLineas"])){
     }
 
     echo("</br>-------------------------------");
+} else {
+    echo("No se a recibido el parámetro Numero.");
 }
 
 ?>
