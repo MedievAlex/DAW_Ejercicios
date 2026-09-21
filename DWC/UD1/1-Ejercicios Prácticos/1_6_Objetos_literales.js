@@ -5,3 +5,4 @@ Mostrar resumen por consola.
 
 node "UD1\1-Ejercicios Prácticos\1_6_Objetos_literales.js" 
 */
+
