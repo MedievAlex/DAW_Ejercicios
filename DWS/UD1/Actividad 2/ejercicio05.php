@@ -41,7 +41,7 @@ while ($fila <= $n){
 echo("</br>");
 echo("Triangulo rectangulo de " . $n . " x  " . $n . " x  " . $n . " con FOR 1");
 
-for($i = 1; $i <= 10; $i++){
+for($i = 1; $i <= $n; $i++){
     $linea = $linea . "o";
 
      echo("</br>" . $linea);

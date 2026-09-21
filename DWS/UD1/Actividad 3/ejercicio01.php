@@ -9,6 +9,20 @@ Build-in: http://localhost:8000/Actividad_3/ejercicio01.php
 Xdebug: http://php-mvc.localhost/Actividad_3/ejercicio01.php
 */
 
-echo $_GET["nombre"];
+$linea = "";
+$numLineas = $_GET["numLineas"];
+
+echo("Ejercicio 01");
+echo("</br>-------------------------------</br>");
+
+echo("Triangulo rectangulo de " . $numLineas . " x  " . $numLineas . " x  " . $numLineas . ":");
+
+for($i = 1; $i <= $numLineas; $i++){
+    $linea = $linea . "o";
+
+     echo("</br>" . $linea);
+}
+
+echo("</br>-------------------------------");
 
 ?>
