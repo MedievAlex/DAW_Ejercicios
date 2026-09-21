@@ -11,6 +11,9 @@ let n = "7";
 let a = "3";
 let b = "5";
 
+console.log("Ejercicio 04");
+console.log("-------------------------");
+
 function saludar(nombre) {
     return "Hola, " + nombre;
 }
@@ -37,5 +40,9 @@ function maximo(a, b) {
 }
 
 console.log(saludar(nombre));
+
 console.log(esPar(5));
+
 console.log(maximo(5, 10));
+
+console.log("-------------------------");
