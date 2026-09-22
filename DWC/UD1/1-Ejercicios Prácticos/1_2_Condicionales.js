@@ -9,6 +9,9 @@ node "UD1\1-Ejercicios Prácticos\1_2_Condicionales.js"
 var nota = 1.75;
 var resultado = "indefinido";
 
+console.log("Ejercicio 02");
+console.log("-------------------------------");
+
 console.log("La nota: " + nota);
 
 if(1 <= nota && nota <= 4.9){
@@ -32,3 +35,5 @@ if(1 <= nota && nota <= 4.9){
 }
 
 console.log("Resultado: " + resultado);
+
+console.log("-------------------------------");
