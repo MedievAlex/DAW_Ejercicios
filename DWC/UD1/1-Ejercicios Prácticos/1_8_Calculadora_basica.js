@@ -12,33 +12,41 @@ var resta;
 var multiplicacion;
 var division;
 
+function obtenerNumUno(){
+    return document.getElementById("numUno").valueAsNumber;
+}
+
+function obtenerNumDos(){
+    return document.getElementById("numDos").valueAsNumber;
+}
+
 function suma() {
-    numUno = document.getElementById('numUno').valueAsNumber;
-    numDos = document.getElementById('numDos').valueAsNumber;
+    numUno = obtenerNumUno();
+    numDos = obtenerNumDos();
     suma = numUno + numDos;
 
     alert(numUno + " + " + numDos + " = " + suma);
 }
 
 function resta() {
-    numUno = document.getElementById('numUno').valueAsNumber;
-    numDos = document.getElementById('numDos').valueAsNumber;
+    numUno = obtenerNumUno();
+    numDos = obtenerNumDos();
     resta = numUno - numDos;
 
     alert(numUno + " - " + numDos + " = " + resta);
 }
 
 function multiplicacion() {
-    numUno = document.getElementById('numUno').valueAsNumber;
-    numDos = document.getElementById('numDos').valueAsNumber;
+    numUno = obtenerNumUno();
+    numDos = obtenerNumDos();
     multiplicacion = numUno * numDos;
 
     alert(numUno + " x " + numDos + " = " + multiplicacion);
 }
 
 function division() {
-    numUno = document.getElementById('numUno').valueAsNumber;
-    numDos = document.getElementById('numDos').valueAsNumber;
+    numUno = obtenerNumUno();
+    numDos = obtenerNumDos();
 
     if (comprobarDivision(numUno, numDos)) {
         division = numUno / numDos;
