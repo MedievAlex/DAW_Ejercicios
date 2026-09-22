@@ -30,11 +30,11 @@ function esPar(n) {
 }
 
 function maximo(a, b) {
-    if(a > b){
+    if (a > b) {
         return a + " es mayor";
-    }else if (a < b){
+    } else if (a < b) {
         return b + " es mayor";
-    }else{
+    } else {
         return " ambos numeros son iguales";
     }
 }

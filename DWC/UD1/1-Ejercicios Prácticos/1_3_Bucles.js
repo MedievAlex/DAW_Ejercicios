@@ -13,7 +13,7 @@ var suma = 0;
 console.log("Ejercicio 03");
 console.log("-------------------------------");
 
-for(let i = 1; i <= n; i++){
+for (let i = 1; i <= n; i++) {
     suma = suma + numero * i;
     console.log(numero + " x " + i + " = " + numero * i);
 }

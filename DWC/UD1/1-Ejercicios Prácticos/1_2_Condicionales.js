@@ -14,19 +14,19 @@ console.log("-------------------------------");
 
 console.log("La nota: " + nota);
 
-if(1 <= nota && nota <= 4.9){
+if (1 <= nota && nota <= 4.9) {
     resultado = "suspenso";
 
-} else if(5 <= nota && nota <= 5.9){
+} else if (5 <= nota && nota <= 5.9) {
     resultado = "suficiente";
 
-} else if(6 <= nota && nota <= 6.9){
+} else if (6 <= nota && nota <= 6.9) {
     resultado = "bien";
 
-} else if(7 <= nota && nota <= 8.9){
+} else if (7 <= nota && nota <= 8.9) {
     resultado = "muy bien";
 
-} else if(9 <= nota && nota <= 10){
+} else if (9 <= nota && nota <= 10) {
     resultado = "sobresaliente";
 
 } else {

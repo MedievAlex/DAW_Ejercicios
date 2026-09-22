@@ -9,16 +9,16 @@ node "UD1\1-Ejercicios Prácticos\1_5_Gestión_de_array.js"
 const iva = 0.21;
 var precios = [15.95, 7.20, 35.99, 0.50];
 var conIVA = [];
-var media = 0; 
-var maximo = 0; 
-var minimo = 0; 
+var media = 0;
+var maximo = 0;
+var minimo = 0;
 
 console.log("Ejercicio 05");
 console.log("-------------------------");
 
 for (let i = 0; i < precios.length; i++) {
       media = media + precios[i];
-} 
+}
 media = media / precios.length;
 
 console.log("Media de precios: ");

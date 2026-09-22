@@ -10,9 +10,9 @@ var alumno = {
     nombre: "Edurne",
     modulo: "MEL",
     notaMedia: 9.5,
-    resumen(){
+    resumen() {
         return this.nombre + " del modulo " + this.modulo + " tiene de nota media un " + this.notaMedia;
-    }  
+    }
 };
 
 console.log("Ejercicio 06");

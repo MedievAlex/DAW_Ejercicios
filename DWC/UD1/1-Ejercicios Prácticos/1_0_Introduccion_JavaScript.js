@@ -23,7 +23,7 @@ console.log("BUCLES: for");
 
 for (let i = 1; i <= 3; i++) {
   let edad = 26 + i;
-    console.log("Proxima edad: " + edad);
+  console.log("Proxima edad: " + edad);
 }
 
 // ARRAYS
