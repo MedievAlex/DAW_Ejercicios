@@ -13,16 +13,21 @@ y dividir. Mostrar resultado en pantalla y validar divisiones por cero.
 
 -->
 
-<form>
+<form onsubmit="return false;">
 	Numero uno: <input type="number" id="numUno"><br><br>
 	Numero dos: <input type="number" id="numDos"><br><br>
 
     Elige accion: 
-	<button onclick="suma()"> + </button>
-    <button onclick="resta()"> - </button>
-    <button onclick="multiplicacion()"> x </button>
-    <button onclick="division()"> / </button>
+	<button id="btnSuma" onclick="suma()"> + </button>
+    <button id="btnResta" onclick="resta()"> - </button>
+    <button id="btnMult" onclick="multiplicacion()"> x </button>
+    <button id="btnDiv" onclick="division()"> / </button>
 </form>
+
+<p id="pHistorial">
+    Historial: </br>
+
+</p>
 
 </body>
 

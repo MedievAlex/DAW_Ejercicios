@@ -11,6 +11,7 @@ var suma;
 var resta;
 var multiplicacion;
 var division;
+var resultado;
 
 function obtenerNumUno(){
     return document.getElementById("numUno").valueAsNumber;
@@ -20,12 +21,17 @@ function obtenerNumDos(){
     return document.getElementById("numDos").valueAsNumber;
 }
 
+function obtenerHistorial(){
+    return document.getElementById("pHistorial");
+}
+
 function suma() {
     numUno = obtenerNumUno();
     numDos = obtenerNumDos();
     suma = numUno + numDos;
 
-    alert(numUno + " + " + numDos + " = " + suma);
+    resultado = numUno + " + " + numDos + " = " + suma + "</br>";
+    resultado(resultado);
 }
 
 function resta() {
@@ -33,7 +39,8 @@ function resta() {
     numDos = obtenerNumDos();
     resta = numUno - numDos;
 
-    alert(numUno + " - " + numDos + " = " + resta);
+    resultado = numUno + " - " + numDos + " = " + resta + "</br>";
+    resultado(resultado);
 }
 
 function multiplicacion() {
@@ -41,7 +48,8 @@ function multiplicacion() {
     numDos = obtenerNumDos();
     multiplicacion = numUno * numDos;
 
-    alert(numUno + " x " + numDos + " = " + multiplicacion);
+    resultado = numUno + " x " + numDos + " = " + multiplicacion + "</br>";
+    resultado(resultado);
 }
 
 function division() {
@@ -51,10 +59,12 @@ function division() {
     if (comprobarDivision(numUno, numDos)) {
         division = numUno / numDos;
 
-        alert(numUno + " / " + numDos + " = " + division);
+        resultado = numUno + " / " + numDos + " = " + division + "</br>";
     } else {
-        alert("[ERROR]: No se puede dividir con 0.");
+        resultado = "[ERROR]: No se puede dividir con 0." + "</br>";
     }
+
+    resultado(resultado);
 }
 
 function comprobarDivision(numA, numB) {
@@ -63,4 +73,9 @@ function comprobarDivision(numA, numB) {
     } else {
         return true;
     }
+}
+
+function resultado(res) {
+    alert(res);
+    obtenerHistorial().insertAdjacentHTML(res);
 }
