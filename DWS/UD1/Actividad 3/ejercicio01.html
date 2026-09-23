@@ -1,24 +1,32 @@
+<!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset='UTF-8'
+	<meta charset="UTF-8">
+	<title>Ejercicio 01</title>
 </head>
+
 <body>
-<!-- 
-Ejercicio 01
-Elabore un programa que imprima la figura de un triángulo rectángulo
-de $numLineas lineas ajustada a la izquierda, formada por letras “o”.
-El valor del número de líneas se enviará al servidor mediante GET.
+	<header>
+		<h3>Ejercicio 01</h3>
+		<p>
+			Elabore un programa que imprima la figura de un triángulo rectángulo
+			de $numLineas lineas ajustada a la izquierda, formada por letras “o”.
+			El valor del número de líneas se enviará al servidor mediante GET.
+			<!--
+			Build-in: http://localhost:8000/Actividad_3/ejercicio01.html
+			Xdebug: http://php-mvc.localhost/Actividad_3/ejercicio01.html 
+			-->
+		</p>
+	</header>
+	<hr>
 
-Build-in: http://localhost:8000/Actividad_3/ejercicio01.html
-Xdebug: http://php-mvc.localhost/Actividad_3/ejercicio01.html 
--->
-<h2>Ejercicio 01</h2>
+	<form action="ejercicio01.php" method="get">
+		Lineas: <input type="number" name="numLineas"><br><br>
 
-<form action="ejercicio01.php" method="get">
-	Lineas: <input type="number" name="numLineas"><br><br>
-	
-	<input value="ENVIAR" type="submit">
-</form>
+		<input value="ENVIAR" type="submit">
+	</form>
 
 </body>
-</html> 
+
+</html>

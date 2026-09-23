@@ -1,25 +1,33 @@
+<!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset='UTF-8'
+	<meta charset="UTF-8">
+	<title>Ejercicio 03</title>
 </head>
+
 <body>
-<!-- 
-Ejercicio 03
-Se recibirá un dato llamado pares por GET que contendrá TRUE o
-FALSE. Si es TRUE, mostrar en pantalla números pares del 1 al
-número aleatorio menor que 99 si se le ha recibido el valor FALSE en
-la pantalla tienen que aparecer los valores impares.
+	<header>
+		<h3>Ejercicio 03</h3>
+		<p>
+			Se recibirá un dato llamado pares por GET que contendrá TRUE o
+			FALSE. Si es TRUE, mostrar en pantalla números pares del 1 al
+			número aleatorio menor que 99 si se le ha recibido el valor FALSE en
+			la pantalla tienen que aparecer los valores impares.
+			<!--
+			Build-in: http://localhost:8000/Actividad_3/ejercicio03.html
+			Xdebug: http://php-mvc.localhost/Actividad_3/ejercicio03.html  
+			-->
+		</p>
+	</header>
+	<hr>
 
-Build-in: http://localhost:8000/Actividad_3/ejercicio03.html
-Xdebug: http://php-mvc.localhost/Actividad_3/ejercicio03.html 
--->
-<h2>Ejercicio 03</h2>
+	<form action="ejercicio03.php" method="get">
+		Pares: <input type="checkbox" name="pares"><br><br>
 
-<form action="ejercicio03.php" method="get">
-	Pares: <input type="checkbox" name="pares"><br><br>
-	
-	<input value="ENVIAR" type="submit">
-</form>
+		<input value="ENVIAR" type="submit">
+	</form>
 
 </body>
-</html> 
+
+</html>

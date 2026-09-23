@@ -1,23 +1,31 @@
+<!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset='UTF-8'
+	<meta charset="UTF-8">
+	<title>Ejercicio 06</title>
 </head>
+
 <body>
-<!--
-Ejercicio 06
-El servidor recibirá un número. Tenemos que sacar por pantalla todos
-los números primos que hay desde el 1 hasta ese número.
+	<header>
+		<h3>Ejercicio 06</h3>
+		<p>
+			El servidor recibirá un número. Tenemos que sacar por pantalla todos
+			los números primos que hay desde el 1 hasta ese número.
+			<!--
+			Build-in: http://localhost:8000/Actividad_3/ejercicio06.html
+			Xdebug: http://php-mvc.localhost/Actividad_3/ejercicio06.html  
+			-->
+		</p>
+	</header>
+	<hr>
 
-Build-in: http://localhost:8000/Actividad_3/ejercicio06.html
-Xdebug: http://php-mvc.localhost/Actividad_3/ejercicio06.html
--->
-<h2>Ejercicio 06</h2>
+	<form action="ejercicio06.php" method="get">
+		Numero: <input type="text" name="numero"><br><br>
 
-<form action="ejercicio06.php" method="get">
-	Numero: <input type="text" name="numero"><br><br>
-	
-	<input value="ENVIAR" type="submit">
-</form>
+		<input value="ENVIAR" type="submit">
+	</form>
 
 </body>
-</html> 
+
+</html>
