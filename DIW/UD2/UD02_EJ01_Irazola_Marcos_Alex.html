@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <style>
+        /* ----------------------------------EJERCICIO 1---------------------------------- */
+        /*
+        Utiliza un selector de elemento para establecer el color de todos los elementos `<p>` en `dimgray`.
+        Utiliza un selector de clase para establecer el color de fondo de `.highlight` en `yellow`.
+        Utiliza un selector de ID para establecer el tamaño de fuente de `#intro` en `20px`. 
+        */
+
+        .ejercicio1 p {
+            color: dimgray;
+        }
+
+        .ejercicio1 .highlight {
+            background-color: yellow;
+        }
+
+        .ejercicio1 #intro {
+            font-size: 20px;
+        }
+
+        /* ----------------------------------EJERCICIO 2---------------------------------- */
+        /*
+        Establece el color de h1 usando un nombre de color: Tomato
+        Establece el color de h2 usando un valor hexadecimal: #1e90ff
+        Establece el color de p usando un valor rgb: rgb(60, 179, 113)
+        */
+
+        .ejercicio2 h1 {
+            color: tomato;
+        }
+
+        .ejercicio2 h2 {
+            color: #1e90ff;
+        }
+
+        .ejercicio2 p {
+            color: rgb(60, 179, 113);
+        }
+
+        /* ----------------------------------EJERCICIO 3---------------------------------- */
+        /*
+        al div mariposa añadale esta imagen de fondo (el div debe de tener exactamente el mismo 
+        tamaño que la imagen): https://img.magnific.com/free-photo/closeup-shot-beautiful-butterfly-with-interesting-textures-orange-petaled-flower_181624-7640.jpg?semt=ais_hybrid&w=740&q=80
+        */
+
+        .ejercicio3 #mariposa {
+            height: 491;
+            width: 740;
+        }
+
+        /* ----------------------------------EJERCICIO 4---------------------------------- */
+        /*
+        Asigna a p.solid un estilo de borde sólido.
+        Asigna a p.dashed un estilo de borde discontinuo.
+        Asigna a p.thick un borde utilizando la propiedad abreviada: 3px solid red.
+        Asigna a p.rounded un borde sólido y un radio de borde de 5px.
+        */
+
+        .ejercicio4 .solid {
+            border-style: solid;
+        }
+
+        .ejercicio4 .dashed {
+            border-style: dashed;
+        }
+
+        .ejercicio4 .thick {
+            border: 3px solid red;
+        }
+
+        .ejercicio4 .rounded {
+            border-style: solid;
+            border-radius: 5px;
+        }
+
+        /* ----------------------------------EJERCICIO 5---------------------------------- */
+        /*
+        Establece el color del cuerpo en `dimgray` (color de texto predeterminado de la página)
+        Establece el color de `h1` en verde
+        Añade una regla `.highlight`: establece `background-color` en amarillo y `color` en rojo
+        */
+
+        body {
+            background-color: dimgray;
+        }
+
+        .ejercicio5 h1 {
+            color: green;
+        }
+
+        .ejercicio5 .highlight {
+            background-color: yellow;
+            color: red;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="ejercicio1">
+        <p id="intro">Bienvenidos</p>
+        <p>OS ESTBÁBAMOS ESPERANDO!</p>
+        <p class="highlight"> sois los dioses del futuro!!</p>
+    </div>
+
+    <hr>
+
+    <div class="ejercicio2">
+        <h1>Nombre</h1>
+        <h2>Valores</h2>
+        <p>rgb</p>
+    </div>
+
+    <hr>
+
+    <div class="ejercicio3" id="mariposa">
+        <img src="https://img.magnific.com/free-photo/closeup-shot-beautiful-butterfly-with-interesting-textures-orange-petaled-flower_181624-7640.jpg?semt=ais_hybrid&w=740&q=80" alt="Aquí hay una Mariposa">
+    </div>
+
+    <hr>
+
+    <div class="ejercicio4">
+        <p class="dotted">Un borde punteado.</p>
+        <p class="dashed">Un borde discontinuo.</p>
+        <p class="solid">Un borde continuo.</p>
+        <p class="double">Un borde doble.</p>
+        <p class="groove">Un borde acanalado.</p>
+        <p class="ridge">Un borde en relieve.</p>
+        <p class="inset">Un borde hundido.</p>
+        <p class="outset">Un borde saliente.</p>
+        <p class="none">Sin borde.</p>
+        <p class="hidden">Un borde oculto.</p>
+        <p class="mix">Un borde mixto.</p>
+        <p class="solid">Un borde sólido.</p>
+        <p class="dashed">Un borde discontinuo.</p>
+        <p class="thick">Un borde rojo grueso.</p>
+        <p class="rounded">Un borde redondeado.</p>
+    </div>
+
+    <hr>
+
+    <div class="ejercicio5">
+        <h1>Color del texto</h1>
+        <p>El color del cuerpo establece el color de texto predeterminado para toda la página.</p>
+        <p>También puedes combinar el <span class="highlight">color del texto con el color de fondo</span> para resaltar
+            elementos.</p>
+    </div>
+
+</body>
+
+</html>
