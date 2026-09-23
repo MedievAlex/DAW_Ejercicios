@@ -6,14 +6,27 @@ Guardar estado en localStorage.
 node "UD1\1-Ejercicios Prácticos\1_9_Lista_de_tareas.js"
 */
 
-// Obtener referencias a elementos del DOM
-const taskInput = document.getElementById("inpTarea");
-const addTaskButton = document.getElementById("btnAgregar");
-const taskList = document.getElementById("ulLista");
+// -----------------------------------------------------Obtener elementos del DOM
+const inpTarea = document.getElementById("inpTarea");
+const btnAgregar = document.getElementById("btnAgregar");
+const ulLista = document.getElementById("ulLista");
 
+// -----------------------------------------------------Variables
 // Cargar tareas del Local Storage
-let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+let tareas = JSON.parse(localStorage.getItem("tareas")) || [];
 
+// -----------------------------------------------------Event Listeners
+btnAgregar.addEventListener("click", () => {
+    const taskText = taskInput.value.trim();
+    if (taskText) {
+        tasks.push({ text: taskText, completed: false });
+        taskInput.value = "";
+        saveTasks();
+        renderTasks();
+    }
+});
+
+// -----------------------------------------------------Funciones
 // Función para actualizar la lista de tareas en el DOM
 function renderTasks() {
     taskList.innerHTML = "";
@@ -48,17 +61,6 @@ function renderTasks() {
 function saveTasks() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
 }
-
-// Agregar nueva tarea
-addTaskButton.addEventListener("click", () => {
-    const taskText = taskInput.value.trim();
-    if (taskText) {
-        tasks.push({ text: taskText, completed: false });
-        taskInput.value = "";
-        saveTasks();
-        renderTasks();
-    }
-});
 
 // Renderizar tareas al cargar la página
 renderTasks();

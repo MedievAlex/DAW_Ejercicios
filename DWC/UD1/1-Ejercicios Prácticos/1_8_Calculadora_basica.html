@@ -4,35 +4,38 @@
 <head>
     <meta charset='UTF-8' </head>
     <script language="JavaScript" type="text/javascript" src="1_8_Calculadora_basica.js" defer></script>
+    <title>Ejercicio 8. Calculadora básica</title>
+
 <body>
-<!-- 
-Ejercicio 8. Calculadora básica
-Diseñar interfaz con dos inputs y botones de sumar, restar, multiplicar 
-y dividir. Mostrar resultado en pantalla y validar divisiones por cero.
+    <header>
+        <h3>Ejercicio 8. Calculadora básica</h3>
+        <p>
+            Diseñar interfaz con dos inputs y botones de sumar, restar, multiplicar
+            y dividir. Mostrar resultado en pantalla y validar divisiones por cero.
+        </p>
+    </header>
+    <hr>
 
+    <form onsubmit="return false;">
+        <h2>Calculadora</h2>
+        Numero uno: <input type="number" id="numUno"><br><br>
+        Numero dos: <input type="number" id="numDos"><br><br>
 
--->
+        Elige accion:
+        <button id="btnSuma"> + </button>
+        <button id="btnResta"> - </button>
+        <button id="btnMult"> x </button>
+        <button id="btnDiv"> / </button>
+        <button id="btnBor">BORRAR</button>
+    </form>
 
-<form onsubmit="return false;">
-    <h2>Calculadora</h2>
-	Numero uno: <input type="number" id="numUno"><br><br>
-	Numero dos: <input type="number" id="numDos"><br><br>
-
-    Elige accion: 
-	<button id="btnSuma"> + </button>
-    <button id="btnResta"> - </button>
-    <button id="btnMult"> x </button>
-    <button id="btnDiv"> / </button>
-    <button id="btnBor">BORRAR</button>
-</form>
-
-<p>
+    <p>
     <h3>Historial</h3>
     <p id="pHistorial">
-    
-    </p> 
 
-</p>
+    </p>
+
+    </p>
 
 </body>
 

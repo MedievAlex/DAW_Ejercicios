@@ -5,6 +5,7 @@ y dividir. Mostrar resultado en pantalla y validar divisiones por cero.
 
 */
 
+// -----------------------------------------------------Obtener elementos del DOM
 const numUno = document.getElementById("numUno");
 const numDos = document.getElementById("numDos");
 const pHistorial = document.getElementById("pHistorial");
@@ -15,6 +16,7 @@ const btnMult = document.getElementById("btnMult");
 const btnDiv = document.getElementById("btnDiv");
 const btnBor = document.getElementById("btnBor");
 
+// -----------------------------------------------------Variables
 var numeroUno;
 var numeroDos;
 var suma;
@@ -23,6 +25,7 @@ var multiplicacion;
 var division;
 var resultado;
 
+// -----------------------------------------------------Event Listeners
 btnSuma.addEventListener("click", function () {
     numeroUno = numUno.valueAsNumber;
     numeroDos = numDos.valueAsNumber;
@@ -70,6 +73,7 @@ btnBor.addEventListener("click", function () {
     numDos.value = "";
 });
 
+// -----------------------------------------------------Funciones
 function comprobarDivision(numA, numB) {
     if (numA == 0 || numB == 0) {
         return false;
