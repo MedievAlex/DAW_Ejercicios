@@ -1,12 +1,10 @@
-package ejercicios_1;
+package ejercicios_0_1;
 
 import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-import java.util.Scanner;
-
-import ejercicios_1.*;
+import ejercicios_0_1.*;
 
 /* 
 1.2- Tiene que preguntar en un mensaje que escribas un número, después tiene que mostrar el mes que le 
@@ -14,11 +12,11 @@ import ejercicios_1.*;
     un mensaje diciendo que no existe.
 */
 
-public class Ejercicio_1_2 {
+public class Ejercicio_0_1_2 {
 
   public static void obtener_mes() {
-    Ejercicio_1_1 ejercicio_1_1 = new Ejercicio_1_1();
-    ArrayList<String> meses = ejercicio_1_1.cargar_meses();
+    Ejercicio_0_1_1 ejercicio_0_1_1 = new Ejercicio_0_1_1();
+    ArrayList<String> meses = ejercicio_0_1_1.cargar_meses();
     int mes;
 
     mes = preguntar_mes();
@@ -33,6 +31,8 @@ public class Ejercicio_1_2 {
     System.out.print("Introduzca un Numero: ");
     num = scanner.nextInt();
 
+    scanner.close();
+    
     return num;
   }
 

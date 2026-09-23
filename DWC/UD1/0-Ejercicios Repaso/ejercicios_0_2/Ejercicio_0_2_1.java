@@ -1,16 +1,14 @@
-package ejercicios_2;
+package ejercicios_0_2;
 
 import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-import java.util.ArrayList;
-
 /* 
 2.1- Tienes que hacer un programa que reconozca si un numero es primo o no.
 */
 
-public class Ejercicio_2_1 {
+public class Ejercicio_0_2_1 {
   public static void primo_o_no() {
     int numero = pedir_numero();
     int contador = 2;
@@ -36,6 +34,8 @@ public class Ejercicio_2_1 {
 
     System.out.print("Introduzca un Numero: ");
     num = scanner.nextInt();
+
+    scanner.close();
 
     return num;
   }

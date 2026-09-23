@@ -1,4 +1,4 @@
-package ejercicios_1;
+package ejercicios_0_1;
 
 import java.util.*;
 import java.lang.*;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 1.1- Con un for hacer que salgan alertas con cada mes.
 */
 
-public class Ejercicio_1_1 {
+public class Ejercicio_0_1_1 {
 
   public static void alertas_mes() {
     ArrayList<String> meses = cargar_meses();
