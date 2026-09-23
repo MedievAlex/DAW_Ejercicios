@@ -31,7 +31,7 @@ function suma() {
     suma = numUno + numDos;
 
     resultado = numUno + " + " + numDos + " = " + suma + "</br>";
-    resultado(resultado);
+    mostrarResultado(resultado);
 }
 
 function resta() {
@@ -40,7 +40,7 @@ function resta() {
     resta = numUno - numDos;
 
     resultado = numUno + " - " + numDos + " = " + resta + "</br>";
-    resultado(resultado);
+    mostrarResultado(resultado);
 }
 
 function multiplicacion() {
@@ -49,7 +49,7 @@ function multiplicacion() {
     multiplicacion = numUno * numDos;
 
     resultado = numUno + " x " + numDos + " = " + multiplicacion + "</br>";
-    resultado(resultado);
+    mostrarResultado(resultado);
 }
 
 function division() {
@@ -64,7 +64,7 @@ function division() {
         resultado = "[ERROR]: No se puede dividir con 0." + "</br>";
     }
 
-    resultado(resultado);
+    mostrarResultado(resultado);
 }
 
 function comprobarDivision(numA, numB) {
@@ -75,7 +75,7 @@ function comprobarDivision(numA, numB) {
     }
 }
 
-function resultado(res) {
-    alert(res);
-    obtenerHistorial().insertAdjacentHTML(res);
+function mostrarResultado(res) {
+    //alert(res);
+    obtenerHistorial().insertAdjacentHTML("afterbegin", res);
 }

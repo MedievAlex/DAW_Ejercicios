@@ -3,7 +3,7 @@
 
 <head>
     <meta charset='UTF-8' </head>
-    <script language="JavaScript" type="text/javascript" src="1_8_Calculadora_basica.js"></script>
+    <script language="JavaScript" type="text/javascript" src="1_8_Calculadora_basica.js" defer></script>
 <body>
 <!-- 
 Ejercicio 8. Calculadora básica
@@ -14,6 +14,7 @@ y dividir. Mostrar resultado en pantalla y validar divisiones por cero.
 -->
 
 <form onsubmit="return false;">
+    <h2>Calculadora</h2>
 	Numero uno: <input type="number" id="numUno"><br><br>
 	Numero dos: <input type="number" id="numDos"><br><br>
 
@@ -24,8 +25,11 @@ y dividir. Mostrar resultado en pantalla y validar divisiones por cero.
     <button id="btnDiv" onclick="division()"> / </button>
 </form>
 
-<p id="pHistorial">
-    Historial: </br>
+<p>
+    <h3>Historial</h3>
+    <p id="pHistorial">
+    
+    </p> 
 
 </p>
 
