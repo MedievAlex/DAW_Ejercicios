@@ -1,9 +1,9 @@
 /*
-Ejercicio 3. Bucles
+Ejercicio 03. Bucles
 Imprimir la tabla de multiplicar de un número y calcular la suma de 1 
 a n con for.
 
-node "UD1\1-Ejercicios Prácticos\1_3_Bucles.js"
+node "UD1\1-Ejercicios Prácticos\1_03_Bucles.js"
 */
 
 var numero = 5;

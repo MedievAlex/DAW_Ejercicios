@@ -1,9 +1,9 @@
 /*
-Ejercicio 2. Condicionales
+Ejercicio 02. Condicionales
 Dado un número, indicar si es positivo, negativo o cero. Después clasificar 
 nota numérica en suspenso, aprobado, notable y sobresaliente.
 
-node "UD1\1-Ejercicios Prácticos\1_2_Condicionales.js"
+node "UD1\1-Ejercicios Prácticos\1_02_Condicionales.js"
 */
 
 var nota = 1.75;

@@ -1,6 +1,6 @@
 /*
 
-node "UD1\1-Ejercicios Prácticos\1_0_Introduccion_JavaScript.js"
+node "UD1\1-Ejercicios Prácticos\1_00_Introduccion_JavaScript.js"
 */
 
 const nombre = "Edurne";

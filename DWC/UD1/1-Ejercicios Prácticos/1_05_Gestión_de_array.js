@@ -1,9 +1,9 @@
 /*
-Ejercicio 5. Gestión de array
+Ejercicio 05. Gestión de array
 A partir de una lista de precios: calcular media, máximo y mínimo, 
 y generar un array con IVA aplicado.
 
-node "UD1\1-Ejercicios Prácticos\1_5_Gestión_de_array.js"
+node "UD1\1-Ejercicios Prácticos\1_05_Gestión_de_array.js"
 */
 
 const iva = 0.21;

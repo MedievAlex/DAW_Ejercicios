@@ -1,9 +1,9 @@
 /*
-Ejercicio 4. Funciones
+Ejercicio 04. Funciones
 Implementar funciones: saludar(nombre), esPar(n), maximo(a,b). 
 Probar con distintos datos y documentar salidas esperadas.
 
-node "UD1\1-Ejercicios Prácticos\1_4_Funciones.js" 
+node "UD1\1-Ejercicios Prácticos\1_04_Funciones.js" 
 */
 
 let nombre = "Edurne";

@@ -1,9 +1,9 @@
 /* 
-Ejercicio 6. Objetos literales
+Ejercicio 06. Objetos literales
 Modelar un objeto alumno con nombre, módulo, notaMedia y método resumen(). 
 Mostrar resumen por consola.
 
-node "UD1\1-Ejercicios Prácticos\1_6_Objetos_literales.js" 
+node "UD1\1-Ejercicios Prácticos\1_06_Objetos_literales.js" 
 */
 
 var alumno = {

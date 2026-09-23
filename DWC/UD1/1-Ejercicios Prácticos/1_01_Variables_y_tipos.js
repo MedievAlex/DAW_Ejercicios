@@ -1,9 +1,9 @@
 /* 
-Ejercicio 1. Variables y tipos
+Ejercicio 01. Variables y tipos
 Crear variables con let y const para nombre, edad, altura y estado de matrícula. 
 Mostrar resultados por consola e indicar el tipo con typeof.
 
-node "UD1\1-Ejercicios Prácticos\1_1_Variables_y_tipos.js"
+node "UD1\1-Ejercicios Prácticos\1_01_Variables_y_tipos.js"
 */
 
 const nombre = "Edurne";
