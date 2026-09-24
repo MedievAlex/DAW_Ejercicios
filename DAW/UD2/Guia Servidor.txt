@@ -11,3 +11,5 @@ sudo ufw status
 
 sudo apt install openssh-server
 sudo ufw allow ssh
+
+ssh melon@10.22.84.102
