@@ -11,7 +11,7 @@ Xdebug: http://php-mvc.localhost/Actividad_3/ejercicio06.php?numero=20
 $numero = $_GET["numero"];
 $primo = true;
 
-echo ("Ejercicio 05");
+echo ("Ejercicio 06");
 echo ("</br>-------------------------------</br>");
 
 echo ("Numero primos hasta el " . $numero);
