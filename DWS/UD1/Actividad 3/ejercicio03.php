@@ -23,7 +23,7 @@ if ($pares) {
     echo ("Mostrar numeros impares hasta " . $contador);
 }
 
-for($i = 1; $i < $contador; $i++){
+for ($i = 1; $i < $contador; $i++) {
     if ($i % 2 == 0) {
         $par = true;
     } else {

@@ -13,7 +13,7 @@ $numero = $_GET["numero"];
 echo ("Ejercicio 04");
 echo ("</br>-------------------------------</br>");
 
-for($i = 1; $i < 10; $i++){
+for ($i = 1; $i <= 10; $i++) {
         echo ("</br>");
         echo ($i . " x " . $numero . " = " . $i * $numero);
 }

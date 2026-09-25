@@ -15,22 +15,20 @@ Xdebug: http://php-mvc.localhost/Actividad_1/ejercicio08.php
 $llam = 4;
 $cost = 0;
 
-echo("Ejercicio 08");
-echo("</br>-------------------------------</br>");
+echo ("Ejercicio 08");
+echo ("</br>-------------------------------</br>");
 
-echo("Duracion: " . $llam . " minutos");
-echo("</br>");
+echo ("Duracion: " . $llam . " minutos");
+echo ("</br>");
 
-if($llam <= 3){
+if ($llam <= 3) {
     $cost = 0.1;
-
 } else {
     $cost = (($llam - 3) * 0.5) + 0.1;
-
 }
 
-echo("A pagar: " . $cost . " euro");
+echo ("A pagar: " . $cost . " euro");
 
-echo("</br>-------------------------------");
+echo ("</br>-------------------------------");
 
 ?>

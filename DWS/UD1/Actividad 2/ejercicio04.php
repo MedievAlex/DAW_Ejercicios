@@ -13,28 +13,28 @@ $ultimoNum = rand($primerNum, 50);
 $contador = $primerNum;
 $suma = 0;
 
-echo("Ejercicio 04");
-echo("</br>-------------------------------</br>");
+echo ("Ejercicio 04");
+echo ("</br>-------------------------------</br>");
 
-echo("[Suma ascendente FOR]");
+echo ("[Suma ascendente FOR]");
 
-for($i = $primerNum; $i <= $ultimoNum; $i++){
+for ($i = $primerNum; $i <= $ultimoNum; $i++) {
     $suma = $suma + $i;
-    echo("</br>");
-    echo(($suma - $i) . " + " . $i . " = " . $suma);
+    echo ("</br>");
+    echo (($suma - $i) . " + " . $i . " = " . $suma);
 }
 $suma = 0;
 
-echo("</br>");
-echo("[Suma ascendente WHILE]");
+echo ("</br>");
+echo ("[Suma ascendente WHILE]");
 
-while($contador <= $ultimoNum){
+while ($contador <= $ultimoNum) {
     $suma = $suma + $contador;
-    echo("</br>");
-    echo(($suma - $contador) . " + " . $contador . " = " . $suma);
+    echo ("</br>");
+    echo (($suma - $contador) . " + " . $contador . " = " . $suma);
     $contador++;
 }
 
-echo("</br>-------------------------------");
+echo ("</br>-------------------------------");
 
 ?>

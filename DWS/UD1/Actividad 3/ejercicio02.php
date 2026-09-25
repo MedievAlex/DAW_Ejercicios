@@ -13,15 +13,15 @@ $ultimoNum = $_GET["ultimoNum"];
 $contador = $primerNum;
 $suma = 0;
 
-echo("Ejercicio 04");
-echo("</br>-------------------------------");
+echo ("Ejercicio 04");
+echo ("</br>-------------------------------");
 
-for($i = $primerNum; $i <= $ultimoNum; $i++){
+for ($i = $primerNum; $i <= $ultimoNum; $i++) {
     $suma = $suma + $i;
-    echo("</br>");
-    echo(($suma - $i) . " + " . $i . " = " . $suma);
+    echo ("</br>");
+    echo (($suma - $i) . " + " . $i . " = " . $suma);
 }
 
-echo("</br>-------------------------------");
+echo ("</br>-------------------------------");
 
 ?>

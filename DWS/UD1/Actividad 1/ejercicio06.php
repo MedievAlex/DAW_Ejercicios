@@ -17,22 +17,20 @@ $num2 = 4;
 $sum = $num1 + $num2;
 $mul = $num1 * $num2;
 
-echo("Ejercicio 06");
-echo("</br>-------------------------------</br>");
+echo ("Ejercicio 06");
+echo ("</br>-------------------------------</br>");
 
-echo("Numero uno: " . $num1);
-echo("</br>");
-echo("Numero dos: " . $num2);
-echo("</br>");
+echo ("Numero uno: " . $num1);
+echo ("</br>");
+echo ("Numero dos: " . $num2);
+echo ("</br>");
 
-if($sum > $mul){
-    echo("La suma es mayor que la multiplicacion");
-
+if ($sum > $mul) {
+    echo ("La suma es mayor que la multiplicacion");
 } else {
-    echo("La multiplicacion es mayor que la suma");
-
+    echo ("La multiplicacion es mayor que la suma");
 }
 
-echo("</br>-------------------------------");
+echo ("</br>-------------------------------");
 
 ?>

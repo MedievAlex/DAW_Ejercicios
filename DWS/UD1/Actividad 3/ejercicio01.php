@@ -9,24 +9,24 @@ Build-in: http://localhost:8000/Actividad_3/ejercicio01.php?numLineas=10
 Xdebug: http://php-mvc.localhost/Actividad_3/ejercicio01.php?numLineas=10
 */
 
-if(isset($_GET["numLineas"])){
+if (isset($_GET["numLineas"])) {
     $linea = "";
     $numLineas = $_GET["numLineas"];
 
-    echo("Ejercicio 01");
-    echo("</br>-------------------------------</br>");
+    echo ("Ejercicio 01");
+    echo ("</br>-------------------------------</br>");
 
-    echo("Triangulo rectangulo de " . $numLineas . " x  " . $numLineas . " x  " . $numLineas . ":");
+    echo ("Triangulo rectangulo de " . $numLineas . " x  " . $numLineas . " x  " . $numLineas . ":");
 
-    for($i = 1; $i <= $numLineas; $i++){
+    for ($i = 1; $i <= $numLineas; $i++) {
         $linea = $linea . "o";
 
-        echo("</br>" . $linea);
+        echo ("</br>" . $linea);
     }
 
-    echo("</br>-------------------------------");
+    echo ("</br>-------------------------------");
 } else {
-    echo("No se a recibido el parámetro Numero.");
+    echo ("No se a recibido el parámetro Numero.");
 }
 
 ?>

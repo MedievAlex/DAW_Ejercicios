@@ -12,23 +12,21 @@ $not1 = 4;
 $not2 = 7;
 $med = ($not1 + $not2) / 2;
 
-echo("Ejercicio 09");
-echo("</br>-------------------------------</br>");
+echo ("Ejercicio 09");
+echo ("</br>-------------------------------</br>");
 
-echo("Nota uno: " . $not1);
-echo("</br>");
-echo("Nota dos: " . $not2);
-echo("</br>");
-echo("Media: " . $med);
+echo ("Nota uno: " . $not1);
+echo ("</br>");
+echo ("Nota dos: " . $not2);
+echo ("</br>");
+echo ("Media: " . $med);
 
-if($med < 5){
-    echo(" suspendida");
-
+if ($med < 5) {
+    echo (" suspendida");
 } else {
-    echo(" aprobada");
-
+    echo (" aprobada");
 }
 
-echo("</br>-------------------------------");
+echo ("</br>-------------------------------");
 
 ?>

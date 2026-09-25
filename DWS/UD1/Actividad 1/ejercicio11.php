@@ -13,7 +13,7 @@ $vocales = array("a", "i", "u", "e", "o");
 $repeticiones = 0;
 
 echo ("Ejercicio 11");
-echo("</br>-------------------------------</br>");
+echo ("</br>-------------------------------</br>");
 
 echo ("Cadena: " . $cadena);
 

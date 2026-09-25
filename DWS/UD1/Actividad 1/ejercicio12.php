@@ -10,14 +10,14 @@ Xdebug: http://php-mvc.localhost/Actividad_1/ejercicio12.php
 
 $cadena = "ARROZ";
 
-echo("Ejercicio 12");
-echo("</br>-------------------------------</br>");
+echo ("Ejercicio 12");
+echo ("</br>-------------------------------</br>");
 
-echo("Cadena: " . $cadena);
-echo("</br>");
-echo("Cadena invertida: " . strrev($cadena));
+echo ("Cadena: " . $cadena);
+echo ("</br>");
+echo ("Cadena invertida: " . strrev($cadena));
 
-echo("</br>-------------------------------");
+echo ("</br>-------------------------------");
 
 /*
 <?php
