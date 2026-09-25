@@ -9,10 +9,22 @@ Build-in: http://localhost:8000/Actividad_5/ejercicio05.php
 Xdebug: http://php-mvc.localhost/Actividad_5/ejercicio05.php
 */
 
+$numeros = array();
+$numerosContados = array();
+
 echo ("Ejercicio 05");
-echo ("</br>-------------------------------</br>");
+echo ("</br>-------------------------------");
 
 
+for($i = 0; $i < 50 ; $i++){
+   $numeros[$i] = rand(1, 49);
+}
+
+$numerosContados = array_count_values($numeros);
+
+foreach ($numerosContados as $numero => $repeticiones) {
+    echo ("</br>" . $numero . " se ha repetido " . $repeticiones . " veces");
+}
 
 echo ("</br>-------------------------------");
 
