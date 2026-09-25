@@ -13,11 +13,28 @@ Build-in: http://localhost:8000/Actividad_4/ejercicio03.php
 Xdebug: http://php-mvc.localhost/Actividad_4/ejercicio03.php
 */
 
-echo ("Ejercicio 03");
-echo ("</br>-------------------------------</br>");
+$productos = array("Botas", "Pantunflas", "Deportivas", "Zapatos", "Chancletas");
+$precios  = array(45.95, 12.99, 38.95, 52, 5);
+$rebaja = 25;
+$precioRebajado = 0;
 
+echo("Ejercicio 03");
+echo("</br>-------------------------------");
 
+echo("</br> PRODUCTOS");
+for($i = 0; $i < count($productos); $i++){
+    $precioRebajado = round($precios[$i] * ((100 - $rebaja)/100),2);;
+    echo("</br>- " . $productos[$i] . " rebajadas de " . $precios[$i] . "€ un " . $rebaja . "% a " . $precioRebajado . "€");
+    $precios[$i] = $precioRebajado;
+}
 
-echo ("</br>-------------------------------");
+echo("</br>-------------------------------");
+
+echo("</br> PRECIOS NUEVOS");
+for($i = 0; $i < count($productos); $i++){
+    echo("</br>- " . $productos[$i] . " " . $precios[$i] . "€");
+}
+
+echo("</br>-------------------------------");
 
 ?>
