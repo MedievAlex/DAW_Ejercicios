@@ -11,10 +11,34 @@ Build-in: http://localhost:8000/Actividad_5/ejercicio03.php
 Xdebug: http://php-mvc.localhost/Actividad_5/ejercicio03.php
 */
 
+$semana = array(
+    "ATELEHENA" => rand(1, 10),
+    "MARTITZENA" => rand(1, 10),
+    "EGUAZTENA" => rand(1, 10),
+    "EGUENA" => rand(1, 10),
+    "BARIKUA" => rand(1, 10),
+    "LARUMBATA" => rand(1, 10),
+    "IGANDEA" => rand(1, 10)
+);
+
+$suma = 0;
+$media = 0;
+
 echo ("Ejercicio 03");
-echo ("</br>-------------------------------</br>");
+echo ("</br>-------------------------------");
 
+foreach ($semana as $dia => $numero) {
+    $suma = $suma + $numero;
+    echo ("</br>" . $dia . ": " . $numero);
+}
 
+echo ("</br>-------------------------------");
+
+echo ("</br> La suma es: " . $suma);
+
+$media = $suma / count($semana);
+
+echo ("</br> La media es: " . $media);
 
 echo ("</br>-------------------------------");
 
