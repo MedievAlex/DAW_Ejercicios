@@ -37,28 +37,38 @@ $ar_estados = array(
     "Japon" => ""
 );
 
-$ar_Europa=array("Francia","Italia","Grecia");
-$ar_Asia=array("China","Rusia","Japon");
-$ar_Africa=array("Mali","Egipto","Somalia");
-$ar_America=array("Chile","EEUU","Argentina","Canada");
-$ar_Oceania=array("Nueva Zelanda","Papua","Australia");
+$ar_Europa = array("Francia", "Italia", "Grecia");
+$ar_Asia = array("China", "Rusia", "Japon");
+$ar_Africa = array("Mali", "Egipto", "Somalia");
+$ar_America = array("Chile", "EEUU", "Argentina", "Canada");
+$ar_Oceania = array("Nueva Zelanda", "Papua", "Australia");
+
+$ar_continentes = array(
+    "Europa" => $ar_Europa,
+    "Asia" => $ar_Asia,
+    "Africa" => $ar_Africa,
+    "America" => $ar_America,
+    "Oceanida" => $ar_Oceania
+);
 
 echo ("Ejercicio 07");
-echo ("</br>-------------------------------</br>");
+echo ("</br>-------------------------------");
 
-foreach ($ar_estados as $estado => $continente) {
-/*
-    foreach ($continentes as $continente => $paisesC) {
-        if (str_contains($paisesC, $pais)) {
+foreach ($ar_estados as $estado => $es_continente) {
 
-            for ($i = 0; $i < count($poblaciones); $i++) {
-                if (explode("-", $poblaciones[$i])[0] < $poblacion && $poblacion < explode("-", $poblaciones[$i])[1]) {
-                    echo ("</br>" . $pais . " es un país " . strtolower(explode("-", $poblaciones[$i])[2]) . " de " . $continente);
-                }
+    foreach ($ar_continentes as $continente => $co_paises)
+
+        for ($i = 0; $i < count($co_paises); $i++) {
+            if ($estado == $co_paises[$i]) {
+                $es_continente = $continente;
             }
         }
-    }
-*/
+
+        if($es_continente == ""){
+            $es_continente = "DESCONOCIDO";
+        }
+
+    echo ("</br>" . $estado . " - " . $es_continente);
 }
 
 echo ("</br>-------------------------------");
