@@ -14,12 +14,12 @@
 			formulario.
 			Al pulsar sobre el botón “Enviar”, cargará la página datos.php que
 			recibirá los datos introducidos en el formulario y mostrará los datos.
-			Se tendrá en cuenta lo siguiente:
+			Se tendrá en cuenta lo siguiente:</br>
 				● Si el dato no ha sido enviado o introducido se sacará un
 				mensaje indicando que ese dato no se ha introducido y
-				se imprimirá en rojo.
+				se imprimirá en rojo.</br>
 				● Si el dato se ha introducido o enviado se indicará con un
-				mensaje. El dato enviado se escribirá en negrita.
+				mensaje. El dato enviado se escribirá en negrita.</br>
 			Al pulsar el botón borrar pondrá todos los campos en blanco.
 			<!--
 			Build-in: http://localhost:8000/Actividad_6/ejercicio02.html
@@ -29,9 +29,10 @@
 	</header>
 	<hr>
 
-	<form action="ejercicio02.php" method="get">
-		Primer Numero: <input type="number" name="primerNum"><br><br>
-		Ultimo Numero: <input type="number" name="ultimoNum"><br><br>
+	<form action="ejercicio02.php" method="post">
+		Nombre: <input type="text" name="usrNombre">
+		Apellido: <input type="text" name="usrApellido">
+		Edad: <input type="number" name="usrEdad"><br><br>
 
 		<input value="ENVIAR" type="submit">
 	</form>

@@ -10,15 +10,25 @@ Build-in: http://localhost:8000/Actividad_6/ejercicio01.php
 Xdebug: http://php-mvc.localhost/Actividad_6/ejercicio01.php
 */
 
-if (isset($_GET["numLineas"])) {
-    echo ("Ejercicio 01");
-    echo ("</br>-------------------------------</br>");
+if (isset($_POST["userName"]) && isset($_POST["userPsw"])) {
+    $userName = $_POST["userName"];
+    $userPsw = $_POST["userPsw"];
 
-    
+    if (trim($userName) != "" && trim($userPsw) != "") {
 
-    echo ("</br>-------------------------------");
+        echo ("Ejercicio 01");
+        echo ("</br>-------------------------------</br>");
+
+        echo ("Usuario: " . $userName);
+        echo ("</br>");
+        echo ("Contraseña: " . $userPsw);
+
+        echo ("</br>-------------------------------");
+    } else {
+        echo ("[ERROR]: El parámetro Usuario o Contraseña no es válido.");
+    }
 } else {
-    echo ("No se a recibido el parámetro Numero.");
+    echo ("[ERROR]: El parámetro Usuario o Contraseña no existe.");
 }
 
 ?>
