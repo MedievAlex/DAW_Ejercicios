@@ -27,11 +27,26 @@
 	</header>
 	<hr>
 
-	<form action="ejercicio03.php" method="post">
-		Pares: <input type="checkbox" name="pares"><br><br>
+    <form action="ejercicio03.php" method="post">
+        <h2>Calculadora</h2>
+        Numero uno: <input type="number" id="numUno"><br><br>
+        Numero dos: <input type="number" id="numDos"><br><br>
 
-		<input value="ENVIAR" type="submit">
-	</form>
+        Elige accion:
+        <button type="submit" id="btnSuma"> + </button>
+        <button type="submit" id="btnResta"> - </button>
+        <button type="submit" id="btnMult"> x </button>
+        <button type="submit" id="btnDiv"> / </button>
+        <button type="submit" id="btnBor">BORRAR</button>
+    </form>
+
+    <p>
+    <h3>Historial</h3>
+    <p id="pHistorial">
+
+    </p>
+
+    </p>
 
 </body>
 
