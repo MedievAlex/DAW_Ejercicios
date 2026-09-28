@@ -8,20 +8,29 @@ Build-in: http://localhost:8000/Actividad_3/ejercicio02.php?primerNum=5&ultimoNu
 Xdebug: http://php-mvc.localhost/Actividad_3/ejercicio02.php?primerNum=5&ultimoNum=10
 */
 
-$primerNum = $_GET["primerNum"];
-$ultimoNum = $_GET["ultimoNum"];
-$contador = $primerNum;
-$suma = 0;
+if (isset($_GET["primerNum"], $_GET["ultimoNum"])) {
+    $primerNum = $_GET["primerNum"];
+    $ultimoNum = $_GET["ultimoNum"];
 
-echo ("Ejercicio 04");
-echo ("</br>-------------------------------");
+    if (is_int($primerNum) && is_int($ultimoNum)) {
+        $contador = $primerNum;
+        $suma = 0;
 
-for ($i = $primerNum; $i <= $ultimoNum; $i++) {
-    $suma = $suma + $i;
-    echo ("</br>");
-    echo (($suma - $i) . " + " . $i . " = " . $suma);
+        echo ("Ejercicio 04");
+        echo ("</br>-------------------------------");
+
+        for ($i = $primerNum; $i <= $ultimoNum; $i++) {
+            $suma = $suma + $i;
+            echo ("</br>");
+            echo (($suma - $i) . " + " . $i . " = " . $suma);
+        }
+
+        echo ("</br>-------------------------------");
+    } else {
+        echo ("[ERROR]: El parámetro Primer numero o Ultimo numero no es válido.");
+    }
+} else {
+    echo ("[ERROR]: El parámetro Primer numero o Ultimo numero no existe.");
 }
-
-echo ("</br>-------------------------------");
 
 ?>

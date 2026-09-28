@@ -8,16 +8,24 @@ Build-in: http://localhost:8000/Actividad_3/ejercicio04.php?numero=5
 Xdebug: http://php-mvc.localhost/Actividad_3/ejercicio04.php?numero=5
 */
 
-$numero = $_GET["numero"];
+if (isset($_GET["numero"])) {
+        $numero = $_GET["numero"];
 
-echo ("Ejercicio 04");
-echo ("</br>-------------------------------</br>");
+        if (is_int($numero)) {
+        echo ("Ejercicio 04");
+        echo ("</br>-------------------------------</br>");
 
-for ($i = 1; $i <= 10; $i++) {
-        echo ("</br>");
-        echo ($i . " x " . $numero . " = " . $i * $numero);
+        for ($i = 1; $i <= 10; $i++) {
+                echo ("</br>");
+                echo ($i . " x " . $numero . " = " . $i * $numero);
+        }
+
+        echo ("</br>-------------------------------");
+        } else {
+        echo ("[ERROR]: El parámetro Numero no es válido.");
+    }
+} else {
+        echo ("[ERROR]: El parámetro Numero no existe.");
 }
-
-echo ("</br>-------------------------------");
 
 ?>

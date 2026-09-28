@@ -10,32 +10,41 @@ Build-in: http://localhost:8000/Actividad_3/ejercicio03.php?pares=on
 Xdebug: http://php-mvc.localhost/Actividad_3/ejercicio03.php?pares=on
 */
 
-$pares = $_GET["pares"];
-$par = null;
-$contador = rand(1, 98);
+if (isset($_GET["pares"])) {
+    $pares = $_GET["pares"];
 
-echo ("Ejercicio 03");
-echo ("</br>-------------------------------</br>");
+    if (is_bool($pares)) {
+        $par = null;
+        $contador = rand(1, 98);
 
-if ($pares) {
-    echo ("Mostrar numeros pares hasta " . $contador);
-} else {
-    echo ("Mostrar numeros impares hasta " . $contador);
-}
+        echo ("Ejercicio 03");
+        echo ("</br>-------------------------------</br>");
 
-for ($i = 1; $i < $contador; $i++) {
-    if ($i % 2 == 0) {
-        $par = true;
+        if ($pares) {
+            echo ("Mostrar numeros pares hasta " . $contador);
+        } else {
+            echo ("Mostrar numeros impares hasta " . $contador);
+        }
+
+        for ($i = 1; $i < $contador; $i++) {
+            if ($i % 2 == 0) {
+                $par = true;
+            } else {
+                $par = false;
+            }
+
+            if ($par == $pares) {
+                echo ("</br>");
+                echo ($i);
+            }
+        }
+
+        echo ("</br>-------------------------------");
     } else {
-        $par = false;
+        echo ("[ERROR]: El parámetro Pares no es válido.");
     }
-
-    if ($par == $pares) {
-        echo ("</br>");
-        echo ($i);
-    }
+} else {
+    echo ("[ERROR]: El parámetro Pares no existe.");
 }
-
-echo ("</br>-------------------------------");
 
 ?>

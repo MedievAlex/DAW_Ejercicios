@@ -8,26 +8,35 @@ Build-in: http://localhost:8000/Actividad_3/ejercicio05.php?numero=7
 Xdebug: http://php-mvc.localhost/Actividad_3/ejercicio05.php?numero=7
 */
 
-$numero = $_GET["numero"];
-$contador = 2;
-$primo = true;
+if (isset($_GET["numero"])) {
+    $numero = $_GET["numero"];
 
-echo ("Ejercicio 05");
-echo ("</br>-------------------------------</br>");
+    if (is_int($numero)) {
+        $contador = 2;
+        $primo = true;
 
-while ($primo && ($contador != $numero)) {
-    if ($numero % $contador == 0) {
-        $primo = false;
+        echo ("Ejercicio 05");
+        echo ("</br>-------------------------------</br>");
+
+        while ($primo && ($contador != $numero)) {
+            if ($numero % $contador == 0) {
+                $primo = false;
+            }
+            $contador++;
+        }
+
+        if ($primo) {
+            echo ("Es un numero primo.");
+        } else {
+            echo ("No es un numero primo.");
+        }
+
+        echo ("</br>-------------------------------");
+    } else {
+        echo ("[ERROR]: El parámetro Numero no es válido.");
     }
-    $contador++;
-}
-
-if ($primo) {
-    echo ("Es un numero primo.");
 } else {
-    echo ("No es un numero primo.");
+    echo ("[ERROR]: El parámetro Numero no existe.");
 }
-
-echo ("</br>-------------------------------");
 
 ?>

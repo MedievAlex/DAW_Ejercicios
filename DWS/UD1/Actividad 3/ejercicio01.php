@@ -10,23 +10,28 @@ Xdebug: http://php-mvc.localhost/Actividad_3/ejercicio01.php?numLineas=10
 */
 
 if (isset($_GET["numLineas"])) {
-    $linea = "";
     $numLineas = $_GET["numLineas"];
 
-    echo ("Ejercicio 01");
-    echo ("</br>-------------------------------</br>");
+    if (is_int($numLineas)) {
+        $linea = "";
 
-    echo ("Triangulo rectangulo de " . $numLineas . " x  " . $numLineas . " x  " . $numLineas . ":");
+        echo ("Ejercicio 01");
+        echo ("</br>-------------------------------</br>");
 
-    for ($i = 1; $i <= $numLineas; $i++) {
-        $linea = $linea . "o";
+        echo ("Triangulo rectangulo de " . $numLineas . " x  " . $numLineas . " x  " . $numLineas . ":");
 
-        echo ("</br>" . $linea);
+        for ($i = 1; $i <= $numLineas; $i++) {
+            $linea = $linea . "o";
+
+            echo ("</br>" . $linea);
+        }
+
+        echo ("</br>-------------------------------");
+    } else {
+        echo ("[ERROR]: El parámetro Lineas no es válido.");
     }
-
-    echo ("</br>-------------------------------");
 } else {
-    echo ("No se a recibido el parámetro Numero.");
+    echo ("[ERROR]: El parámetro Lineas no existe.");
 }
 
 ?>

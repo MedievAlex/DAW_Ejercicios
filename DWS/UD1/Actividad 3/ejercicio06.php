@@ -8,27 +8,36 @@ Build-in: http://localhost:8000/Actividad_3/ejercicio06.php?numero=20
 Xdebug: http://php-mvc.localhost/Actividad_3/ejercicio06.php?numero=20
 */
 
-$numero = $_GET["numero"];
-$primo = true;
+if (isset($_GET["numero"])) {
+    $numero = $_GET["numero"];
 
-echo ("Ejercicio 05");
-echo ("</br>-------------------------------</br>");
+    if (is_int($numero)) {
+        $primo = true;
 
-echo ("Numero primos hasta el " . $numero);
+        echo ("Ejercicio 05");
+        echo ("</br>-------------------------------</br>");
 
-for ($i = 1; $i <= $numero; $i++) {
-    $divisiones = 0; 
-    for ($j = 1; $j <= $i; $j++) {
-        if ($i % $j == 0) {
-            $divisiones = $divisiones + 1;
+        echo ("Numero primos hasta el " . $numero);
+
+        for ($i = 1; $i <= $numero; $i++) {
+            $divisiones = 0;
+            for ($j = 1; $j <= $i; $j++) {
+                if ($i % $j == 0) {
+                    $divisiones = $divisiones + 1;
+                }
+            }
+            if ($divisiones == 2 or $i == 1) {
+                echo ("<br>");
+                echo ($i);
+            }
         }
-    }
-    if ($divisiones == 2 or $i == 1) {
-        echo("<br>");
-        echo($i);
-    }
-}
 
-echo ("</br>-------------------------------");
+        echo ("</br>-------------------------------");
+    } else {
+        echo ("[ERROR]: El parámetro Numero no es válido.");
+    }
+} else {
+    echo ("[ERROR]: El parámetro Numero no existe.");
+}
 
 ?>
