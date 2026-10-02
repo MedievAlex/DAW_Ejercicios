@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Ejercicio 03</title>
+</head>
+
+<body>
+	<header>
+		<h3>Ejercicio 03</h3>
+		<p>
+			Realizar una página web llamada calculadora.html. Se introducirán
+			dos números y según el botón pulsado realizará la operación
+			correspondiente:</br>
+				• Se deberá controlar que los números introducidos son
+				enteros. Se indicará con un mensaje si no es así.</br>
+				• Se controlará si se han enviado los datos enviados
+				mediante la función isset.</br>
+				• En caso de error se mantendrán los números en los
+				textbox.
+			<!--
+			Build-in: http://localhost:8000/UD1/Actividad_6/ejercicio03.html
+			Xdebug: http://dws-php.localhost/UD1/Actividad_6/ejercicio03.html  
+			-->
+		</p>
+	</header>
+	<hr>
+
+    <form action="ejercicio03.php" method="post">
+        <h2>Calculadora</h2>
+        Numero uno: <input type="number" id="numUno"><br><br>
+        Numero dos: <input type="number" id="numDos"><br><br>
+
+        Elige accion:
+        <button type="submit" id="btnSuma"> + </button>
+        <button type="submit" id="btnResta"> - </button>
+        <button type="submit" id="btnMult"> x </button>
+        <button type="submit" id="btnDiv"> / </button>
+        <button type="submit" id="btnBor">BORRAR</button>
+    </form>
+
+    <p>
+    <h3>Historial</h3>
+    <p id="pHistorial">
+
+    </p>
+
+    </p>
+
+</body>
+
+</html>
