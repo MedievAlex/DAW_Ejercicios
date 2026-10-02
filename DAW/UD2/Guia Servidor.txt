@@ -12,4 +12,11 @@ sudo ufw status
 sudo apt install openssh-server
 sudo ufw allow ssh
 
-ssh melon@10.22.84.81
+ssh melon@10.22.82.245
+
+
+ssh-keygen
+
+C:\Users\alex.irazola\.ssh
+
+id_ed25519
