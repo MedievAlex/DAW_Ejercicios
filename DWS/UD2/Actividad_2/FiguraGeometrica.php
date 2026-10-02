@@ -64,7 +64,7 @@ Ejercicio 01
 */
 
 // Definición de la clase
-class FiguraGeometrica
+abstract class FiguraGeometrica
 {
     // Atributos
     private string $nombre;
