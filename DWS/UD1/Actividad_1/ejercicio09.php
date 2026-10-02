@@ -13,12 +13,12 @@ $not2 = 7;
 $med = ($not1 + $not2) / 2;
 
 echo ("Ejercicio 09");
-echo ("</br>-------------------------------</br>");
+echo ("<br>-------------------------------<br>");
 
 echo ("Nota uno: " . $not1);
-echo ("</br>");
+echo ("<br>");
 echo ("Nota dos: " . $not2);
-echo ("</br>");
+echo ("<br>");
 echo ("Media: " . $med);
 
 if ($med < 5) {
@@ -27,6 +27,6 @@ if ($med < 5) {
     echo (" aprobada");
 }
 
-echo ("</br>-------------------------------");
+echo ("<br>-------------------------------");
 
 ?>

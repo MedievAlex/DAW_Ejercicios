@@ -12,28 +12,28 @@ Xdebug: http://dws-php.localhost/UD1/Actividad_2/ejercicio02.php
 $contador = 100;
 
 echo ("Ejercicio 01");
-echo ("</br>-------------------------------</br>");
+echo ("<br>-------------------------------<br>");
 
 echo ("[Contador descendente FOR]");
 
 for ($i = $contador; $i > 0; $i--) {
     if ($i % 2 == 0) {
-        echo ("</br>");
+        echo ("<br>");
         echo ($i);
     }
 }
 
-echo ("</br>");
+echo ("<br>");
 echo ("[Contador descendente WHILE]");
 
 while ($contador > 0) {
     if ($contador % 2 == 0) {
-        echo ("</br>");
+        echo ("<br>");
         echo ($contador);
     }
     $contador--;
 }
 
-echo ("</br>-------------------------------");
+echo ("<br>-------------------------------");
 
 ?>

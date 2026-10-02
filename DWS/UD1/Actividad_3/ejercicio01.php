@@ -16,17 +16,17 @@ if (isset($_GET["numLineas"])) {
         $linea = "";
 
         echo ("Ejercicio 01");
-        echo ("</br>-------------------------------</br>");
+        echo ("<br>-------------------------------<br>");
 
         echo ("Triangulo rectangulo de " . $numLineas . " x  " . $numLineas . " x  " . $numLineas . ":");
 
         for ($i = 1; $i <= $numLineas; $i++) {
             $linea = $linea . "o";
 
-            echo ("</br>" . $linea);
+            echo ("<br>" . $linea);
         }
 
-        echo ("</br>-------------------------------");
+        echo ("<br>-------------------------------");
     } else {
         echo ("[ERROR]: El parámetro Lineas no es válido.");
     }

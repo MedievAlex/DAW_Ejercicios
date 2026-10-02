@@ -52,7 +52,7 @@ $ar_continentes = array(
 );
 
 echo ("Ejercicio 07");
-echo ("</br>-------------------------------");
+echo ("<br>-------------------------------");
 
 foreach ($ar_estados as $estado => $es_continente) {
 
@@ -68,9 +68,9 @@ foreach ($ar_estados as $estado => $es_continente) {
             $es_continente = "DESCONOCIDO";
         }
 
-    echo ("</br>" . $estado . " - " . $es_continente);
+    echo ("<br>" . $estado . " - " . $es_continente);
 }
 
-echo ("</br>-------------------------------");
+echo ("<br>-------------------------------");
 
 ?>

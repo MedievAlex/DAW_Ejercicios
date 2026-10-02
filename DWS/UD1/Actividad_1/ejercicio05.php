@@ -11,10 +11,10 @@ Xdebug: http://dws-php.localhost/UD1/Actividad_1/ejercicio05.php
 $num = 20;
 
 echo ("Ejercicio 05");
-echo ("</br>-------------------------------</br>");
+echo ("<br>-------------------------------<br>");
 
 echo ("Numero: " . $num);
-echo ("</br>");
+echo ("<br>");
 
 if ($num % 2 == 0) {
     // El numero es par
@@ -24,6 +24,6 @@ if ($num % 2 == 0) {
     echo ("Es un numero impar");
 }
 
-echo ("</br>-------------------------------");
+echo ("<br>-------------------------------");
 
 ?>

@@ -16,10 +16,10 @@ $array_des = array();
 $array_asc = array();
 
 echo ("Ejercicio 04");
-echo ("</br>-------------------------------</br>");
+echo ("<br>-------------------------------<br>");
 
 echo ("Numeros: " . $num1 . ", " . $num2 . ", " . $num3);
-echo ("</br>");
+echo ("<br>");
 
 if ($num1 > $num2) {
     // El numero 1 es el mayor o intermedio
@@ -70,7 +70,7 @@ for ($i = 0; count($array_des) > $i; $i++) {
     echo ($array_des[$i]);
     echo (" ");
 }
-echo ("</br>");
+echo ("<br>");
 for ($i = count($array_des) - 1; 0 <= $i; $i--) {
     $array_asc[] = $array_des[$i];
     echo (" ");
@@ -82,6 +82,6 @@ for ($i = 0; count($array_asc) > $i; $i++) {
     echo (" ");
 }
 
-echo ("</br>-------------------------------");
+echo ("<br>-------------------------------");
 
 ?>

@@ -13,25 +13,25 @@ $num1 = 10;
 $num2 = 4;
 
 echo ("Ejercicio 01");
-echo ("</br>-------------------------------</br>");
+echo ("<br>-------------------------------<br>");
 
 echo ("Numero uno: " . $num1);
-echo ("</br>");
+echo ("<br>");
 echo ("Numero dos: " . $num2);
-echo ("</br>");
+echo ("<br>");
 
-echo ("</br>");
+echo ("<br>");
 
 echo ("Suma: " . $num1 + $num2);
-echo ("</br>");
+echo ("<br>");
 echo ("Resta: " . $num1 - $num2);
-echo ("</br>");
+echo ("<br>");
 echo ("Multiplicacion: " . $num1 * $num2);
-echo ("</br>");
+echo ("<br>");
 echo ("Division: " . $num1 / $num2);
-echo ("</br>");
+echo ("<br>");
 echo ("Modulo: " . $num1 % $num2);
 
-echo ("</br>-------------------------------");
+echo ("<br>-------------------------------");
 
 ?>

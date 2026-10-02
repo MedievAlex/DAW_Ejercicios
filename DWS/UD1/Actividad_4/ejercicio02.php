@@ -15,13 +15,13 @@ $productos = array("Botas", "Pantunflas", "Deportivas", "Zapatos", "Chancletas")
 $precios  = array(45.95, 12.99, 38.95, 52, 5);
 
 echo ("Ejercicio 02");
-echo ("</br>-------------------------------");
+echo ("<br>-------------------------------");
 
-echo ("</br> PRODUCTOS");
+echo ("<br> PRODUCTOS");
 for ($i = 0; $i < count($productos); $i++) {
-    echo ("</br>- " . $productos[$i] . " " . $precios[$i] . "€");
+    echo ("<br>- " . $productos[$i] . " " . $precios[$i] . "€");
 }
 
-echo ("</br>-------------------------------");
+echo ("<br>-------------------------------");
 
 ?>

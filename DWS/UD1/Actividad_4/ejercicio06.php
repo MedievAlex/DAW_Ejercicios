@@ -12,11 +12,11 @@ $numeros = array();
 $media = 0;
 
 echo ("Ejercicio 06");
-echo ("</br>-------------------------------</br>");
+echo ("<br>-------------------------------<br>");
 
 echo ("NUMEROS");
 for ($i = 0; $i < 10; $i++) {
-    echo ("</br>");
+    echo ("<br>");
     $numeros[$i] = rand(1, 98);
     $media = $media + $numeros[$i];
     echo ("- " . $numeros[$i]);
@@ -24,10 +24,10 @@ for ($i = 0; $i < 10; $i++) {
 
 $media = $media / count($numeros); // $media = array_sum($numeros) / count($numeros);
 
-echo ("</br>");
+echo ("<br>");
 
 echo ("La media es " . $media);
 
-echo ("</br>-------------------------------");
+echo ("<br>-------------------------------");
 
 ?>

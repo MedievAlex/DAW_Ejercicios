@@ -11,24 +11,24 @@ $contador = 1;
 $limite = 100;
 
 echo ("Ejercicio 01");
-echo ("</br>-------------------------------</br>");
+echo ("<br>-------------------------------<br>");
 
 echo ("[Contador ascendente FOR]");
 
 for ($i = 1; $i <= $limite; $i++) {
-    echo ("</br>");
+    echo ("<br>");
     echo ($i);
 }
 
-echo ("</br>");
+echo ("<br>");
 echo ("[Contador ascendente WHILE]");
 
 while ($contador <= $limite) {
-    echo ("</br>");
+    echo ("<br>");
     echo ($contador);
     $contador++;
 }
 
-echo ("</br>-------------------------------");
+echo ("<br>-------------------------------");
 
 ?>

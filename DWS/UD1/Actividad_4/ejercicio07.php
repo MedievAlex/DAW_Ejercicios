@@ -16,28 +16,28 @@ Xdebug: http://dws-php.localhost/UD1/Actividad_4/ejercicio07.php
 $numeros = array();
 
 echo ("Ejercicio 07");
-echo ("</br>-------------------------------</br>");
+echo ("<br>-------------------------------<br>");
 
 echo ("NUMEROS");
 for ($i = 0; $i < 10; $i++) {
-    echo ("</br>");
+    echo ("<br>");
     $numeros[$i] = rand(1, 200);
     echo ("- " . $numeros[$i]);
 }
 
-echo ("</br>");
+echo ("<br>");
 print_r($numeros);
 
-echo ("</br>");
+echo ("<br>");
 echo ("NUMEROS ORDEN INVERSO");
 for ($i = count($numeros) -1; $i > 0; $i--) {
-    echo ("</br>");
+    echo ("<br>");
     echo ("- " . $numeros[$i]);
 }
 
-echo ("</br>");
+echo ("<br>");
 print_r(array_reverse($numeros));
 
-echo ("</br>-------------------------------");
+echo ("<br>-------------------------------");
 
 ?>

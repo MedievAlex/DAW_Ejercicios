@@ -16,7 +16,7 @@ $reemplazos = array("4", "1", "2", "6", "0");
 
 echo("Ejercicio 15");
 
-echo("</br>-------------------------------</br>");
+echo("<br>-------------------------------<br>");
 
 echo ("Cadena: " . $cadena);
 $cadenaMod = strtolower($cadena);
@@ -26,9 +26,9 @@ for ($i = 0; count($vocales) > $i; $i++) {
     $cadenaMod = str_replace($vocales[$i], $reemplazos[$i], $cadenaMod);
 }
 
-echo ("</br>");
+echo ("<br>");
 echo ("Cadena reemplazada: " . $cadenaMod);
 
-echo("</br>-------------------------------");
+echo("<br>-------------------------------");
 
 ?>

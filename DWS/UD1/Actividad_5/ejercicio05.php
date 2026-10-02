@@ -13,7 +13,7 @@ $numeros = array();
 $numerosContados = array();
 
 echo ("Ejercicio 05");
-echo ("</br>-------------------------------");
+echo ("<br>-------------------------------");
 
 
 for($i = 0; $i < 50 ; $i++){
@@ -23,9 +23,9 @@ for($i = 0; $i < 50 ; $i++){
 $numerosContados = array_count_values($numeros);
 
 foreach ($numerosContados as $numero => $repeticiones) {
-    echo ("</br>" . $numero . " se ha repetido " . $repeticiones . " veces");
+    echo ("<br>" . $numero . " se ha repetido " . $repeticiones . " veces");
 }
 
-echo ("</br>-------------------------------");
+echo ("<br>-------------------------------");
 
 ?>

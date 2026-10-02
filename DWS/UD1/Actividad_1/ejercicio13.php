@@ -12,10 +12,10 @@ $cadena = "ARROZ";
 $invertido = strrev($cadena);
 
 echo ("Ejercicio 13");
-echo ("</br>-------------------------------</br>");
+echo ("<br>-------------------------------<br>");
 
 echo ("Cadena: " . $cadena);
-echo ("</br>");
+echo ("<br>");
 
 if ($invertido == $cadena) { // strcmp($invertido, $cadena)
     echo ($cadena . " es un palindromo.");
@@ -23,6 +23,6 @@ if ($invertido == $cadena) { // strcmp($invertido, $cadena)
     echo ($cadena . " no es un palindromo.");
 }
 
-echo ("</br>-------------------------------");
+echo ("<br>-------------------------------");
 
 ?>

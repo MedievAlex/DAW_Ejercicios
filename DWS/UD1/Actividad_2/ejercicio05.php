@@ -22,13 +22,13 @@ $fila = 1;
 $linea = "";
 
 echo ("Ejercicio 05");
-echo ("</br>-------------------------------</br>");
+echo ("<br>-------------------------------<br>");
 
 echo ("Triangulo rectangulo de " . $n . " x  " . $n . " x  " . $n . " con WHILE");
 
 while ($fila <= $n) {
     $relleno = 1;
-    echo ("</br>");
+    echo ("<br>");
 
     while ($relleno <= $fila) {
         echo ("o");
@@ -38,25 +38,25 @@ while ($fila <= $n) {
     $fila++;
 }
 
-echo ("</br>");
+echo ("<br>");
 echo ("Triangulo rectangulo de " . $n . " x  " . $n . " x  " . $n . " con FOR 1");
 
 for ($i = 1; $i <= $n; $i++) {
     $linea = $linea . "o";
 
-    echo ("</br>" . $linea);
+    echo ("<br>" . $linea);
 }
 
-echo ("</br>");
+echo ("<br>");
 echo ("Triangulo rectangulo de " . $n . " x  " . $n . " x  " . $n . " con FOR 2");
 
 for ($i = 0; $i <= $n; $i++) {
     for ($j = 0; $j < $i; $j++) {
         echo "o";
     }
-    echo "</br>";
+    echo "<br>";
 }
 
-echo ("</br>-------------------------------");
+echo ("<br>-------------------------------");
 
 ?>

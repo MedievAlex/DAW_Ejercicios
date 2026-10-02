@@ -16,7 +16,7 @@ if (isset($_GET["numero"])) {
         $primo = true;
 
         echo ("Ejercicio 05");
-        echo ("</br>-------------------------------</br>");
+        echo ("<br>-------------------------------<br>");
 
         while ($primo && ($contador != $numero)) {
             if ($numero % $contador == 0) {

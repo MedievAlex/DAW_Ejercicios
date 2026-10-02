@@ -18,13 +18,13 @@ if (isset($_POST["userName"]) && isset($_POST["userPsw"])) {
     if (trim($userName) != "" && trim($userPsw) != "") {
 
         echo ("Ejercicio 01");
-        echo ("</br>-------------------------------</br>");
+        echo ("<br>-------------------------------<br>");
 
         echo ("Usuario: " . $userName);
-        echo ("</br>");
+        echo ("<br>");
         echo ("Contraseña: " . $userPsw);
 
-        echo ("</br>-------------------------------");
+        echo ("<br>-------------------------------");
     } else {
         echo ("[ERROR]: El parámetro Usuario o Contraseña no es válido.");
     }

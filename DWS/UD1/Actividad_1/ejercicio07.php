@@ -17,10 +17,10 @@ $nota = 6.8;
 $resultado = "desconocido";
 
 echo ("Ejercicio 07");
-echo ("</br>-------------------------------</br>");
+echo ("<br>-------------------------------<br>");
 
 echo ("La nota: " . $nota);
-echo ("</br>");
+echo ("<br>");
 
 if (1 <= $nota && $nota <= 4.9) {
     $resultado = "suspenso";
@@ -38,6 +38,6 @@ if (1 <= $nota && $nota <= 4.9) {
 
 echo ("Resultado: " . $resultado);
 
-echo ("</br>-------------------------------");
+echo ("<br>-------------------------------");
 
 ?>

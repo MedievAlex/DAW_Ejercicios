@@ -15,7 +15,7 @@ if (isset($_GET["numero"])) {
         $primo = true;
 
         echo ("Ejercicio 05");
-        echo ("</br>-------------------------------</br>");
+        echo ("<br>-------------------------------<br>");
 
         echo ("Numero primos hasta el " . $numero);
 
@@ -32,7 +32,7 @@ if (isset($_GET["numero"])) {
             }
         }
 
-        echo ("</br>-------------------------------");
+        echo ("<br>-------------------------------");
     } else {
         echo ("[ERROR]: El parámetro Numero no es válido.");
     }

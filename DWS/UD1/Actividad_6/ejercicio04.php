@@ -20,10 +20,10 @@ Xdebug: http://dws-php.localhost/UD1/Actividad_6/ejercicio04.php
 */
 
 echo ("Ejercicio 04");
-echo ("</br>-------------------------------</br>");
+echo ("<br>-------------------------------<br>");
 
 
 
-echo ("</br>-------------------------------");
+echo ("<br>-------------------------------");
 
 ?>

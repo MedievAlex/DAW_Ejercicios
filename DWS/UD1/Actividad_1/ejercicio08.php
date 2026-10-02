@@ -16,10 +16,10 @@ $llam = 4;
 $cost = 0;
 
 echo ("Ejercicio 08");
-echo ("</br>-------------------------------</br>");
+echo ("<br>-------------------------------<br>");
 
 echo ("Duracion: " . $llam . " minutos");
-echo ("</br>");
+echo ("<br>");
 
 if ($llam <= 3) {
     $cost = 0.1;
@@ -29,6 +29,6 @@ if ($llam <= 3) {
 
 echo ("A pagar: " . $cost . " euro");
 
-echo ("</br>-------------------------------");
+echo ("<br>-------------------------------");
 
 ?>

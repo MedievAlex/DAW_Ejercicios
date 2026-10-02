@@ -14,27 +14,27 @@ $contador = $primerNum;
 $suma = 0;
 
 echo ("Ejercicio 04");
-echo ("</br>-------------------------------</br>");
+echo ("<br>-------------------------------<br>");
 
 echo ("[Suma ascendente FOR]");
 
 for ($i = $primerNum; $i <= $ultimoNum; $i++) {
     $suma = $suma + $i;
-    echo ("</br>");
+    echo ("<br>");
     echo (($suma - $i) . " + " . $i . " = " . $suma);
 }
 $suma = 0;
 
-echo ("</br>");
+echo ("<br>");
 echo ("[Suma ascendente WHILE]");
 
 while ($contador <= $ultimoNum) {
     $suma = $suma + $contador;
-    echo ("</br>");
+    echo ("<br>");
     echo (($suma - $contador) . " + " . $contador . " = " . $suma);
     $contador++;
 }
 
-echo ("</br>-------------------------------");
+echo ("<br>-------------------------------");
 
 ?>

@@ -25,21 +25,21 @@ $suma = 0;
 $media = 0;
 
 echo ("Ejercicio 03");
-echo ("</br>-------------------------------");
+echo ("<br>-------------------------------");
 
 foreach ($semana as $dia => $numero) {
     $suma = $suma + $numero;
-    echo ("</br>" . $dia . ": " . $numero);
+    echo ("<br>" . $dia . ": " . $numero);
 }
 
-echo ("</br>-------------------------------");
+echo ("<br>-------------------------------");
 
-echo ("</br> La suma es: " . $suma);
+echo ("<br> La suma es: " . $suma);
 
 $media = $suma / count($semana);
 
-echo ("</br> La media es: " . $media);
+echo ("<br> La media es: " . $media);
 
-echo ("</br>-------------------------------");
+echo ("<br>-------------------------------");
 
 ?>

@@ -25,9 +25,9 @@ $usuario2 = array("nombre" => $nombre2, "apellido" => $apellido2, "DNI" => $dni2
 $usuarios = array($usuario1, $usuario2);
 
 echo ("Ejercicio 01");
-echo ("</br>-------------------------------</br>");
+echo ("<br>-------------------------------</br>");
 
-echo ("</br>");
+echo ("<br>");
 
 echo ("<table>
   <tr>
@@ -54,6 +54,6 @@ if (count($usuarios) == 0) {
     ");
 }
 
-echo ("</br>-------------------------------");
+echo ("<br>-------------------------------");
 
 ?>

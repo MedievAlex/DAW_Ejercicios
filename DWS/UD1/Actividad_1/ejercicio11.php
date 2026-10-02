@@ -13,17 +13,17 @@ $vocales = array("a", "i", "u", "e", "o");
 $repeticiones = 0;
 
 echo ("Ejercicio 11");
-echo ("</br>-------------------------------</br>");
+echo ("<br>-------------------------------<br>");
 
 echo ("Cadena: " . $cadena);
 
 for ($i = 0; count($vocales) > $i; $i++) {
     $repeticiones = substr_count(strtolower($cadena), $vocales[$i]);
 
-    echo ("</br>");
+    echo ("<br>");
     echo ("La vocal " . $vocales[$i] . " aparece " . $repeticiones . " veces.");
 }
 
-echo ("</br>-------------------------------");
+echo ("<br>-------------------------------");
 
 ?>

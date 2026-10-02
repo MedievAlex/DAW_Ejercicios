@@ -19,25 +19,25 @@ $valores = array(
 );
 
 echo ("Ejercicio 04");
-echo ("</br>-------------------------------</br>");
+echo ("<br>-------------------------------<br>");
 
 echo ("ORDEN POR KEY");
 
 ksort($valores);
 
 foreach ($valores as $letra => $numero) {
-    echo ("</br>" . $letra . " - " . $numero);
+    echo ("<br>" . $letra . " - " . $numero);
 }
-echo ("</br>");
+echo ("<br>");
 
 echo ("ORDEN NATURAL");
 
 natsort($valores);
 
 foreach ($valores as $letra => $numero) {
-    echo ("</br>" . $letra . " - " . $numero);
+    echo ("<br>" . $letra . " - " . $numero);
 }
 
-echo ("</br>-------------------------------");
+echo ("<br>-------------------------------");
 
 ?>

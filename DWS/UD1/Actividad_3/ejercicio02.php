@@ -17,15 +17,15 @@ if (isset($_GET["primerNum"], $_GET["ultimoNum"])) {
         $suma = 0;
 
         echo ("Ejercicio 04");
-        echo ("</br>-------------------------------");
+        echo ("<br>-------------------------------");
 
         for ($i = $primerNum; $i <= $ultimoNum; $i++) {
             $suma = $suma + $i;
-            echo ("</br>");
+            echo ("<br>");
             echo (($suma - $i) . " + " . $i . " = " . $suma);
         }
 
-        echo ("</br>-------------------------------");
+        echo ("<br>-------------------------------");
     } else {
         echo ("[ERROR]: El parámetro Primer numero o Ultimo numero no es válido.");
     }

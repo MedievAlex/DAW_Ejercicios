@@ -15,7 +15,7 @@ $par = null;
 $contador = rand(1, 98);
 
 echo ("Ejercicio 03");
-echo ("</br>-------------------------------</br>");
+echo ("<br>-------------------------------<br>");
 
 if ($pares) {
     echo ("Mostrar numeros pares hasta " . $contador);
@@ -31,11 +31,11 @@ for ($i = 0; $i < $contador; $i++) {
     }
 
     if ($par == $pares) {
-        echo ("</br>");
+        echo ("<br>");
         echo ($i);
     }
 }
 
-echo ("</br>-------------------------------");
+echo ("<br>-------------------------------");
 
 ?>

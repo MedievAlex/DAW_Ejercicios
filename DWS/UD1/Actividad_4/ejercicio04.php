@@ -11,19 +11,19 @@ Xdebug: http://dws-php.localhost/UD1/Actividad_4/ejercicio04.php
 $numeros = array();
 
 echo ("Ejercicio 04");
-echo ("</br>-------------------------------</br>");
+echo ("<br>-------------------------------<br>");
 
 echo ("NUMEROS");
 for ($i = 0; $i < 10; $i++) {
-    echo ("</br>");
+    echo ("<br>");
     $numeros[$i] = rand(1, 100);
     echo ("- " . $numeros[$i]);
 }
 
-echo ("</br>");
+echo ("<br>");
 
 echo ("El número más grande es el " . max($numeros));
 
-echo ("</br>-------------------------------");
+echo ("<br>-------------------------------");
 
 ?>

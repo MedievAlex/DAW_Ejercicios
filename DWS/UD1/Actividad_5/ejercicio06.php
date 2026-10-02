@@ -64,7 +64,7 @@ $continentes = array(
 );
 
 echo ("Ejercicio 06");
-echo ("</br>-------------------------------");
+echo ("<br>-------------------------------");
 
 foreach ($paises as $pais => $poblacion) {
 
@@ -73,13 +73,13 @@ foreach ($paises as $pais => $poblacion) {
 
             for ($i = 0; $i < count($poblaciones); $i++) {
                 if (explode("-", $poblaciones[$i])[0] < $poblacion && $poblacion < explode("-", $poblaciones[$i])[1]) {
-                    echo ("</br>" . $pais . " es un país " . strtolower(explode("-", $poblaciones[$i])[2]) . " de " . $continente);
+                    echo ("<br>" . $pais . " es un país " . strtolower(explode("-", $poblaciones[$i])[2]) . " de " . $continente);
                 }
             }
         }
     }
 }
 
-echo ("</br>-------------------------------");
+echo ("<br>-------------------------------");
 
 ?>

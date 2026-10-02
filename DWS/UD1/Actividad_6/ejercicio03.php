@@ -20,7 +20,7 @@ if (isset($_GET["numUno"], $_GET["numDos"])) {
     $ultimoNum = $_GET["numDos"];
 
 echo ("Ejercicio 03");
-echo ("</br>-------------------------------</br>");
+echo ("<br>-------------------------------<br>");
 
 if (isset($_POST["btnSuma"])) {
 

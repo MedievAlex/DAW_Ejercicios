@@ -11,13 +11,13 @@ Xdebug: http://dws-php.localhost/UD1/Actividad_1/ejercicio12.php
 $cadena = "ARROZ";
 
 echo ("Ejercicio 12");
-echo ("</br>-------------------------------</br>");
+echo ("<br>-------------------------------<br>");
 
 echo ("Cadena: " . $cadena);
-echo ("</br>");
+echo ("<br>");
 echo ("Cadena invertida: " . strrev($cadena));
 
-echo ("</br>-------------------------------");
+echo ("<br>-------------------------------");
 
 /*
 <?php

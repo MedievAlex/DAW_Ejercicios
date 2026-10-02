@@ -18,7 +18,7 @@ if (isset($_GET["pares"])) {
         $contador = rand(1, 98);
 
         echo ("Ejercicio 03");
-        echo ("</br>-------------------------------</br>");
+        echo ("<br>-------------------------------<br>");
 
         if ($pares) {
             echo ("Mostrar numeros pares hasta " . $contador);
@@ -34,12 +34,12 @@ if (isset($_GET["pares"])) {
             }
 
             if ($par == $pares) {
-                echo ("</br>");
+                echo ("<br>");
                 echo ($i);
             }
         }
 
-        echo ("</br>-------------------------------");
+        echo ("<br>-------------------------------");
     } else {
         echo ("[ERROR]: El parámetro Pares no es válido.");
     }

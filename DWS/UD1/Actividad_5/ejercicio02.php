@@ -27,12 +27,12 @@ $calendario = array(
 );
 
 echo ("Ejercicio 02");
-echo ("</br>-------------------------------");
+echo ("<br>-------------------------------");
 
 foreach ($calendario as $mes => $dia) {
-    echo ("</br>" . $mes . " tiene " . $dia . " dias");
+    echo ("<br>" . $mes . " tiene " . $dia . " dias");
 }
 
-echo ("</br>-------------------------------");
+echo ("<br>-------------------------------");
 
 ?>

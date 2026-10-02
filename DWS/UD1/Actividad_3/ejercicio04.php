@@ -13,14 +13,14 @@ if (isset($_GET["numero"])) {
 
         if (is_int($numero)) {
         echo ("Ejercicio 04");
-        echo ("</br>-------------------------------</br>");
+        echo ("<br>-------------------------------<br>");
 
         for ($i = 1; $i <= 10; $i++) {
                 echo ("</br>");
                 echo ($i . " x " . $numero . " = " . $i * $numero);
         }
 
-        echo ("</br>-------------------------------");
+        echo ("<br>-------------------------------");
         } else {
         echo ("[ERROR]: El parámetro Numero no es válido.");
     }
