@@ -16,10 +16,10 @@ let tareas = JSON.parse(localStorage.getItem("tareas")) || [];
 
 // -----------------------------------------------------Event Listeners
 btnAgregar.addEventListener("click", () => {
-    const taskText = taskInput.value.trim();
+    const taskText = inpTarea.value.trim();
     if (taskText) {
-        tasks.push({ text: taskText, completed: false });
-        taskInput.value = "";
+        tareas.push({ nombre: taskText, completa: false });
+        inpTarea.value = "";
         saveTasks();
         renderTasks();
     }
@@ -28,15 +28,29 @@ btnAgregar.addEventListener("click", () => {
 // -----------------------------------------------------Funciones
 // Función para actualizar la lista de tareas en el DOM
 function renderTasks() {
-    taskList.innerHTML = "";
-    tasks.forEach((task, index) => {
+    ulLista.innerHTML = "";
+    tareas.forEach((tarea, index) => {
         const li = document.createElement("li");
-        li.textContent = task.text;
-        li.className = task.completed ? "completed" : "";
+
+        // Botón para eliminar tarea
+        const checkBox = document.createElement("checkbox");
+        checkBox.addEventListener("change", (e) => {
+            if (tarea.completa) {
+                checkBox.value = 1;
+            }
+
+            saveTasks();
+            renderTasks();
+        });
+        li.appendChild(checkBox);
+
+        li.textContent = tarea.nombre;
+
 
         // Marcar tarea como completada al hacer click
         li.addEventListener("click", () => {
-            task.completed = !task.completed;
+            tarea.completa = !tarea.completa;
+
             saveTasks();
             renderTasks();
         });
@@ -46,19 +60,20 @@ function renderTasks() {
         deleteButton.textContent = "Eliminar";
         deleteButton.addEventListener("click", (e) => {
             e.stopPropagation(); // Evita que se marque como completado
-            tasks.splice(index, 1);
+            tareas.splice(index, 1);
+
             saveTasks();
             renderTasks();
         });
-
         li.appendChild(deleteButton);
-        taskList.appendChild(li);
+
+        ulLista.appendChild(li);
     });
 }
 
 // Guardar tareas en el Local Storage
 function saveTasks() {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
+    localStorage.setItem("tareas", JSON.stringify(tareas));
 }
 
 // Renderizar tareas al cargar la página
