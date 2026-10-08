@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio práctico de CSS</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <header id="cabecera">
+    <h1>Instituto Tecnológico DAM</h1>
+    <p class="subtitulo">Ejercicio práctico de CSS</p>
+
+    <nav id="menu-principal">
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#sobre-nosotros">Sobre nosotros</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#formulario">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <section id="inicio" class="seccion">
+      <h2>Bienvenidos</h2>
+      <img src="https://picsum.photos/300/180" alt="Imagen de ejemplo" class="imagen-destacada">
+      <p>
+        Este es un párrafo de <strong>texto normal</strong> con una palabra en <em>cursiva</em>
+        y otra <span class="resaltado">resaltada con un span</span>. Sirve para practicar
+        color, tipografía, interlineado y márgenes.
+      </p>
+      <p>
+        Segundo párrafo con un <a href="https://developer.mozilla.org/es/docs/Web/CSS" target="_blank">enlace a MDN</a>
+        para practicar los estilos de los enlaces (normal, visitado, hover, active).
+      </p>
+      <blockquote>
+        "El buen diseño es tan poco diseño como sea posible." — Dieter Rams
+      </blockquote>
+    </section>
+
+    <section id="sobre-nosotros" class="seccion fondo-alterno">
+      <h2>Sobre nosotros</h2>
+      <div class="tarjetas">
+        <article class="tarjeta">
+          <h3>Misión</h3>
+          <p>Formar profesionales en desarrollo de aplicaciones multiplataforma.</p>
+        </article>
+        <article class="tarjeta">
+          <h3>Visión</h3>
+          <p>Ser referentes en la enseñanza de ciberseguridad y sistemas de gestión.</p>
+        </article>
+        <article class="tarjeta">
+          <h3>Valores</h3>
+          <p>Rigor técnico, trabajo en equipo y aprendizaje continuo.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="servicios" class="seccion">
+      <h2>Servicios / Módulos</h2>
+      <ul class="lista-servicios">
+        <li>Programación multiplataforma</li>
+        <li>Bases de datos</li>
+        <li>Ciberseguridad</li>
+        <li>Sistemas de Gestión Empresarial (SGE)</li>
+        <li>Desarrollo de interfaces</li>
+      </ul>
+
+      <h3>Comparativa (tabla)</h3>
+      <table id="tabla-datos">
+        <thead>
+          <tr>
+            <th>Módulo</th>
+            <th>Horas/semana</th>
+            <th>Curso</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ciberseguridad</td>
+            <td>4</td>
+            <td>2º DAM</td>
+          </tr>
+          <tr>
+            <td>SGE</td>
+            <td>3</td>
+            <td>2º DAM</td>
+          </tr>
+          <tr>
+            <td>Programación</td>
+            <td>6</td>
+            <td>1º DAM</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="galeria" class="seccion fondo-alterno">
+      <h2>Galería</h2>
+      <div class="galeria-imagenes">
+        <img src="https://picsum.photos/200/150?1" alt="Imagen 1">
+        <img src="https://picsum.photos/200/150?2" alt="Imagen 2">
+        <img src="https://picsum.photos/200/150?3" alt="Imagen 3">
+      </div>
+    </section>
+
+    <section id="formulario" class="seccion">
+      <h2>Contacto</h2>
+      <form id="form-contacto">
+        <div class="campo">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Tu nombre">
+        </div>
+
+        <div class="campo">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com">
+        </div>
+
+        <div class="campo">
+          <label for="asunto">Asunto</label>
+          <select id="asunto" name="asunto">
+            <option value="info">Información general</option>
+            <option value="soporte">Soporte técnico</option>
+            <option value="otros">Otros</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu mensaje..."></textarea>
+        </div>
+
+        <div class="campo campo-checkbox">
+          <input type="checkbox" id="acepto" name="acepto">
+          <label for="acepto">Acepto la política de privacidad</label>
+        </div>
+
+        <button type="submit" class="boton boton-primario">Enviar</button>
+        <button type="reset" class="boton boton-secundario">Borrar</button>
+      </form>
+    </section>
+
+  </main>
+
+  <footer id="pie">
+    <p>&copy; 2026 Instituto Tecnológico DAM. Ejercicio práctico de CSS.</p>
+    <ul class="redes-sociales">
+      <li><a href="#">Twitter</a></li>
+      <li><a href="#">LinkedIn</a></li>
+      <li><a href="#">GitHub</a></li>
+    </ul>
+  </footer>
+
+  <a href="#cabecera" id="volver-arriba">↑</a>
+
+</body>
+</html>
