@@ -1,0 +1,161 @@
+:root {
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --primary: #2563eb;
+  --primary-strong: #1d4ed8;
+  --danger: #dc2626;
+  --ok: #15803d;
+  --border: #d1d5db;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.container {
+  max-width: 900px;
+  margin: 24px auto;
+  padding: 0 16px 32px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+h1, h2 {
+  margin: 0 0 12px 0;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+h2 {
+  font-size: 1.1rem;
+}
+
+ul {
+  margin: 8px 0 0 18px;
+  padding: 0;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+input, select, button {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+button {
+  cursor: pointer;
+  font-weight: 600;
+  border: none;
+  color: #fff;
+  background: var(--primary);
+}
+
+button:hover {
+  background: var(--primary-strong);
+}
+
+.btn-secondary {
+  background: #4b5563;
+}
+
+.btn-danger {
+  background: var(--danger);
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.message {
+  min-height: 22px;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.message.ok {
+  color: var(--ok);
+}
+
+.message.error {
+  color: var(--danger);
+}
+
+.task-list {
+  margin-top: 12px;
+  display: grid;
+  gap: 8px;
+}
+
+.task-item {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  background: #f9fafb;
+}
+
+.task-item strong {
+  display: block;
+}
+
+.task-item small {
+  color: var(--muted);
+}
+
+.task-item button {
+  width: auto;
+  padding: 8px 10px;
+  background: var(--danger);
+}
+
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
