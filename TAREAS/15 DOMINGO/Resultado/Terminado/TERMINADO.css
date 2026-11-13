@@ -1,0 +1,338 @@
+/* =========================================================
+   ESTILOS - Plantilla de práctica DAM
+   ========================================================= */
+
+/* ---- Reset básico ---- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.6;
+  color: #2b2b2b;
+  background-color: #f4f6f8;
+}
+
+/* ---- Cabecera ---- */
+#cabecera {
+  background-color: #1f2a44;
+  color: #ffffff;
+  padding: 2rem 1rem 1rem;
+  text-align: center;
+}
+
+#cabecera h1 {
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+#cabecera .subtitulo {
+  color: #c3cbe0;
+  margin-top: 0.3rem;
+  font-style: italic;
+}
+
+/* ---- Menú de navegación ---- */
+#menu-principal {
+  margin-top: 1.5rem;
+}
+
+#menu-principal ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+#menu-principal a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+#menu-principal a:hover {
+  background-color: #3a4a75;
+}
+
+#menu-principal a:active {
+  background-color: #55699e;
+}
+
+/* ---- Secciones generales ---- */
+.seccion {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+.seccion h2 {
+  font-size: 1.8rem;
+  color: #1f2a44;
+  margin-bottom: 1rem;
+  border-bottom: 3px solid #4a63a8;
+  display: inline-block;
+  padding-bottom: 0.3rem;
+}
+
+.seccion h3 {
+  margin: 1.5rem 0 0.8rem;
+  color: #2b2b2b;
+}
+
+.fondo-alterno {
+  background-color: #eef1f6;
+}
+
+/* ---- Texto e imagen destacada ---- */
+.imagen-destacada {
+  display: block;
+  max-width: 100%;
+  border-radius: 8px;
+  margin: 1rem 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.resaltado {
+  background-color: #fff3b0;
+  padding: 0 0.2rem;
+  border-radius: 3px;
+}
+
+.seccion p {
+  margin-bottom: 1rem;
+}
+
+.seccion a {
+  color: #2f5fd6;
+}
+
+.seccion a:hover {
+  text-decoration: none;
+  color: #1a3a8f;
+}
+
+blockquote {
+  border-left: 4px solid #4a63a8;
+  padding: 0.5rem 1rem;
+  color: #555;
+  font-style: italic;
+  background-color: #fafafa;
+  margin: 1.5rem 0;
+}
+
+/* ---- Tarjetas (Sobre nosotros) ---- */
+.tarjetas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+.tarjeta {
+  flex: 1 1 220px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.tarjeta:hover {
+  transform: translateY(-5px);
+}
+
+.tarjeta h3 {
+  color: #4a63a8;
+  margin-top: 0;
+}
+
+/* ---- Lista de servicios ---- */
+.lista-servicios {
+  list-style: none;
+  margin: 1rem 0;
+}
+
+.lista-servicios li {
+  background-color: #ffffff;
+  padding: 0.7rem 1rem;
+  margin-bottom: 0.5rem;
+  border-left: 4px solid #4a63a8;
+  border-radius: 4px;
+}
+
+/* ---- Tabla ---- */
+#tabla-datos {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background-color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+#tabla-datos th,
+#tabla-datos td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+#tabla-datos th {
+  background-color: #1f2a44;
+  color: #ffffff;
+}
+
+#tabla-datos tbody tr:nth-child(even) {
+  background-color: #f4f6f8;
+}
+
+#tabla-datos tbody tr:hover {
+  background-color: #eaf0ff;
+}
+
+/* ---- Galería ---- */
+.galeria-imagenes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.galeria-imagenes img {
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+}
+
+.galeria-imagenes img:hover {
+  transform: scale(1.05);
+}
+
+/* ---- Formulario ---- */
+#form-contacto {
+  max-width: 500px;
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 1.5rem;
+}
+
+.campo {
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.campo label {
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+  color: #1f2a44;
+}
+
+.campo input[type="text"],
+.campo input[type="email"],
+.campo select,
+.campo textarea {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+  outline: none;
+  border-color: #4a63a8;
+  box-shadow: 0 0 0 2px rgba(74, 99, 168, 0.2);
+}
+
+.campo-checkbox {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.campo-checkbox label {
+  margin-bottom: 0;
+  font-weight: 400;
+}
+
+/* ---- Botones ---- */
+.boton {
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-right: 0.8rem;
+  transition: background-color 0.2s ease;
+}
+
+.boton-primario {
+  background-color: #4a63a8;
+  color: #ffffff;
+}
+
+.boton-primario:hover {
+  background-color: #364a80;
+}
+
+.boton-secundario {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.boton-secundario:hover {
+  background-color: #cacaca;
+}
+
+/* ---- Pie de página ---- */
+#pie {
+  background-color: #1f2a44;
+  color: #ffffff;
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 2rem;
+}
+
+#pie p {
+  margin-bottom: 1rem;
+}
+
+.redes-sociales {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.redes-sociales a {
+  color: #c3cbe0;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.redes-sociales a:hover {
+  color: #ffffff;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 600px) {
+  #menu-principal ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .tarjetas {
+    flex-direction: column;
+  }
+}
