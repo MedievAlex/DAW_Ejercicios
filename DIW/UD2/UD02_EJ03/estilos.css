@@ -1,0 +1,473 @@
+/* ------------[ ENUNCIADO ]------------ */
+/*
+Partiendo de un HTML ya dado (sin apenas estilos), el alumnado debe diseñar y maquetar una única
+página web que integre todas las propiedades CSS recogidas en la tabla siguiente. No se trata de
+aplicar cada bloque de forma aislada, sino de construir una página real y unificada (cabecera,
+secciones, tarjetas, galería, formulario, etc.) en la que convivan los estilos de texto, colores y fondos,
+bordes, imágenes, display, float y position trabajados en clase.
+El resultado final debe ser una sola hoja de estilos (estilos.css) aplicada sobre el HTML dado, de
+modo que, al abrir la página, se aprecien de un vistazo todas las técnicas de la tabla funcionando
+conjuntamente sobre el mismo diseño.
+
+------------[ Bloque 1 ]------------
+font-family, font-size, font-weight,
+font-style, color, text-align, text-decoration, 
+text-transform, line-height, letter-spacing
+
+Estilizar h1, párrafos y un enlace (con :hover).
+
+------------[ Bloque 2 ]------------
+background-color, background-image, 
+background-size, background-position, 
+background-repeat, rgb()/rgba()
+
+Fondo de color en una sección y fondo de imagen en otra.
+
+------------[ Bloque 3 ]------------
+border, border-width/style/color,
+border-radius, box-shadow
+
+Bordes redondeados y sombra en las tarjetas.
+
+------------[ Bloque 4 ]------------
+width/max-width, height, object-fit,
+display:block + margin:auto
+
+Igualar el tamaño de las imágenes de la galería
+
+------------[ Bloque 5 ]------------
+display: block / inline / inline-block
+/ none / flex
+
+Convertir el menú de navegación en horizontal con flex.
+
+------------[ Bloque 6 ]------------
+float: left/right, clear 
+
+Imagen flotando a la izquierda de un párrafo (efecto
+revista).
+
+------------[ Bloque 7 ]------------
+position:
+static/relative/absolute/fixed/sticky
++ top/left/right/bottom
+
+Botón 'volver arriba' fijo en una esquina.
+*/
+
+/* ------------[ VARIABLES ]------------ */
+:root {
+  --col-white: #ffffff;
+  --col-dark-white: #f6f8ff;
+  --col-grey: #e6e9f1;
+  --col-dark-grey: #c3cbe0;
+  --col-black: #2e2e2e;
+  --col-blue: #4a63a8;
+  --col-dark-blue: #394b7c;
+}
+
+/* ------------[ GLOBAL ]------------ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--col-dark-white);
+
+  color: var(--col-black);
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.seccion {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+.seccion h2 {
+  color: var(--col-black);
+  font-size: 1.8rem;
+
+  display: inline-block;
+
+  padding-bottom: 0.3rem;
+
+  border-bottom: 3px solid var(--col-blue);
+
+  margin-bottom: 1rem;
+}
+
+.seccion h3 {
+  color: var(--col-black);
+
+  margin: 1.5rem 0 0.8rem;
+}
+
+.fondo-alterno {
+  background-color: var(--col-grey);
+}
+
+.seccion p {
+  margin-bottom: 1rem;
+}
+
+.seccion a {
+  color: var(--col-blue);
+}
+
+.seccion a:hover {
+  color: var(--col-dark-blue);
+  text-decoration: none;
+}
+
+/* ------------[ CABECERA ]------------ */
+#cabecera {
+  background-color: var(--col-dark-blue);
+
+  color: var(--col-white);
+  text-align: center;
+
+  padding: 2rem 1rem 1rem;
+}
+
+#cabecera h1 {
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+#cabecera .subtitulo {
+  color: var(--col-dark-grey);
+  font-style: italic;
+
+  margin-top: 0.3rem;
+}
+
+#cabecera #menu-principal {
+  margin-top: 1.5rem;
+}
+
+#cabecera #menu-principal ul {
+  list-style: none;
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+#cabecera #menu-principal a {
+  color: var(--col-white);
+  text-decoration: none;
+  font-weight: 600;
+
+  padding: 0.4rem 0.8rem;
+
+  border-radius: 4px;
+
+  transition: background-color 0.2s ease;
+}
+
+#cabecera #menu-principal a:hover {
+  background-color: var(--col-dark-blue);
+}
+
+#cabecera #menu-principal a:active {
+  background-color: var(--col-blue);
+}
+
+/* ------------[ INICIO ]------------ */
+#inicio .imagen-destacada {
+  max-width: 100%;
+
+  border-radius: 8px;
+
+  display: block;
+
+  margin: 1rem 0;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+#inicio .resaltado {
+  background-color: #fff3b0;
+
+  padding: 0 0.2rem;
+
+  border-radius: 3px;
+}
+
+#inicio blockquote {
+  background-color: var(--col-white);
+
+  color: var(--col-black);
+  font-style: italic;
+
+  padding: 0.5rem 1rem;
+
+  border-left: 4px solid var(--col-blue);
+
+  margin: 1.5rem 0;
+}
+
+/* [ SOBRE NOSOTROS ] */
+#sobre-nosotros .tarjetas {
+  margin-top: 1.5rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+
+#sobre-nosotros .tarjetas .tarjeta {
+  background-color: var(--col-white);
+
+  padding: 1.5rem;
+
+  flex: 1 1 220px;
+
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+#sobre-nosotros .tarjetas .tarjeta:hover {
+  transform: translateY(-5px);
+}
+
+#sobre-nosotros .tarjetas .tarjeta h3 {
+  color: var(--col-blue);
+
+  margin-top: 0;
+}
+
+/* [ SERVICIOS ] */
+#servicios .lista-servicios {
+  list-style: none;
+
+  margin: 1rem 0;
+}
+
+#servicios .lista-servicios li {
+  background-color: var(--col-white);
+
+  padding: 0.7rem 1rem;
+
+  border-radius: 4px;
+  border-left: 4px solid var(--col-blue);
+
+  margin-bottom: 0.5rem;
+}
+
+#servicios #tabla-datos {
+  background-color: var(--col-white);
+
+  width: 100%;
+
+  border-collapse: collapse;
+
+  margin-top: 1rem;
+
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+#servicios #tabla-datos th,
+#servicios #tabla-datos td {
+  text-align: left;
+
+  padding: 0.75rem 1rem;
+
+  border-bottom: 1px solid var(--col-grey);
+}
+
+#servicios #tabla-datos th {
+  background-color: var(--col-black);
+
+  color: var(--col-white);
+}
+
+#servicios #tabla-datos tbody tr:nth-child(even) {
+  background-color: var(--col-grey);
+}
+
+#servicios #tabla-datos tbody tr:hover {
+  background-color: var(--col-dark-grey);
+}
+
+/* [ GALERIA ] */
+#galeria .galeria-imagenes {
+  margin-top: 1.5rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+#galeria .galeria-imagenes img {
+  border-radius: 6px;
+
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+
+  transition: transform 0.2s ease;
+}
+
+#galeria .galeria-imagenes img:hover {
+  transform: scale(1.05);
+}
+
+/* [ FORMULARIO ] */
+#formulario #form-contacto {
+  background-color: var(--col-white);
+
+  max-width: 500px;
+
+  padding: 1.5rem;
+
+  border-radius: 8px;
+
+  margin-top: 1.5rem;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#formulario #form-contacto .campo {
+  margin-bottom: 1.2rem;
+
+  display: flex;
+  flex-direction: column;
+}
+
+#formulario #form-contacto .campo label {
+  color: var(--col-black);
+  font-weight: 600;
+
+  margin-bottom: 0.4rem;
+}
+
+#formulario #form-contacto .campo input[type="text"],
+#formulario #form-contacto .campo input[type="email"],
+#formulario #form-contacto .campo select,
+#formulario #form-contacto .campo textarea {
+  font-size: 1rem;
+  font-family: inherit;
+
+  padding: 0.6rem;
+
+  border: 1px solid var(--col-grey);
+  border-radius: 4px;
+}
+
+#formulario #form-contacto .campo input:focus,
+#formulario #form-contacto .campo select:focus,
+#formulario #form-contacto .campo textarea:focus {
+  outline: none;
+  border-color: var(--col-blue);
+  
+  box-shadow: 0 0 0 2px rgba(74, 99, 168, 0.2);
+}
+
+#formulario #form-contacto .campo-checkbox {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#formulario #form-contacto .campo-checkbox label {
+  font-weight: 400;
+
+  margin-bottom: 0;
+}
+
+#formulario #form-contacto .boton {
+  font-size: 1rem;
+
+  padding: 0.7rem 1.5rem;
+
+  border: none;
+  border-radius: 5px;
+
+  margin-right: 0.8rem;
+
+  cursor: pointer;
+  
+  transition: background-color 0.2s ease;
+}
+
+#formulario #form-contacto .boton-primario {
+  background-color: var(--col-blue);
+
+  color: var(--col-white);
+}
+
+#formulario #form-contacto .boton-primario:hover {
+  background-color: var(--col-dark-blue);
+}
+
+#formulario #form-contacto .boton-secundario {
+  background-color: var(--col-grey);
+
+  color: var(--col-black);
+}
+
+#formulario #form-contacto .boton-secundario:hover {
+  background-color: var(--col-dark-grey);
+}
+
+/* [ FOOTER ] */
+#pie {
+  background-color: var(--col-black);
+
+  color: var(--col-white);
+  text-align: center;
+
+  padding: 2rem 1rem;
+
+  margin-top: 2rem;
+}
+
+#pie p {
+  margin-bottom: 1rem;
+}
+
+#pie .redes-sociales {
+  list-style: none;
+
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+#pie .redes-sociales a {
+  color: var(--col-dark-grey);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+#pie .redes-sociales a:hover {
+  color: var(--col-white);
+}
+
+/* [ VOLVER ARRIBA ] */
+#volver-arriba {
+  background-color: var(--col-dark-grey);
+  
+  padding: 0.5rem;
+
+  border-radius: 4px;
+
+  text-decoration: none;
+  font-weight: 1000;
+  color: var(--col-blue);
+
+  position: sticky;
+  bottom: 2rem;
+  left: 2rem;
+}
+
+#volver-arriba:hover {
+  background-color: var(--col-dark-blue);
+
+  color: var(--col-dark-white);
+}
