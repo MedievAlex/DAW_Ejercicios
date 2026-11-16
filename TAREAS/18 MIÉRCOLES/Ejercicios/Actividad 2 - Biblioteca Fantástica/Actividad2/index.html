@@ -1,0 +1,820 @@
+
+//http://localhost:8000/UD03/Actividad2-BibliotecaFantástica/index.html
+<!DOCTYPE html>
+    <html lang="es">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Biblioteca fantástica</title>
+
+            <style>
+                * {
+                    box-sizing: border-box;
+                }
+
+                body {
+                    font-family: Arial, Helvetica, sans-serif;
+                    margin: 0;
+                    background-color: #f3f5f9;
+                    color: #263238;
+                }
+
+                header {
+                    background-color: #283593;
+                    color: white;
+                    padding: 25px;
+                    text-align: center;
+                }
+
+                header h1 {
+                    margin: 0 0 10px;
+                }
+
+                main {
+                    max-width: 1100px;
+                    margin: 30px auto;
+                    padding: 0 20px;
+                }
+
+                section {
+                    background-color: white;
+                    padding: 25px;
+                    margin-bottom: 30px;
+                    border-radius: 10px;
+                    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+                }
+
+                h2 {
+                    color: #283593;
+                    margin-top: 0;
+                }
+
+                .descripcion {
+                    color: #607d8b;
+                    margin-bottom: 20px;
+                }
+
+                .mensaje {
+                    display: none;
+                    padding: 12px;
+                    border-radius: 5px;
+                    margin: 15px 0;
+                }
+
+                .exito {
+                    display: block;
+                    background-color: #e8f5e9;
+                    color: #2e7d32;
+                    border: 1px solid #a5d6a7;
+                }
+
+                .error {
+                    display: block;
+                    background-color: #ffebee;
+                    color: #c62828;
+                    border: 1px solid #ef9a9a;
+                }
+
+                .contenedor-tabla {
+                    overflow-x: auto;
+                }
+
+                table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin-top: 15px;
+                }
+
+                th,
+                td {
+                    border: 1px solid #ddd;
+                    padding: 12px;
+                    text-align: left;
+                }
+
+                th {
+                    background-color: #e8eaf6;
+                    color: #283593;
+                }
+
+                tbody tr:nth-child(even) {
+                    background-color: #f8f9fc;
+                }
+
+                .formulario {
+                    display: grid;
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                    gap: 18px;
+                    margin-bottom: 20px;
+                }
+
+                .campo {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 7px;
+                }
+
+                .campo label {
+                    font-weight: bold;
+                }
+
+                input {
+                    padding: 10px;
+                    border: 1px solid #b0bec5;
+                    border-radius: 5px;
+                    font-size: 15px;
+                    width: 100%;
+                }
+
+                input:focus {
+                    outline: 2px solid #9fa8da;
+                    border-color: #3949ab;
+                }
+
+                .botones {
+                    display: flex;
+                    gap: 10px;
+                    flex-wrap: wrap;
+                    margin-top: 10px;
+                }
+
+                button {
+                    border: none;
+                    border-radius: 5px;
+                    padding: 10px 15px;
+                    cursor: pointer;
+                    font-size: 14px;
+                    font-weight: bold;
+                }
+
+                button:disabled {
+                    opacity: 0.6;
+                    cursor: not-allowed;
+                }
+
+                .btn-principal {
+                    background-color: #3949ab;
+                    color: white;
+                }
+
+                .btn-secundario {
+                    background-color: #eceff1;
+                    color: #263238;
+                }
+
+                .btn-eliminar {
+                    background-color: #c62828;
+                    color: white;
+                }
+
+                .btn-editar {
+                    background-color: #00897b;
+                    color: white;
+                }
+
+                .sin-datos {
+                    text-align: center;
+                    color: #607d8b;
+                    padding: 20px;
+                }
+
+                footer {
+                    text-align: center;
+                    padding: 20px;
+                    color: #607d8b;
+                }
+
+                @media (max-width: 650px) {
+                    .formulario {
+                        grid-template-columns: 1fr;
+                    }
+
+                    section {
+                        padding: 16px;
+                    }
+                }
+            </style>
+        </head>
+
+        <body>
+
+            <header>
+                <h1>Biblioteca fantástica</h1>
+                <p>Gestión de libros y autores</p>
+            </header>
+
+            <main>
+
+                <!-- ====================================== -->
+                <!-- APARTADO 1: CONSULTAR Y ELIMINAR LIBROS -->
+                <!-- ====================================== -->
+
+                <section>
+                    <h2>1. Catálogo de libros</h2>
+
+                    <p class="descripcion">
+                        Consulta los libros de la biblioteca y elimina aquellos
+                        que ya no formen parte del catálogo.
+                    </p>
+
+                    <div id="mensajeLibros"
+                        class="mensaje"
+                        role="status"
+                        aria-live="polite"></div>
+
+                    <button type="button"
+                            id="btnCargarLibros"
+                            class="btn-principal">
+                        Cargar libros
+                    </button>
+
+                    <div class="contenedor-tabla">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Título</th>
+                                    <th>Género</th>
+                                    <th>Año</th>
+                                    <th>Autor</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="tablaLibros">
+                                <tr>
+                                    <td colspan="6" class="sin-datos">
+                                        Pulsa "Cargar libros" para consultar
+                                        el catálogo.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+
+                <!-- ====================================== -->
+                <!-- APARTADO 2: CREAR Y ACTUALIZAR AUTORES -->
+                <!-- ====================================== -->
+
+                <section>
+                    <h2>2. Gestión de autores</h2>
+
+                    <p class="descripcion">
+                        Registra nuevos autores o selecciona uno de la tabla
+                        para modificar sus datos.
+                    </p>
+
+                    <div id="mensajeAutores"
+                        class="mensaje"
+                        role="status"
+                        aria-live="polite"></div>
+
+                    <form id="formAutor">
+
+                        <input type="hidden" id="idAutor">
+
+                        <div class="formulario">
+
+                            <div class="campo">
+                                <label for="nombreAutor">Nombre completo:</label>
+                                <input type="text"
+                                    id="nombreAutor"
+                                    maxlength="100"
+                                    required>
+                            </div>
+
+                            <div class="campo">
+                                <label for="nacionalidadAutor">Nacionalidad:</label>
+                                <input type="text"
+                                    id="nacionalidadAutor"
+                                    maxlength="60"
+                                    required>
+                            </div>
+
+                            <div class="campo">
+                                <label for="fechaNacimiento">
+                                    Fecha de nacimiento:
+                                </label>
+                                <input type="date"
+                                    id="fechaNacimiento"
+                                    required>
+                            </div>
+
+                        </div>
+
+                        <div class="botones">
+                            <button type="submit"
+                                    id="btnGuardarAutor"
+                                    class="btn-principal">
+                                Crear autor
+                            </button>
+
+                            <button type="button"
+                                    id="btnCancelarEdicion"
+                                    class="btn-secundario"
+                                    hidden>
+                                Cancelar edición
+                            </button>
+                        </div>
+
+                    </form>
+
+                    <h3>Autores registrados</h3>
+
+                    <button type="button"
+                            id="btnCargarAutores"
+                            class="btn-principal">
+                        Cargar autores
+                    </button>
+
+                    <div class="contenedor-tabla">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Nacionalidad</th>
+                                    <th>Fecha de nacimiento</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="tablaAutores">
+                                <tr>
+                                    <td colspan="5" class="sin-datos">
+                                        Pulsa "Cargar autores" para consultar
+                                        los autores.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+            </main>
+
+            <footer>
+                <p>Actividad de PHP, MySQL, MVC y API REST</p>
+            </footer>
+
+
+            <script>
+                "use strict";
+
+                // Direcciones de las API que debe implementar el alumnado.
+                const API_LIBROS = "api/libros.php";
+                const API_AUTORES = "api/autores.php";
+
+
+                // ==========================================
+                // FUNCIONES GENERALES
+                // ==========================================
+
+                /**
+                 * Realiza una petición HTTP y obtiene la respuesta JSON.
+                 * Si la API devuelve un error HTTP o JSON no válido,
+                 * genera un error para mostrarlo en la interfaz.
+                 */
+                async function peticionAPI(url, opciones = {}) {
+                    const respuesta = await fetch(url, {
+                        ...opciones,
+                        headers: {
+                            "Accept": "application/json",
+                            ...(opciones.body
+                                ? { "Content-Type": "application/json" }
+                                : {}),
+                            ...opciones.headers
+                        }
+                    });
+
+                    const texto = await respuesta.text();
+
+                    let datos;
+
+                    try {
+                        datos = texto ? JSON.parse(texto) : null;
+                    } catch {
+                        throw new Error(
+                            "La API no ha devuelto un JSON válido."
+                        );
+                    }
+
+                    if (!respuesta.ok) {
+                        throw new Error(
+                            datos?.error ||
+                            datos?.mensaje ||
+                            `Error HTTP ${respuesta.status}`
+                        );
+                    }
+
+                    return datos;
+                }
+
+
+                /**
+                 * Muestra un mensaje en la interfaz.
+                 */
+                function mostrarMensaje(elementoId, texto, tipo) {
+                    const elemento = document.getElementById(elementoId);
+
+                    elemento.textContent = texto;
+                    elemento.className = "mensaje " + tipo;
+                }
+
+
+                /**
+                 * Limpia el mensaje de una sección.
+                 */
+                function limpiarMensaje(elementoId) {
+                    const elemento = document.getElementById(elementoId);
+
+                    elemento.textContent = "";
+                    elemento.className = "mensaje";
+                }
+
+
+                /**
+                 * Obtiene la lista de elementos de una respuesta JSON.
+                 *
+                 * La API puede devolver directamente un array o un objeto
+                 * con una propiedad "datos" o "data".
+                 */
+                function extraerLista(respuesta) {
+                    if (Array.isArray(respuesta)) {
+                        return respuesta;
+                    }
+
+                    if (Array.isArray(respuesta?.datos)) {
+                        return respuesta.datos;
+                    }
+
+                    if (Array.isArray(respuesta?.data)) {
+                        return respuesta.data;
+                    }
+
+                    throw new Error(
+                        "La respuesta de la API no contiene una lista válida."
+                    );
+                }
+
+
+                /**
+                 * Añade texto a una celda utilizando textContent.
+                 * Así se evita interpretar el contenido como HTML.
+                 */
+                function crearCelda(fila, valor) {
+                    const celda = document.createElement("td");
+                    celda.textContent = valor ?? "";
+                    fila.appendChild(celda);
+
+                    return celda;
+                }
+
+
+                // ==========================================
+                // APARTADO 1: LIBROS
+                // Operaciones: GET y DELETE
+                // ==========================================
+
+                const tablaLibros = document.getElementById("tablaLibros");
+                const btnCargarLibros =
+                    document.getElementById("btnCargarLibros");
+
+                /**
+                 * Solicita todos los libros a la API y los muestra
+                 * en la tabla.
+                 */
+                async function cargarLibros() {
+                    limpiarMensaje("mensajeLibros");
+
+                    btnCargarLibros.disabled = true;
+
+                    try {
+                        const respuesta = await peticionAPI(API_LIBROS);
+                        const libros = extraerLista(respuesta);
+
+                        tablaLibros.replaceChildren();
+
+                        if (libros.length === 0) {
+                            const fila = document.createElement("tr");
+                            const celda = crearCelda(
+                                fila,
+                                "No hay libros registrados."
+                            );
+
+                            celda.colSpan = 6;
+                            celda.className = "sin-datos";
+                            tablaLibros.appendChild(fila);
+                            return;
+                        }
+
+                        libros.forEach(libro => {
+                            const fila = document.createElement("tr");
+
+                            crearCelda(fila, libro.id);
+                            crearCelda(fila, libro.titulo);
+                            crearCelda(fila, libro.genero);
+                            crearCelda(fila, libro.anio_publicacion);
+
+                            // La API debería devolver el nombre del autor
+                            // junto a los datos del libro.
+                            crearCelda(
+                                fila,
+                                libro.autor ?? libro.nombre_autor ?? ""
+                            );
+
+                            const celdaAcciones =
+                                document.createElement("td");
+
+                            const botonEliminar =
+                                document.createElement("button");
+
+                            botonEliminar.type = "button";
+                            botonEliminar.textContent = "Eliminar";
+                            botonEliminar.className = "btn-eliminar";
+
+                            botonEliminar.addEventListener("click", () => {
+                                eliminarLibro(libro.id);
+                            });
+
+                            celdaAcciones.appendChild(botonEliminar);
+                            fila.appendChild(celdaAcciones);
+
+                            tablaLibros.appendChild(fila);
+                        });
+
+                    } catch (error) {
+                        mostrarMensaje(
+                            "mensajeLibros",
+                            "No se han podido cargar los libros: " +
+                                error.message,
+                            "error"
+                        );
+                    } finally {
+                        btnCargarLibros.disabled = false;
+                    }
+                }
+
+
+                /**
+                 * Elimina un libro después de solicitar confirmación.
+                 */
+                async function eliminarLibro(id) {
+                    const confirmar = confirm(
+                        "¿Seguro que deseas eliminar el libro con ID " +
+                        id + "?"
+                    );
+
+                    if (!confirmar) {
+                        return;
+                    }
+
+                    limpiarMensaje("mensajeLibros");
+
+                    try {
+                        const respuesta = await peticionAPI(
+                            `${API_LIBROS}?id=${encodeURIComponent(id)}`,
+                            {
+                                method: "DELETE"
+                            }
+                        );
+
+                        mostrarMensaje(
+                            "mensajeLibros",
+                            respuesta.mensaje || "Libro eliminado correctamente.",
+                            "exito"
+                        );
+
+                        await cargarLibros();
+
+                    } catch (error) {
+                        mostrarMensaje(
+                            "mensajeLibros",
+                            "No se ha podido eliminar el libro: " +
+                                error.message,
+                            "error"
+                        );
+                    }
+                }
+
+
+                btnCargarLibros.addEventListener("click", cargarLibros);
+
+
+                // ==========================================
+                // APARTADO 2: AUTORES
+                // Operaciones: GET, POST y PUT
+                // ==========================================
+
+                const tablaAutores = document.getElementById("tablaAutores");
+                const formAutor = document.getElementById("formAutor");
+                const idAutor = document.getElementById("idAutor");
+                const nombreAutor = document.getElementById("nombreAutor");
+                const nacionalidadAutor =
+                    document.getElementById("nacionalidadAutor");
+                const fechaNacimiento =
+                    document.getElementById("fechaNacimiento");
+                const btnGuardarAutor =
+                    document.getElementById("btnGuardarAutor");
+                const btnCancelarEdicion =
+                    document.getElementById("btnCancelarEdicion");
+                const btnCargarAutores =
+                    document.getElementById("btnCargarAutores");
+
+
+                /**
+                 * Solicita todos los autores a la API y los muestra.
+                 */
+                async function cargarAutores() {
+                    limpiarMensaje("mensajeAutores");
+
+                    btnCargarAutores.disabled = true;
+
+                    try {
+                        const respuesta = await peticionAPI(API_AUTORES);
+                        const autores = extraerLista(respuesta);
+
+                        tablaAutores.replaceChildren();
+
+                        if (autores.length === 0) {
+                            const fila = document.createElement("tr");
+                            const celda = crearCelda(
+                                fila,
+                                "No hay autores registrados."
+                            );
+
+                            celda.colSpan = 5;
+                            celda.className = "sin-datos";
+                            tablaAutores.appendChild(fila);
+                            return;
+                        }
+
+                        autores.forEach(autor => {
+                            const fila = document.createElement("tr");
+
+                            crearCelda(fila, autor.id);
+                            crearCelda(fila, autor.nombre);
+                            crearCelda(fila, autor.nacionalidad);
+                            crearCelda(fila, autor.fecha_nacimiento);
+
+                            const celdaAcciones =
+                                document.createElement("td");
+
+                            const botonEditar =
+                                document.createElement("button");
+
+                            botonEditar.type = "button";
+                            botonEditar.textContent = "Editar";
+                            botonEditar.className = "btn-editar";
+
+                            botonEditar.addEventListener("click", () => {
+                                seleccionarAutor(autor);
+                            });
+
+                            celdaAcciones.appendChild(botonEditar);
+                            fila.appendChild(celdaAcciones);
+
+                            tablaAutores.appendChild(fila);
+                        });
+
+                    } catch (error) {
+                        mostrarMensaje(
+                            "mensajeAutores",
+                            "No se han podido cargar los autores: " +
+                                error.message,
+                            "error"
+                        );
+                    } finally {
+                        btnCargarAutores.disabled = false;
+                    }
+                }
+
+
+                /**
+                 * Carga los datos del autor seleccionado en el formulario.
+                 */
+                function seleccionarAutor(autor) {
+                    idAutor.value = autor.id;
+                    nombreAutor.value = autor.nombre;
+                    nacionalidadAutor.value = autor.nacionalidad;
+                    fechaNacimiento.value = autor.fecha_nacimiento;
+
+                    btnGuardarAutor.textContent = "Guardar cambios";
+                    btnCancelarEdicion.hidden = false;
+
+                    mostrarMensaje(
+                        "mensajeAutores",
+                        "Editando el autor con ID " + autor.id + ".",
+                        "exito"
+                    );
+
+                    formAutor.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+                }
+
+
+                /**
+                 * Vacía el formulario y vuelve al modo de creación.
+                 */
+                function cancelarEdicion() {
+                    formAutor.reset();
+                    idAutor.value = "";
+
+                    btnGuardarAutor.textContent = "Crear autor";
+                    btnCancelarEdicion.hidden = true;
+
+                    limpiarMensaje("mensajeAutores");
+                }
+
+
+                /**
+                 * Envía un POST para crear un autor o un PUT para
+                 * actualizar el autor seleccionado.
+                 */
+                async function guardarAutor(evento) {
+                    evento.preventDefault();
+
+                    limpiarMensaje("mensajeAutores");
+
+                    const editando = idAutor.value !== "";
+
+                    const autor = {
+                        nombre: nombreAutor.value.trim(),
+                        nacionalidad: nacionalidadAutor.value.trim(),
+                        fecha_nacimiento: fechaNacimiento.value
+                    };
+
+                    if (
+                        !autor.nombre ||
+                        !autor.nacionalidad ||
+                        !autor.fecha_nacimiento
+                    ) {
+                        mostrarMensaje(
+                            "mensajeAutores",
+                            "Todos los campos son obligatorios.",
+                            "error"
+                        );
+
+                        return;
+                    }
+
+                    const url = editando
+                        ? `${API_AUTORES}?id=${encodeURIComponent(idAutor.value)}`
+                        : API_AUTORES;
+
+                    const metodo = editando ? "PUT" : "POST";
+
+                    btnGuardarAutor.disabled = true;
+
+                    try {
+                        const respuesta = await peticionAPI(url, {
+                            method: metodo,
+                            body: JSON.stringify(autor)
+                        });
+
+                        mostrarMensaje(
+                            "mensajeAutores",
+                            respuesta.mensaje ||
+                                (editando
+                                    ? "Autor actualizado correctamente."
+                                    : "Autor creado correctamente."),
+                            "exito"
+                        );
+
+                        cancelarEdicion();
+                        await cargarAutores();
+
+                    } catch (error) {
+                        mostrarMensaje(
+                            "mensajeAutores",
+                            "No se ha podido guardar el autor: " +
+                                error.message,
+                            "error"
+                        );
+                    } finally {
+                        btnGuardarAutor.disabled = false;
+                    }
+                }
+
+
+                formAutor.addEventListener("submit", guardarAutor);
+
+                btnCancelarEdicion.addEventListener(
+                    "click",
+                    cancelarEdicion
+                );
+
+                btnCargarAutores.addEventListener(
+                    "click",
+                    cargarAutores
+                );
+
+            </script>
+
+        </body>
+    </html>
+

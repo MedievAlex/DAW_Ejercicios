@@ -1,0 +1,13 @@
+1- Revisar la conexión y poner el nombre de la base de datos.
+2- Crear los modelos.
+3- To-array Convertir objeto en array.
+4- Crear DAO.
+	4.1- Constructor
+	4.2- Funciones
+5- Mirar el script para los nombres de los métodos de la API.
+6- Dentro de la carpeta api, el php llama al controller(api en el reto). Inicializar dao controller y conexión.
+7- Revisar el jsonView.
+
+--------------------------------------------------------------------------------------
+Datetime se puede usar como String.
+Booleanos parsear con el (int) para enviar como 1 o 0 a la base de datos.

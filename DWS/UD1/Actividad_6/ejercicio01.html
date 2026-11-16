@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Ejercicio 01</title>
+</head>
+
+<body>
+	<header>
+		<h3>Ejercicio 01</h3>
+		<p>
+			Crear un formulario de login y visulizar la información en pantalla. Los
+			campos del formulario serán usuario y contraseña. El formulario
+			enviará la información por POST. Al principio hacer la prueba con
+			GET para ver cómo se envían los parámetros.
+			<!--
+			Build-in: http://localhost:8000/UD1/Actividad_6/ejercicio01.html
+			Xdebug: http://dws-php.localhost/UD1/Actividad_6/ejercicio01.html 
+			-->
+		</p>
+	</header>
+	<hr>
+
+	<form action="ejercicio01.php" method="post">
+		Usuario: <input type="text" name="userName"><br><br>
+		Contraseña: <input type="password" name="userPsw"><br><br>
+
+		<input value="ENVIAR" type="submit">
+	</form>
+
+</body>
+
+</html>

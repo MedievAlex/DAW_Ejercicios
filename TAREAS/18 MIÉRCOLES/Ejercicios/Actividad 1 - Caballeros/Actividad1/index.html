@@ -1,0 +1,505 @@
+
+<!DOCTYPE html>
+    <html lang="es">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Destino de caballeros</title>
+
+            <style>
+                * {
+                    box-sizing: border-box;
+                }
+
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 25px;
+                    background: #f1f4f8;
+                    color: #263238;
+                }
+
+                header {
+                    background: #263746;
+                    color: white;
+                    padding: 25px;
+                    border-radius: 10px;
+                    margin-bottom: 25px;
+                }
+
+                h1, h2 {
+                    margin-top: 0;
+                }
+
+                .contenedor {
+                    display: grid;
+                    grid-template-columns: minmax(280px, 1fr) minmax(320px, 2fr);
+                    gap: 20px;
+                    align-items: start;
+                }
+
+                section {
+                    background: white;
+                    padding: 22px;
+                    border-radius: 10px;
+                    box-shadow: 0 2px 8px #00000012;
+                }
+
+                label {
+                    display: block;
+                    margin-top: 12px;
+                    font-weight: bold;
+                }
+
+                input:not([type="checkbox"]) {
+                    width: 100%;
+                    padding: 10px;
+                    margin-top: 5px;
+                    border: 1px solid #bdc7d1;
+                    border-radius: 5px;
+                }
+
+                .activo {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                }
+
+                button {
+                    border: 0;
+                    border-radius: 5px;
+                    padding: 9px 12px;
+                    margin: 4px 2px;
+                    cursor: pointer;
+                    background: #263746;
+                    color: white;
+                }
+
+                button:hover {
+                    opacity: 0.85;
+                }
+
+                .secundario {
+                    background: #64748b;
+                }
+
+                .peligro {
+                    background: #bd3030;
+                }
+
+                .exito {
+                    background: #237849;
+                }
+
+                .tabla-contenedor {
+                    overflow-x: auto;
+                }
+
+                table {
+                    border-collapse: collapse;
+                    width: 100%;
+                    margin-top: 15px;
+                }
+
+                th, td {
+                    text-align: left;
+                    padding: 10px;
+                    border-bottom: 1px solid #ddd;
+                }
+
+                th {
+                    background: #e8edf2;
+                }
+
+                #mensaje {
+                    padding: 12px;
+                    margin-bottom: 20px;
+                    border-radius: 5px;
+                    display: none;
+                }
+
+                #ficha {
+                    margin-top: 20px;
+                    padding: 15px;
+                    background: #edf4fa;
+                    border-radius: 6px;
+                    white-space: pre-line;
+                }
+
+                @media (max-width: 850px) {
+                    .contenedor {
+                        grid-template-columns: 1fr;
+                    }
+                }
+            </style>
+        </head>
+
+        <body>
+
+            <header>
+                <h1>Destino de caballeros</h1>
+                <p>Panel de gestión de la Orden de Caballería</p>
+            </header>
+
+            <div id="mensaje" role="status" aria-live="polite"></div>
+
+            <div class="contenedor">
+
+                <section>
+                    <h2 id="tituloFormulario">Registrar caballero</h2>
+
+                    <form id="formulario">
+
+                        <input type="hidden" id="id">
+
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" maxlength="100" required>
+
+                        <label for="fuerza">Fuerza</label>
+                        <input type="number" id="fuerza" min="0" step="1" required>
+
+                        <label for="ataque">Ataque</label>
+                        <input type="number" id="ataque" min="0" step="1" required>
+
+                        <label for="defensa">Defensa</label>
+                        <input type="number" id="defensa" min="0" step="1" required>
+
+                        <label for="experiencia">Experiencia</label>
+                        <input type="number" id="experiencia" min="0" step="1" required>
+
+                        <label for="fecha_nacimiento">Fecha de nacimiento</label>
+                        <input type="date" id="fecha_nacimiento" required>
+
+                        <label class="activo">
+                            <input type="checkbox" id="activo" checked>
+                            Caballero en activo
+                        </label>
+
+                        <p>
+                            <button type="submit" class="exito" id="btnGuardar">
+                                Guardar caballero
+                            </button>
+
+                            <button type="button" class="secundario" id="btnCancelar">
+                                Limpiar formulario
+                            </button>
+                        </p>
+
+                    </form>
+                </section>
+
+                <section>
+                    <h2>Caballeros registrados</h2>
+
+                    <button type="button" id="btnRecargar">
+                        Recargar listado
+                    </button>
+
+                    <div class="tabla-contenedor">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Estado</th>
+                                    <th>Operaciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="listado">
+                                <tr>
+                                    <td colspan="4">Cargando caballeros...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div id="ficha" hidden></div>
+                </section>
+
+            </div>
+
+            <script>
+                // Ruta de la API desarrollada en PHP.
+                const API = "api/caballeros.php";
+
+                const formulario = document.getElementById("formulario");
+                const listado = document.getElementById("listado");
+                const mensaje = document.getElementById("mensaje");
+                const ficha = document.getElementById("ficha");
+
+                // Muestra los mensajes de la aplicación.
+                function mostrarMensaje(texto, error = false) {
+                    mensaje.textContent = texto;
+                    mensaje.style.display = "block";
+                    mensaje.style.backgroundColor = error ? "#ffe1e1" : "#d9f5e3";
+                    mensaje.style.color = error ? "#8a1717" : "#185b32";
+                }
+
+                // Realiza la petición y comprueba los errores HTTP.
+                async function peticion(url, opciones = {}) {
+                    const respuesta = await fetch(url, opciones);
+
+                    const texto = await respuesta.text();
+                    let datos = null;
+
+                    if (texto.trim() !== "") {
+                        try {
+                            datos = JSON.parse(texto);
+                        } catch {
+                            throw new Error("La API no ha devuelto un JSON válido.");
+                        }
+                    }
+
+                    if (!respuesta.ok) {
+                        throw new Error(
+                            datos?.mensaje || datos?.error ||
+                            `Error HTTP ${respuesta.status}`
+                        );
+                    }
+
+                    return datos;
+                }
+
+                // Recupera todos los caballeros y actualiza la tabla.
+                async function cargarCaballeros() {
+                    listado.innerHTML = "<tr><td colspan='4'>Cargando...</td></tr>";
+
+                    try {
+                        const caballeros = await peticion(API);
+
+                        if (!Array.isArray(caballeros)) {
+                            throw new Error(
+                                "La API debe devolver un array JSON con los caballeros."
+                            );
+                        }
+
+                        listado.replaceChildren();
+
+                        if (caballeros.length === 0) {
+                            listado.innerHTML =
+                                "<tr><td colspan='4'>No hay caballeros registrados.</td></tr>";
+                            return;
+                        }
+
+                        caballeros.forEach(caballero => {
+                            const fila = document.createElement("tr");
+
+                            // Los datos se insertan como texto, no como HTML.
+                            const valores = [
+                                caballero.id,
+                                caballero.nombre,
+                                Number(caballero.activo) === 1 ||
+                                caballero.activo === true ||
+                                caballero.activo === "1" ? "Activo" : "Inactivo"
+                            ];
+
+                            valores.forEach(valor => {
+                                const celda = document.createElement("td");
+                                celda.textContent = valor ?? "";
+                                fila.appendChild(celda);
+                            });
+
+                            const acciones = document.createElement("td");
+
+                            const botonFicha = document.createElement("button");
+                            botonFicha.textContent = "Ver ficha";
+                            botonFicha.addEventListener("click", () =>
+                                verFicha(caballero.id)
+                            );
+
+                            const botonEditar = document.createElement("button");
+                            botonEditar.textContent = "Modificar";
+                            botonEditar.className = "secundario";
+                            botonEditar.addEventListener("click", () =>
+                                cargarParaEditar(caballero.id)
+                            );
+
+                            const botonEliminar = document.createElement("button");
+                            botonEliminar.textContent = "Eliminar";
+                            botonEliminar.className = "peligro";
+                            botonEliminar.addEventListener("click", () =>
+                                eliminarCaballero(caballero.id, caballero.nombre)
+                            );
+
+                            acciones.append(botonFicha, botonEditar, botonEliminar);
+                            fila.appendChild(acciones);
+                            listado.appendChild(fila);
+                        });
+
+                    } catch (error) {
+                        listado.innerHTML =
+                            "<tr><td colspan='4'>No se pudo cargar el listado.</td></tr>";
+                        mostrarMensaje(error.message, true);
+                    }
+                }
+
+                // Consulta la ficha completa de un caballero.
+                async function verFicha(id) {
+                    try {
+                        const caballero = await peticion(
+                            `${API}?id=${encodeURIComponent(id)}`
+                        );
+
+                        ficha.hidden = false;
+                        ficha.replaceChildren();
+
+                        const titulo = document.createElement("h3");
+                        titulo.textContent = `Ficha del caballero ${caballero.id}`;
+                        ficha.appendChild(titulo);
+
+                        const datos = [
+                            ["Nombre", caballero.nombre],
+                            ["Fuerza", caballero.fuerza],
+                            ["Ataque", caballero.ataque],
+                            ["Defensa", caballero.defensa],
+                            ["Experiencia", caballero.experiencia],
+                            ["Fecha de nacimiento", caballero.fecha_nacimiento],
+                            ["Activo", Number(caballero.activo) === 1 ||
+                                caballero.activo === true ||
+                                caballero.activo === "1" ? "Sí" : "No"]
+                        ];
+
+                        datos.forEach(([etiqueta, valor]) => {
+                            const parrafo = document.createElement("p");
+                            parrafo.textContent = `${etiqueta}: ${valor ?? ""}`;
+                            ficha.appendChild(parrafo);
+                        });
+
+                    } catch (error) {
+                        mostrarMensaje(error.message, true);
+                    }
+                }
+
+                // Carga los datos en el formulario para modificarlos.
+                async function cargarParaEditar(id) {
+                    try {
+                        const caballero = await peticion(
+                            `${API}?id=${encodeURIComponent(id)}`
+                        );
+
+                        document.getElementById("id").value = caballero.id;
+                        document.getElementById("nombre").value = caballero.nombre;
+                        document.getElementById("fuerza").value = caballero.fuerza;
+                        document.getElementById("ataque").value = caballero.ataque;
+                        document.getElementById("defensa").value = caballero.defensa;
+                        document.getElementById("experiencia").value = caballero.experiencia;
+                        document.getElementById("fecha_nacimiento").value =
+                            String(caballero.fecha_nacimiento).substring(0, 10);
+
+                        document.getElementById("activo").checked =
+                            Number(caballero.activo) === 1 ||
+                            caballero.activo === true ||
+                            caballero.activo === "1";
+
+                        document.getElementById("tituloFormulario").textContent =
+                            "Modificar caballero";
+
+                        document.getElementById("btnGuardar").textContent =
+                            "Guardar cambios";
+
+                        formulario.scrollIntoView({ behavior: "smooth" });
+
+                    } catch (error) {
+                        mostrarMensaje(error.message, true);
+                    }
+                }
+
+                // Inserta un caballero nuevo o modifica uno existente.
+                formulario.addEventListener("submit", async function(evento) {
+                    evento.preventDefault();
+
+                    const id = document.getElementById("id").value;
+
+                    const caballero = {
+                        nombre: document.getElementById("nombre").value.trim(),
+                        fuerza: Number(document.getElementById("fuerza").value),
+                        ataque: Number(document.getElementById("ataque").value),
+                        defensa: Number(document.getElementById("defensa").value),
+                        experiencia: Number(document.getElementById("experiencia").value),
+                        fecha_nacimiento:
+                            document.getElementById("fecha_nacimiento").value,
+                        activo: document.getElementById("activo").checked
+                    };
+
+                    const opciones = {
+                        method: id ? "PUT" : "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Accept": "application/json"
+                        },
+                        body: JSON.stringify(caballero)
+                    };
+
+                    const url = id
+                        ? `${API}?id=${encodeURIComponent(id)}`
+                        : API;
+
+                    try {
+                        await peticion(url, opciones);
+
+                        mostrarMensaje(
+                            id ? "Caballero modificado correctamente."
+                            : "Caballero registrado correctamente."
+                        );
+
+                        limpiarFormulario();
+                        await cargarCaballeros();
+
+                    } catch (error) {
+                        mostrarMensaje(error.message, true);
+                    }
+                });
+
+                // Elimina un caballero después de confirmar la operación.
+                async function eliminarCaballero(id, nombre) {
+                    if (!confirm(`¿Deseas eliminar al caballero ${nombre}?`)) {
+                        return;
+                    }
+
+                    try {
+                        await peticion(
+                            `${API}?id=${encodeURIComponent(id)}`,
+                            {
+                                method: "DELETE",
+                                headers: {
+                                    "Accept": "application/json"
+                                }
+                            }
+                        );
+
+                        mostrarMensaje("Caballero eliminado correctamente.");
+                        ficha.hidden = true;
+                        limpiarFormulario();
+                        await cargarCaballeros();
+
+                    } catch (error) {
+                        mostrarMensaje(error.message, true);
+                    }
+                }
+
+                // Restablece el formulario.
+                function limpiarFormulario() {
+                    formulario.reset();
+                    document.getElementById("id").value = "";
+
+                    document.getElementById("tituloFormulario").textContent =
+                        "Registrar caballero";
+
+                    document.getElementById("btnGuardar").textContent =
+                        "Guardar caballero";
+                }
+
+                document.getElementById("btnCancelar").addEventListener(
+                    "click", limpiarFormulario
+                );
+
+                document.getElementById("btnRecargar").addEventListener(
+                    "click", cargarCaballeros
+                );
+
+                // Carga inicial.
+                cargarCaballeros();
+            </script>
+
+        </body>
+    </html>

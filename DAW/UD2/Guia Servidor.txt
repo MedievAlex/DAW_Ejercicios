@@ -1,0 +1,22 @@
+sudo apt update
+sudo apt upgrade -y
+
+sudo apt install apache2 -y
+sudo systemctl enable --now apache2
+curl -l http://localhost
+
+sudo ufw allow 'Apache Full'
+sudo ufw enable
+sudo ufw status
+
+sudo apt install openssh-server
+sudo ufw allow ssh
+
+ssh melon@10.22.82.245
+
+
+ssh-keygen
+
+C:\Users\alex.irazola\.ssh
+
+id_ed25519

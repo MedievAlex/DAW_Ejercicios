@@ -1,0 +1,1016 @@
+//http://localhost:8000/UD03/Actividad3-Reservas/index.html
+<!DOCTYPE html>
+    <html lang="es">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Gestión de reservas de espacios</title>
+
+            <style>
+                * {
+                    box-sizing: border-box;
+                }
+
+                body {
+                    margin: 0;
+                    font-family: Arial, Helvetica, sans-serif;
+                    background: #f3f6fa;
+                    color: #243247;
+                }
+
+                header {
+                    background: #173b57;
+                    color: white;
+                    padding: 25px 6%;
+                }
+
+                header h1 {
+                    margin: 0 0 8px;
+                    font-size: 28px;
+                }
+
+                header p {
+                    margin: 0;
+                    color: #d4e5ef;
+                }
+
+                nav {
+                    display: flex;
+                    gap: 10px;
+                    padding: 15px 6%;
+                    background: white;
+                    border-bottom: 1px solid #dce4ec;
+                }
+
+                nav button {
+                    background: transparent;
+                    color: #35516a;
+                    border: 1px solid #d0dce6;
+                }
+
+                nav button.activo {
+                    background: #087f8c;
+                    color: white;
+                    border-color: #087f8c;
+                }
+
+                main {
+                    max-width: 1400px;
+                    margin: 25px auto;
+                    padding: 0 20px 40px;
+                }
+
+                .panel {
+                    background: white;
+                    border: 1px solid #e0e7ee;
+                    border-radius: 12px;
+                    padding: 22px;
+                    margin-bottom: 22px;
+                    box-shadow: 0 3px 12px rgba(30, 55, 75, 0.04);
+                }
+
+                h2 {
+                    margin-top: 0;
+                    color: #173b57;
+                    font-size: 21px;
+                }
+
+                h3 {
+                    color: #173b57;
+                    margin-top: 0;
+                }
+
+                .filtros,
+                .formulario-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                    gap: 15px;
+                    align-items: end;
+                }
+
+                .campo {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 7px;
+                }
+
+                label {
+                    font-size: 13px;
+                    font-weight: bold;
+                    color: #43566b;
+                }
+
+                input,
+                select,
+                textarea {
+                    width: 100%;
+                    padding: 10px 11px;
+                    border: 1px solid #ccd7e2;
+                    border-radius: 7px;
+                    font: inherit;
+                    background: white;
+                    color: #243247;
+                }
+
+                textarea {
+                    resize: vertical;
+                    min-height: 75px;
+                }
+
+                button {
+                    padding: 10px 15px;
+                    border: 0;
+                    border-radius: 7px;
+                    cursor: pointer;
+                    background: #087f8c;
+                    color: white;
+                    font-weight: bold;
+                    font-size: 13px;
+                }
+
+                button:hover {
+                    filter: brightness(0.94);
+                }
+
+                button:disabled {
+                    background: #aab5bf;
+                    cursor: not-allowed;
+                    filter: none;
+                }
+
+                .secundario {
+                    background: #e8eef3;
+                    color: #29465e;
+                }
+
+                .peligro {
+                    background: #b83a48;
+                    color: white;
+                }
+
+                .acciones {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 8px;
+                }
+
+                .mensaje {
+                    display: none;
+                    padding: 12px 15px;
+                    margin-bottom: 18px;
+                    border-radius: 7px;
+                    line-height: 1.5;
+                }
+
+                .mensaje.exito {
+                    display: block;
+                    background: #e2f5e9;
+                    color: #17643a;
+                    border: 1px solid #b8e4c8;
+                }
+
+                .mensaje.error {
+                    display: block;
+                    background: #fde8e8;
+                    color: #922c36;
+                    border: 1px solid #f3c1c5;
+                }
+
+                .tabla-contenedor {
+                    overflow-x: auto;
+                }
+
+                table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    min-width: 750px;
+                }
+
+                th,
+                td {
+                    text-align: left;
+                    padding: 13px 12px;
+                    border-bottom: 1px solid #e6ecf1;
+                    font-size: 13px;
+                    vertical-align: middle;
+                }
+
+                th {
+                    background: #f5f8fb;
+                    color: #40576d;
+                    font-size: 12px;
+                    text-transform: uppercase;
+                    letter-spacing: 0.3px;
+                }
+
+                tbody tr:hover {
+                    background: #f8fbfd;
+                }
+
+                .etiqueta {
+                    display: inline-block;
+                    padding: 5px 8px;
+                    border-radius: 20px;
+                    font-size: 11px;
+                    font-weight: bold;
+                    white-space: nowrap;
+                }
+
+                .activa,
+                .confirmada {
+                    background: #e0f4e8;
+                    color: #17643a;
+                }
+
+                .inactiva,
+                .cancelada {
+                    background: #fce8e8;
+                    color: #a02f38;
+                }
+
+                .tipo {
+                    background: #e5effb;
+                    color: #285b91;
+                }
+
+                .dos-columnas {
+                    display: grid;
+                    grid-template-columns: minmax(0, 1fr) minmax(320px, 0.75fr);
+                    gap: 22px;
+                    align-items: start;
+                }
+
+                .ayuda {
+                    color: #6a7b8c;
+                    font-size: 13px;
+                    line-height: 1.5;
+                }
+
+                .oculto {
+                    display: none !important;
+                }
+
+                .sin-datos {
+                    text-align: center;
+                    color: #708195;
+                    padding: 25px;
+                }
+
+                footer {
+                    text-align: center;
+                    color: #748496;
+                    font-size: 12px;
+                    padding: 20px;
+                }
+
+                @media (max-width: 850px) {
+                    .dos-columnas {
+                        grid-template-columns: 1fr;
+                    }
+
+                    header h1 {
+                        font-size: 23px;
+                    }
+                }
+            </style>
+        </head>
+
+        <body>
+
+        <header>
+            <h1>Gestión de reservas de espacios</h1>
+            <p>Consulta salas, comprueba disponibilidad y administra tus reservas.</p>
+        </header>
+
+        <nav>
+            <button type="button" id="btnDisponibilidad" class="activo">
+                Disponibilidad de salas
+            </button>
+
+            <button type="button" id="btnReservas" class="secundario">
+                Consultar reservas
+            </button>
+        </nav>
+
+        <main>
+            <div id="mensaje" class="mensaje" role="status" aria-live="polite"></div>
+
+            <!-- ============================================== -->
+            <!-- SECCION 1: DISPONIBILIDAD DE SALAS             -->
+            <!-- ============================================== -->
+
+            <section id="seccionDisponibilidad">
+
+                <div class="panel">
+                    <h2>Buscar salas disponibles</h2>
+
+                    <form id="formFiltros">
+                        <div class="filtros">
+
+                            <div class="campo">
+                                <label for="fechaBusqueda">Fecha</label>
+                                <input type="date" id="fechaBusqueda" required>
+                            </div>
+
+                            <div class="campo">
+                                <label for="horaInicioBusqueda">Hora de inicio</label>
+                                <input type="time" id="horaInicioBusqueda" value="09:00" required>
+                            </div>
+
+                            <div class="campo">
+                                <label for="horaFinBusqueda">Hora de fin</label>
+                                <input type="time" id="horaFinBusqueda" value="10:00" required>
+                            </div>
+
+                            <div class="campo">
+                                <label for="capacidadMinima">Capacidad mínima</label>
+                                <input type="number" id="capacidadMinima" min="1" placeholder="Cualquiera">
+                            </div>
+
+                            <div class="campo">
+                                <label for="tipoBusqueda">Tipo de sala</label>
+                                <select id="tipoBusqueda">
+                                    <option value="">Todos los tipos</option>
+                                    <option value="REUNION">Reunión</option>
+                                    <option value="FORMACION">Formación</option>
+                                    <option value="TRABAJO">Trabajo</option>
+                                </select>
+                            </div>
+
+                            <div class="campo">
+                                <label for="filtroActivas">Estado</label>
+                                <select id="filtroActivas">
+                                    <option value="1">Solo activas</option>
+                                    <option value="0">Todas las salas</option>
+                                </select>
+                            </div>
+
+                            <div class="campo">
+                                <button type="submit" id="btnBuscar">Buscar salas</button>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+
+                <div class="panel">
+                    <h2>Salas encontradas</h2>
+
+                    <p class="ayuda">
+                        Las salas se muestran según los filtros seleccionados.
+                        La disponibilidad debe comprobarse en el servidor.
+                    </p>
+
+                    <div class="tabla-contenedor">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Sala</th>
+                                    <th>Ubicación</th>
+                                    <th>Capacidad</th>
+                                    <th>Tipo</th>
+                                    <th>Estado</th>
+                                    <th>Acción</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="tablaSalas">
+                                <tr>
+                                    <td colspan="6" class="sin-datos">
+                                        Pulsa «Buscar salas» para consultar la API.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="panel" id="panelReserva">
+                    <h2>Crear una reserva</h2>
+
+                    <p class="ayuda">
+                        Selecciona una sala de la tabla o introduce su identificador.
+                        El servidor debe validar todos los datos antes de guardar la reserva.
+                    </p>
+
+                    <form id="formReserva">
+                        <div class="formulario-grid">
+
+                            <div class="campo">
+                                <label for="reservaSala">ID de la sala</label>
+                                <input type="number" id="reservaSala" min="1" required>
+                            </div>
+
+                            <div class="campo">
+                                <label for="reservaUsuario">ID del usuario</label>
+                                <input type="number" id="reservaUsuario" min="1" value="2" required>
+                            </div>
+
+                            <div class="campo">
+                                <label for="reservaRol">Rol del usuario</label>
+                                <select id="reservaRol" required>
+                                    <option value="EMPLEADO">Empleado</option>
+                                    <option value="ADMIN">Administrador</option>
+                                </select>
+                            </div>
+
+                            <div class="campo">
+                                <label for="reservaFecha">Fecha</label>
+                                <input type="date" id="reservaFecha" required>
+                            </div>
+
+                            <div class="campo">
+                                <label for="reservaInicio">Hora de inicio</label>
+                                <input type="time" id="reservaInicio" value="09:00" required>
+                            </div>
+
+                            <div class="campo">
+                                <label for="reservaFin">Hora de fin</label>
+                                <input type="time" id="reservaFin" value="10:00" required>
+                            </div>
+
+                            <div class="campo">
+                                <label for="reservaPersonas">Número de personas</label>
+                                <input type="number" id="reservaPersonas" min="1" value="2" required>
+                            </div>
+
+                            <div class="campo">
+                                <label for="reservaMotivo">Motivo</label>
+                                <input type="text" id="reservaMotivo" maxlength="250"
+                                    placeholder="Motivo de la reserva" required>
+                            </div>
+
+                        </div>
+
+                        <div class="acciones" style="margin-top: 18px;">
+                            <button type="submit" id="btnCrearReserva">Crear reserva</button>
+                            <button type="reset" class="secundario">Limpiar formulario</button>
+                        </div>
+                    </form>
+                </div>
+
+            </section>
+
+            <!-- ============================================== -->
+            <!-- SECCION 2: CONSULTAR RESERVAS                  -->
+            <!-- ============================================== -->
+
+            <section id="seccionReservas" class="oculto">
+
+                <div class="panel">
+                    <h2>Consultar reservas</h2>
+
+                    <form id="formConsultarReservas">
+                        <div class="filtros">
+
+                            <div class="campo">
+                                <label for="consultaUsuario">ID del usuario</label>
+                                <input type="number" id="consultaUsuario" min="1" value="2">
+                            </div>
+
+                            <div class="campo">
+                                <label for="consultaRol">Rol</label>
+                                <select id="consultaRol">
+                                    <option value="EMPLEADO">Empleado</option>
+                                    <option value="ADMIN">Administrador</option>
+                                </select>
+                            </div>
+
+                            <div class="campo">
+                                <label for="consultaFecha">Fecha</label>
+                                <input type="date" id="consultaFecha">
+                            </div>
+
+                            <div class="campo">
+                                <label for="consultaEstado">Estado</label>
+                                <select id="consultaEstado">
+                                    <option value="">Todos</option>
+                                    <option value="CONFIRMADA">Confirmadas</option>
+                                    <option value="CANCELADA">Canceladas</option>
+                                </select>
+                            </div>
+
+                            <div class="campo">
+                                <button type="submit">Consultar</button>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+
+                <div class="panel">
+                    <h2>Listado de reservas</h2>
+
+                    <div class="tabla-contenedor">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Sala</th>
+                                    <th>Usuario</th>
+                                    <th>Fecha</th>
+                                    <th>Horario</th>
+                                    <th>Personas</th>
+                                    <th>Motivo</th>
+                                    <th>Estado</th>
+                                    <th>Acción</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="tablaReservas">
+                                <tr>
+                                    <td colspan="9" class="sin-datos">
+                                        Realiza una consulta para ver las reservas.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </section>
+        </main>
+
+        <footer>
+            Ejercicio de PHP · API REST · Gestión de reservas
+        </footer>
+
+        <script>
+            const API_SALAS = "api/salas.php";
+            const API_RESERVAS = "api/reservas.php";
+
+            const mensaje = document.getElementById("mensaje");
+
+            let salasActuales = [];
+            let reservasActuales = [];
+
+            // =================================================
+            // UTILIDADES
+            // =================================================
+
+            function mostrarMensaje(texto, tipo = "exito") {
+                mensaje.textContent = texto;
+                mensaje.className = "mensaje " + tipo;
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            }
+
+            function ocultarMensaje() {
+                mensaje.textContent = "";
+                mensaje.className = "mensaje";
+            }
+
+            function crearCelda(texto) {
+                const td = document.createElement("td");
+                td.textContent = texto ?? "";
+                return td;
+            }
+
+            function crearEtiqueta(texto, clase) {
+                const span = document.createElement("span");
+                span.className = "etiqueta " + clase;
+                span.textContent = texto;
+                return span;
+            }
+
+            function fechaLocalActual() {
+                const ahora = new Date();
+                const anio = ahora.getFullYear();
+                const mes = String(ahora.getMonth() + 1).padStart(2, "0");
+                const dia = String(ahora.getDate()).padStart(2, "0");
+
+                return `${anio}-${mes}-${dia}`;
+            }
+
+            function extraerLista(datos) {
+                if (Array.isArray(datos)) {
+                    return datos;
+                }
+
+                if (datos && Array.isArray(datos.datos)) {
+                    return datos.datos;
+                }
+
+                if (datos && Array.isArray(datos.data)) {
+                    return datos.data;
+                }
+
+                return [];
+            }
+
+            async function peticion(url, opciones = {}) {
+                const respuesta = await fetch(url, {
+                    ...opciones,
+                    headers: {
+                        ...(opciones.body ? {
+                            "Content-Type": "application/json"
+                        } : {}),
+                        ...(opciones.headers || {})
+                    }
+                });
+
+                const texto = await respuesta.text();
+                let datos = {};
+
+                try {
+                    datos = texto ? JSON.parse(texto) : {};
+                } catch {
+                    throw new Error(
+                        "El servidor no ha devuelto JSON válido. Comprueba el endpoint PHP."
+                    );
+                }
+
+                if (!respuesta.ok) {
+                    throw new Error(
+                        datos.error ||
+                        datos.mensaje ||
+                        `Error HTTP ${respuesta.status}`
+                    );
+                }
+
+                if (datos.error) {
+                    throw new Error(datos.error);
+                }
+
+                return datos;
+            }
+
+            function obtenerError(error) {
+                return error.message || "Se ha producido un error inesperado.";
+            }
+
+            // =================================================
+            // NAVEGACION
+            // =================================================
+
+            document.getElementById("btnDisponibilidad").addEventListener("click", () => {
+                document.getElementById("seccionDisponibilidad").classList.remove("oculto");
+                document.getElementById("seccionReservas").classList.add("oculto");
+
+                document.getElementById("btnDisponibilidad").className = "activo";
+                document.getElementById("btnReservas").className = "secundario";
+
+                ocultarMensaje();
+            });
+
+            document.getElementById("btnReservas").addEventListener("click", () => {
+                document.getElementById("seccionDisponibilidad").classList.add("oculto");
+                document.getElementById("seccionReservas").classList.remove("oculto");
+
+                document.getElementById("btnDisponibilidad").className = "secundario";
+                document.getElementById("btnReservas").className = "activo";
+
+                ocultarMensaje();
+            });
+
+            // =================================================
+            // CONSULTAR SALAS
+            // GET api/salas.php
+            // =================================================
+
+            document.getElementById("formFiltros").addEventListener("submit", async (evento) => {
+                evento.preventDefault();
+                ocultarMensaje();
+
+                const fecha = document.getElementById("fechaBusqueda").value;
+                const inicio = document.getElementById("horaInicioBusqueda").value;
+                const fin = document.getElementById("horaFinBusqueda").value;
+                const capacidad = document.getElementById("capacidadMinima").value;
+                const tipo = document.getElementById("tipoBusqueda").value;
+                const activas = document.getElementById("filtroActivas").value;
+
+                if (inicio >= fin) {
+                    mostrarMensaje("La hora de inicio debe ser anterior a la hora de fin.", "error");
+                    return;
+                }
+
+                const parametros = new URLSearchParams();
+
+                parametros.set("activas", activas);
+
+                if (tipo) {
+                    parametros.set("tipo", tipo);
+                }
+
+                if (capacidad) {
+                    parametros.set("capacidad_minima", capacidad);
+                }
+
+                if (fecha && inicio && fin) {
+                    parametros.set("fecha", fecha);
+                    parametros.set("hora_inicio", inicio);
+                    parametros.set("hora_fin", fin);
+                }
+
+                const boton = document.getElementById("btnBuscar");
+                boton.disabled = true;
+
+                try {
+                    const datos = await peticion(`${API_SALAS}?${parametros.toString()}`);
+                    salasActuales = extraerLista(datos);
+                    pintarSalas(salasActuales, Boolean(fecha && inicio && fin));
+                } catch (error) {
+                    mostrarMensaje(obtenerError(error), "error");
+                    document.getElementById("tablaSalas").replaceChildren();
+                } finally {
+                    boton.disabled = false;
+                }
+            });
+
+            function pintarSalas(salas, consultaDisponibilidad) {
+                const tbody = document.getElementById("tablaSalas");
+                tbody.replaceChildren();
+
+                if (salas.length === 0) {
+                    const fila = document.createElement("tr");
+                    const celda = crearCelda("No se han encontrado salas.");
+                    celda.colSpan = 6;
+                    celda.className = "sin-datos";
+                    fila.appendChild(celda);
+                    tbody.appendChild(fila);
+                    return;
+                }
+
+                salas.forEach((sala) => {
+                    const fila = document.createElement("tr");
+
+                    fila.appendChild(crearCelda(sala.nombre || `Sala ${sala.id_sala}`));
+                    fila.appendChild(crearCelda(sala.ubicacion || ""));
+                    fila.appendChild(crearCelda(`${sala.capacidad} personas`));
+                    fila.appendChild(crearCelda(sala.tipo || ""));
+
+                    const celdaEstado = document.createElement("td");
+                    const activa = Number(sala.activa) === 1 || sala.activa === true;
+
+                    celdaEstado.appendChild(
+                        crearEtiqueta(
+                            activa ? "Activa" : "Inactiva",
+                            activa ? "activa" : "inactiva"
+                        )
+                    );
+
+                    fila.appendChild(celdaEstado);
+
+                    const celdaAccion = document.createElement("td");
+                    const boton = document.createElement("button");
+
+                    boton.type = "button";
+                    boton.textContent = "Reservar";
+                    boton.disabled = !activa ||
+                        (consultaDisponibilidad && sala.disponible === false);
+
+                    boton.addEventListener("click", () => {
+                        document.getElementById("reservaSala").value = sala.id_sala;
+                        document.getElementById("reservaFecha").value =
+                            document.getElementById("fechaBusqueda").value;
+                        document.getElementById("reservaInicio").value =
+                            document.getElementById("horaInicioBusqueda").value;
+                        document.getElementById("reservaFin").value =
+                            document.getElementById("horaFinBusqueda").value;
+
+                        document.getElementById("panelReserva").scrollIntoView({
+                            behavior: "smooth"
+                        });
+                    });
+
+                    celdaAccion.appendChild(boton);
+                    fila.appendChild(celdaAccion);
+                    tbody.appendChild(fila);
+                });
+            }
+
+            // =================================================
+            // CREAR RESERVA
+            // POST api/reservas.php
+            // =================================================
+
+            document.getElementById("formReserva").addEventListener("submit", async (evento) => {
+                evento.preventDefault();
+                ocultarMensaje();
+
+                const reserva = {
+                    id_sala: Number(document.getElementById("reservaSala").value),
+                    id_usuario: Number(document.getElementById("reservaUsuario").value),
+                    rol: document.getElementById("reservaRol").value,
+                    fecha: document.getElementById("reservaFecha").value,
+                    hora_inicio: document.getElementById("reservaInicio").value,
+                    hora_fin: document.getElementById("reservaFin").value,
+                    numero_personas: Number(document.getElementById("reservaPersonas").value),
+                    motivo: document.getElementById("reservaMotivo").value.trim()
+                };
+
+                if (reserva.hora_inicio >= reserva.hora_fin) {
+                    mostrarMensaje("La hora de inicio debe ser anterior a la hora de fin.", "error");
+                    return;
+                }
+
+                if (reserva.numero_personas < 1 || !reserva.motivo) {
+                    mostrarMensaje("Indica un número de personas válido y un motivo.", "error");
+                    return;
+                }
+
+                const boton = document.getElementById("btnCrearReserva");
+                boton.disabled = true;
+
+                try {
+                    const datos = await peticion(API_RESERVAS, {
+                        method: "POST",
+                        body: JSON.stringify(reserva)
+                    });
+
+                    mostrarMensaje(datos.mensaje || "Reserva creada correctamente.");
+
+                    document.getElementById("formReserva").reset();
+                    document.getElementById("reservaUsuario").value = "2";
+                    document.getElementById("reservaRol").value = "EMPLEADO";
+                    document.getElementById("reservaFecha").value =
+                        document.getElementById("fechaBusqueda").value;
+
+                    await buscarSalasActuales();
+                    await consultarReservas();
+                } catch (error) {
+                    mostrarMensaje(obtenerError(error), "error");
+                } finally {
+                    boton.disabled = false;
+                }
+            });
+
+            async function buscarSalasActuales() {
+                const formulario = document.getElementById("formFiltros");
+
+                if (!formulario.reportValidity()) {
+                    return;
+                }
+
+                const parametros = new URLSearchParams({
+                    activas: document.getElementById("filtroActivas").value
+                });
+
+                const tipo = document.getElementById("tipoBusqueda").value;
+                const capacidad = document.getElementById("capacidadMinima").value;
+                const fecha = document.getElementById("fechaBusqueda").value;
+                const inicio = document.getElementById("horaInicioBusqueda").value;
+                const fin = document.getElementById("horaFinBusqueda").value;
+
+                if (tipo) parametros.set("tipo", tipo);
+                if (capacidad) parametros.set("capacidad_minima", capacidad);
+
+                if (fecha && inicio && fin) {
+                    parametros.set("fecha", fecha);
+                    parametros.set("hora_inicio", inicio);
+                    parametros.set("hora_fin", fin);
+                }
+
+                const datos = await peticion(`${API_SALAS}?${parametros.toString()}`);
+                salasActuales = extraerLista(datos);
+                pintarSalas(salasActuales, Boolean(fecha && inicio && fin));
+            }
+
+            // =================================================
+            // CONSULTAR RESERVAS
+            // GET api/reservas.php
+            // =================================================
+
+            document.getElementById("formConsultarReservas").addEventListener("submit", async (evento) => {
+                evento.preventDefault();
+                await consultarReservas();
+            });
+
+            async function consultarReservas() {
+                ocultarMensaje();
+
+                const usuario = document.getElementById("consultaUsuario").value;
+                const rol = document.getElementById("consultaRol").value;
+                const fecha = document.getElementById("consultaFecha").value;
+                const estado = document.getElementById("consultaEstado").value;
+
+                const parametros = new URLSearchParams();
+
+                if (usuario) {
+                    parametros.set("id_usuario", usuario);
+                }
+
+                parametros.set("rol", rol);
+
+                if (fecha) {
+                    parametros.set("fecha", fecha);
+                }
+
+                if (estado) {
+                    parametros.set("estado", estado);
+                }
+
+                try {
+                    const datos = await peticion(`${API_RESERVAS}?${parametros.toString()}`);
+                    reservasActuales = extraerLista(datos);
+                    pintarReservas(reservasActuales);
+                } catch (error) {
+                    mostrarMensaje(obtenerError(error), "error");
+                }
+            }
+
+            function pintarReservas(reservas) {
+                const tbody = document.getElementById("tablaReservas");
+                tbody.replaceChildren();
+
+                if (reservas.length === 0) {
+                    const fila = document.createElement("tr");
+                    const celda = crearCelda("No se han encontrado reservas.");
+                    celda.colSpan = 9;
+                    celda.className = "sin-datos";
+                    fila.appendChild(celda);
+                    tbody.appendChild(fila);
+                    return;
+                }
+
+                reservas.forEach((reserva) => {
+                    const fila = document.createElement("tr");
+
+                    fila.appendChild(crearCelda(reserva.id_reserva));
+                    fila.appendChild(crearCelda(reserva.nombre_sala || reserva.sala || reserva.id_sala));
+                    fila.appendChild(crearCelda(reserva.nombre_usuario || reserva.usuario || reserva.id_usuario));
+                    fila.appendChild(crearCelda(reserva.fecha));
+                    fila.appendChild(crearCelda(
+                        `${reserva.hora_inicio || ""} - ${reserva.hora_fin || ""}`
+                    ));
+                    fila.appendChild(crearCelda(reserva.numero_personas));
+                    fila.appendChild(crearCelda(reserva.motivo));
+
+                    const celdaEstado = document.createElement("td");
+                    const estaConfirmada = reserva.estado === "CONFIRMADA";
+
+                    celdaEstado.appendChild(
+                        crearEtiqueta(
+                            reserva.estado || "",
+                            estaConfirmada ? "confirmada" : "cancelada"
+                        )
+                    );
+
+                    fila.appendChild(celdaEstado);
+
+                    const celdaAccion = document.createElement("td");
+                    const boton = document.createElement("button");
+
+                    boton.type = "button";
+                    boton.className = "peligro";
+                    boton.textContent = "Cancelar";
+                    boton.disabled = !estaConfirmada;
+
+                    boton.addEventListener("click", async () => {
+                        const idUsuario = document.getElementById("consultaUsuario").value;
+                        const rol = document.getElementById("consultaRol").value;
+
+                        if (!confirm(`¿Deseas cancelar la reserva ${reserva.id_reserva}?`)) {
+                            return;
+                        }
+
+                        boton.disabled = true;
+
+                        try {
+                            const datos = await peticion(
+                                `${API_RESERVAS}?id=${encodeURIComponent(reserva.id_reserva)}`,
+                                {
+                                    method: "PUT",
+                                    body: JSON.stringify({
+                                        id_usuario: Number(idUsuario),
+                                        rol: rol
+                                    })
+                                }
+                            );
+
+                            mostrarMensaje(datos.mensaje || "Reserva cancelada correctamente.");
+                            await consultarReservas();
+                            await buscarSalasActuales();
+                        } catch (error) {
+                            mostrarMensaje(obtenerError(error), "error");
+                            boton.disabled = false;
+                        }
+                    });
+
+                    celdaAccion.appendChild(boton);
+                    fila.appendChild(celdaAccion);
+                    tbody.appendChild(fila);
+                });
+            }
+
+            // =================================================
+            // INICIALIZACION
+            // =================================================
+
+            document.addEventListener("DOMContentLoaded", () => {
+                const hoy = fechaLocalActual();
+
+                document.getElementById("fechaBusqueda").value = hoy;
+                document.getElementById("fechaBusqueda").min = hoy;
+
+                document.getElementById("reservaFecha").value = hoy;
+                document.getElementById("reservaFecha").min = hoy;
+
+                document.getElementById("consultaFecha").value = "";
+            });
+        </script>
+        </body>
+    </html>

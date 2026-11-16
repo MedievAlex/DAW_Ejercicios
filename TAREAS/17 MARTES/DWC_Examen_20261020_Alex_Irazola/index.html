@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Examen Tema 02 - Páginas dinámicas con JS</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="container">
+    <section class="card">
+      <h1>Enunciado de examen (Tema 02: Páginas dinámicas con JS)</h1>
+      <div class="meta">
+        <span><strong>Duración:</strong> 30 minutos</span>
+        <span><strong>Tipo:</strong> Ejercicio práctico individual</span>
+        <span><strong>Puntuación:</strong> 10 puntos</span>
+      </div>
+
+      <h2>Contexto</h2>
+      <p>
+        Vas a crear una pequeña aplicación llamada <strong>"Gestor de tareas rápidas"</strong>.
+        La app permitirá registrar tareas desde un formulario y guardarlas en <code>localStorage</code>
+        para que no se pierdan al recargar la página.
+      </p>
+
+      <h2>Requisitos obligatorios</h2>
+      <ul>
+        <li>Crear y usar un formulario con los campos: <strong>Título</strong>, <strong>Categoría</strong> y <strong>Prioridad</strong>.</li>
+        <li>Validar que <strong>Título</strong> no esté vacío.</li>
+        <li>Guardar cada tarea en un array de objetos y persistirlo en <code>localStorage</code>.</li>
+        <li>Mostrar las tareas guardadas en pantalla al añadir y al recargar la página.</li>
+        <li>Permitir eliminar una tarea concreta.</li>
+        <li>Incluir botón para borrar todas las tareas (y limpiar <code>localStorage</code>).</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Plantilla de trabajo</h2>
+
+      <form id="taskForm">
+        <div class="grid">
+          <div>
+            <label for="title">Título de la tarea</label>
+            <input id="title" name="title" type="text" placeholder="Ej: Preparar presentación">
+          </div>
+          <div>
+            <label for="category">Categoría</label>
+            <select id="category" name="category">
+              <option value="Estudio">Estudio</option>
+              <option value="Personal">Personal</option>
+              <option value="Trabajo">Trabajo</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="margin-top: 12px;">
+          <label for="priority">Prioridad</label>
+          <select id="priority" name="priority">
+            <option value="Alta">Alta</option>
+            <option value="Media">Media</option>
+            <option value="Baja">Baja</option>
+          </select>
+        </div>
+
+        <div class="actions">
+          <button type="submit">Guardar tarea</button>
+          <button type="button" id="clearAllBtn" class="btn-danger">Borrar todas</button>
+        </div>
+      </form>
+
+      <p id="message" class="message"></p>
+      <div id="taskList" class="task-list"></div>
+    </section>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
