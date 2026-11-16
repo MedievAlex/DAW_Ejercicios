@@ -20,3 +20,11 @@ ssh-keygen
 C:\Users\alex.irazola\.ssh
 
 id_ed25519
+
+win r
+ncpa.cpl
+Ethernet
+ipv4 -> Propiedades
+usar DNS preferido IP
+desmarcar ipv6 (Si da fallo)
+
