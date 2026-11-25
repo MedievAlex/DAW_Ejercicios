@@ -1,0 +1,230 @@
+/* ---------------------------------------------- [SECTION]*/
+section {
+    display: flex;
+
+    padding: 10px;
+
+    flex-direction: row;
+}
+
+/* ---------------------------------------------- [SECTION: Plantas]*/
+section #plantas {
+    margin: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+/* ---------------------------------------------- [SECTION: Article]*/
+section article {
+    margin: 20px;
+}
+
+/* ---------------------------------------------- [ARTICLE: Tabla]*/
+table {
+    border-collapse: collapse;
+
+    table-layout: fixed;
+}
+
+#ubi-search {
+    width: 100%;
+
+    margin-top: 10px;
+}
+
+table th {
+    text-transform: uppercase;
+    text-align: start;
+}
+
+table td {
+    text-align: left;
+
+    padding: 10px 5px;
+
+    word-break: normal;
+}
+
+table .aula {
+    border-bottom: 1px solid var(--color-black);
+}
+
+table .aula td:last-child {
+    display: flex;
+    justify-content: end;
+}
+
+table .aula:hover {
+    background-color: var(--color-secundario);
+    border-radius: var(--border-radius-s);
+    color: var(--texto-secundario);
+
+    border: 2px solid var(--color-acento);
+
+    text-align: left;
+}
+
+.ubi-nom {
+    font-weight: bold;
+}
+
+.ubi-nom,
+.ubi-des {
+    width: 100%
+}
+
+.btn-close {
+    background-color: var(--color-secundario);
+}
+
+/* ---------------------------------------------- [ARTICLE: ScrollBar]*/
+.scroll {
+    padding-right: 10vh;
+
+    width: 50%;
+    height: 80vh;
+
+    overflow: hidden;
+}
+
+#equipamientos {
+    height: 100%;
+    width: 50%;
+
+    padding: 10px;
+    padding-top: 100px;
+    padding-right: 10vh;
+
+    border: none;
+    border-radius: var(--border-radius-m);
+
+    display: flex;
+    flex-direction: column;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+/* ---------------------------------------------- [ARTICLE: Equipamiento]*/
+.equ {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.equ:active {
+    border: 2px solid var(--color-acento);
+}
+
+.equ-inf {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.equ:hover .equ-inf .det {
+    color: var(--texto-secundario);
+}
+
+.equ-inf .equ-img {
+    width: 10vh;
+    height: 10vh;
+
+    border-radius: var(--border-radius-half);
+}
+
+.equ-inf .det {
+    color: var(--texto-acento);
+
+    margin: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.equ-inf .det div:last-child {
+    display: flex;
+}
+
+.equ-inf .det div:last-child input {
+    width: 100%;
+}
+
+.equ-inf .det input {
+    width: 100%;
+}
+
+.equ-nom {
+    font-weight: bold;
+}
+
+.equ-det,
+.equ-mar,
+.equ-mod {
+    font-style: italic;
+}
+
+.equ-btn {
+    display: flex;
+    flex-direction: row;
+}
+
+/* ---------------------------------------------- [MEDIA QUERIES]*/
+@media only screen and (max-width: 1370px) {
+    .equ-inf {
+        justify-content: center;
+    }
+
+    .equ-btn {
+        width: 100%;
+        justify-content: right;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    section {
+        flex-direction: column;
+    }
+
+    #ubicaciones {
+        padding-right: 20vh;
+    }
+
+    table {
+        width: 100%;
+
+        table-layout: auto;
+    }
+
+    #equipamientos {
+        width: 100%;
+
+        padding-right: 20vh;
+    }
+
+    .equ-inf {
+        justify-content: auto;
+    }
+
+    .equ-btn {
+        width: auto;
+        justify-content: auto;
+    }
+}
+
+@media only screen and (max-width : 750px) {
+    .equ-inf {
+        justify-content: center;
+    }
+
+    .equ-btn {
+        width: 100%;
+        justify-content: right;
+    }
+}
