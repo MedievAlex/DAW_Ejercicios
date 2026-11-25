@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantilla cliente JS + PHP cookies</title>
+    <link rel="stylesheet" href="./plantilla-ejercicio-cookies.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Demo cliente (JS) para servidor PHP</h1>
+        <p>Usuario de prueba: <strong>user123</strong></p>
+
+        <section class="bloque">
+            <h2>Acciones</h2>
+            <button id="btnLogin" type="button">Iniciar sesión</button>
+            <button id="btnPerfil" type="button">Cargar mis pelis</button>
+        </section>
+
+        <section class="bloque">
+            <h2>Estado</h2>
+            <p id="estado">Sin acciones todavía.</p>
+            <p><strong>document.cookie:</strong></p>
+            <code id="debugCookie">(vacío)</code>
+        </section>
+
+        <section class="bloque">
+            <h2>Películas del usuario</h2>
+            <ul id="listaPeliculas"></ul>
+        </section>
+    </main>
+
+    <script src="./solucion-cliente-cookies-servidor.js"></script>
+</body>
+
+</html>
