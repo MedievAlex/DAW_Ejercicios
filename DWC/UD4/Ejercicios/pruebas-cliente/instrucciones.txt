@@ -1,0 +1,7 @@
+Comandos usados:
+
+npm create vite@latest (En CMD)
+- Vanila
+- JavaScript
+
+npm run dev (En la carpeta)
